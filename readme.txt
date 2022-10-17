@@ -2,3 +2,8 @@ proyecto league of recycle
 
 
 el objetivo es uihiuhiuhiuh
+
+Participantes
+Luis
+Manu
+david
