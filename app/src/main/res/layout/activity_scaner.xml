@@ -36,7 +36,7 @@
         android:id="@+id/textView"
         android:layout_width="130dp"
         android:layout_height="76dp"
-        android:text="Escanea productos para ganar puntos y subir en el rankin."
+        android:text="Escanea productos para ganar puntos y subir en el ranking."
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
