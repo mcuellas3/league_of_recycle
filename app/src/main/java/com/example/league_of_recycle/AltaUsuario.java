@@ -1,10 +1,14 @@
 package com.example.league_of_recycle;
+
+import android.util.Log;
+
 import com.example.league_of_recycle.Usuarios;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.league_of_recycle.SQLiteConexion;
 
 
 public class AltaUsuario extends AppCompatActivity {
+
 
     String nombre = "";
     String apellidos = "";
@@ -14,5 +18,6 @@ public class AltaUsuario extends AppCompatActivity {
 
     SQLiteConexion db = new SQLiteConexion(AltaUsuario.this);
 
-    db.guardarUsuario(usuario.getNombre(), usuario.getApellidos, usuario.getEmail, usuario.getContraseña);
+    Long usercode = db.guardarUsuario(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getContraseña());
+
 }

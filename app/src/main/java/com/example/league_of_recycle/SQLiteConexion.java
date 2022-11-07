@@ -91,7 +91,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         return resultado;
     }
 
-    public long guardarUsuario(String nombre, String apellidos, String email, String contraseña) {
+    public Long guardarUsuario(String nombre, String apellidos, String email, String contraseña) {
         this.open();
         ContentValues cv = new ContentValues();
         cv.put(KEY_NOMBRE, nombre);
