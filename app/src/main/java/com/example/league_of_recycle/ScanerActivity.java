@@ -57,4 +57,34 @@ public class ScanerActivity extends AppCompatActivity {
         }
 
     }
+
+    // metodo boton menu casa
+    public void Home(View view) {
+        Intent home = new Intent(this, HomeActivity.class);
+        startActivity(home);
+    }
+
+    // metodo boton menu mapa
+    public void Map(View view) {
+        Intent map = new Intent(this, MapsActivity.class);
+        startActivity(map);
+    }
+
+    // metodo boton menu scaner
+    public void Scan(View view) {
+        Intent scan = new Intent(this, ScanerActivity.class);
+        startActivity(scan);
+    }
+
+    // metodo boton menu ranking
+    public void Ranking(View view) {
+        Intent ranking = new Intent(this, RankingActivity.class);
+        startActivity(ranking);
+    }
+
+    // metodo boton menu info
+    public void Info(View view) {
+        Intent info = new Intent(this, InfoActivity.class);
+        startActivity(info);
+    }
 }

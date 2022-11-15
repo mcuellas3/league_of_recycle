@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">League_Of_Recycle</string>
+    <string name="app_name">Zabbal</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

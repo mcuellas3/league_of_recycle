@@ -8,6 +8,66 @@
     tools:context=".ScanerActivity">
 
 
+    <LinearLayout
+        android:layout_width="408dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="668dp"
+        android:background="@color/Primary"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="home"
+            android:onClick="Home"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/home" />
+
+        <ImageButton
+            android:id="@+id/imageButton12"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="map"
+            android:onClick="Map"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/mapa" />
+
+        <ImageButton
+            android:id="@+id/imageButton13"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="scan"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/reciclar" />
+
+        <ImageButton
+            android:id="@+id/imageButton14"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="ranking"
+            android:onClick="Ranking"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/ranking" />
+
+        <ImageButton
+            android:id="@+id/imageButton15"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="info"
+            android:onClick="Info"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/info" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnScan"
         android:layout_width="190dp"
