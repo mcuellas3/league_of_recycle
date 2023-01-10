@@ -8,91 +8,71 @@
     tools:context=".RankingActivity">
 
     <LinearLayout
-        android:layout_width="411dp"
-        android:layout_height="61dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteX="-3dp"
-        tools:layout_editor_absoluteY="69dp">
-
-        <EditText
-            android:id="@+id/editTextTextPersonName6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-
-        <EditText
-            android:id="@+id/editTextTextPersonName8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Name" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="408dp"
+        android:layout_width="match_parent"
         android:layout_height="65dp"
         android:layout_marginTop="668dp"
-        android:background="@color/Primary"
+        android:background="@color/neutral"
         android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/imageButton7"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/neutral"
+            android:contentDescription="home"
+            android:onClick="Home"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/home" />
+            android:layout_margin="15dp"
+            app:srcCompat="@drawable/casa" />
 
         <ImageButton
             android:id="@+id/imageButton12"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/neutral"
+            android:contentDescription="map"
             android:onClick="Map"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/mapa" />
+            android:layout_margin="15dp"
+            app:srcCompat="@drawable/map" />
 
         <ImageButton
             android:id="@+id/imageButton13"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="Scan"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/neutral"
+            android:contentDescription="scan"
+            android:onClick="scan"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/reciclar" />
+            android:layout_margin="15dp"
+            app:srcCompat="@drawable/recycle" />
 
         <ImageButton
             android:id="@+id/imageButton14"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/neutral"
+            android:contentDescription="ranking"
+            android:onClick="Ranking"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/ranking" />
+            android:layout_margin="15dp"
+            app:srcCompat="@drawable/trophy" />
 
         <ImageButton
             android:id="@+id/imageButton15"
-            android:layout_width="60dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/neutral"
+            android:contentDescription="info"
             android:onClick="Info"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/info" />
+            android:layout_margin="15dp"
+            app:srcCompat="@drawable/menu" />
 
     </LinearLayout>
 
