@@ -9,6 +9,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    
     <!-- night theme -->
     <color name="nightPrimary">#2B9A74</color>
     <color name="nightPrimaryVariant">#384B42</color>
