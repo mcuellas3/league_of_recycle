@@ -110,7 +110,7 @@
         android:layout_width="307dp"
         android:layout_height="50dp"
         android:layout_centerHorizontal="true"
-        android:backgroundTint="#38E988"
+        android:backgroundTint="@color/Primary"
         android:fontFamily="sans-serif-black"
         android:text="REGISTRARME"
         android:textColor="@color/black"
