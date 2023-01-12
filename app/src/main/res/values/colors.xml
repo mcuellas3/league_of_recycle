@@ -3,7 +3,7 @@
 
     <color name="Primary">#2B9A74</color>
     <color name="PrimaryVariant">#384B42</color>
-    <color name="Neutral">#9AB0A6</color>
+    <color name="neutral">#9AB0A6</color>
     <color name="Secondary">#0092CE</color>
     <color name="SecondaryVariant">#006097</color>
     <color name="black">#FF000000</color>
