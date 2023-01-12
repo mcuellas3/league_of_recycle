@@ -1,4 +1,25 @@
 <resources>
     <string name="app_name">Zabbal</string>
     <string name="title_activity_maps">MapsActivity</string>
+
+
+
+
+    <!--DATOS-->
+    <string name="MISDATOSTXT">Mis Datos Personales</string>
+    <string name="NombresDato">NOMBRE:</string>
+    <string name="ApellidosDato">APELLIDOS:</string>
+    <string name="CorreoDato">CORREO:</string>
+    <string name="PasswordDato">CONTRASEÑA:</string>
+    <string name="EdadsDato">EDAD:</string>
+    <string name="ColegioDato">COLEGIO:</string>
+    <string name="TelefonoDato">TELEFONO:</string>
+    <string name="Actualizar_Datos">Actualizar Datos:</string>
+    <string name="Actualizar_Contraseña">Actualizar Contraseña:</string>
+
+
+
+
+
+
 </resources>
