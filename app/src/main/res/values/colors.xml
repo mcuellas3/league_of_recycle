@@ -3,9 +3,18 @@
 
     <color name="Primary">#2B9A74</color>
     <color name="PrimaryVariant">#384B42</color>
-    <color name="neutral">#9AB0A6</color>
+    <color name="Neutral">#9AB0A6</color>
     <color name="Secondary">#0092CE</color>
     <color name="SecondaryVariant">#006097</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <!-- night theme -->
+    <color name="nightPrimary">#2B9A74</color>
+    <color name="nightPrimaryVariant">#384B42</color>
+    <color name="nightNeutral">#9AB0A6</color>
+    <color name="nightSecondary">#0092CE</color>
+    <color name="nightSecondaryVariant">#006097</color>
+
+
 </resources>
