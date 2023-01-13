@@ -18,11 +18,8 @@ public class ScanerActivity extends AppCompatActivity {
     Button BtnScan;
     EditText TxtResult;
 
-    ImageButton casa;
-    ImageButton mapa;
-    ImageButton escaner;
-    ImageButton ranking;
-    ImageButton informacion;
+    ImageButton casa, mapa, escaner, ranking, informacion;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +34,7 @@ public class ScanerActivity extends AppCompatActivity {
 
         casa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent home = new Intent(ScanerActivity.this, LoginActivity.class);
+                Intent home = new Intent(ScanerActivity.this, Perfil_Usuario.class);
                 startActivity(home);
             }
         });
