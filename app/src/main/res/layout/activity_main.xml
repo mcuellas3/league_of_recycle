@@ -11,98 +11,92 @@
         android:id="@+id/greeninggroup"
         android:layout_width="270dp"
         android:layout_height="170dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005"
         app:srcCompat="@drawable/logo_greening_group_resize2" />
 
     <EditText
         android:id="@+id/usuarioRegister"
         android:layout_width="307dp"
         android:layout_height="50dp"
+        android:layout_marginTop="80dp"
         android:background="#501D2D44"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="15dp"
         android:hint="Usuario"
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.275" />
+        app:layout_constraintTop_toBottomOf="@+id/greeninggroup" />
 
     <EditText
         android:id="@+id/apellidosRegister"
         android:layout_width="307dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+
         android:background="#501D2D44"
         android:drawableLeft="@drawable/ic_baseline_article_24"
-
         android:drawablePadding="15dp"
         android:hint="Apellidos"
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
+        app:layout_constraintTop_toBottomOf="@+id/nombreRegister" />
 
     <EditText
         android:id="@+id/passwordRegister"
         android:layout_width="307dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:background="#501D2D44"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
 
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="15dp"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.597" />
+        app:layout_constraintTop_toBottomOf="@+id/apellidosRegister" />
 
     <EditText
         android:id="@+id/repitePasswordRegister"
         android:layout_width="307dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:background="#501D2D44"
-        android:drawableLeft="@drawable/ic_baseline_lock_24"
 
+        android:drawableLeft="@drawable/ic_baseline_lock_24"
         android:drawablePadding="15dp"
         android:hint="Repite la contraseña"
         android:inputType="textPassword"
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.705" />
+        app:layout_constraintTop_toBottomOf="@+id/passwordRegister" />
 
     <EditText
         android:id="@+id/nombreRegister"
         android:layout_width="307dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:background="#501D2D44"
         android:drawableLeft="@drawable/ic_baseline_abc_24"
         android:drawablePadding="15dp"
         android:hint="Nombre"
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.384" />
+        app:layout_constraintTop_toBottomOf="@+id/usuarioRegister" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -118,8 +112,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.851"
+        app:layout_constraintTop_toBottomOf="@+id/repitePasswordRegister"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -131,11 +124,9 @@
         android:text="Ya estoy registrado"
         android:textColor="#000000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.908" />
+        app:layout_constraintTop_toBottomOf="@+id/registerbtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
