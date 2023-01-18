@@ -81,7 +81,6 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         //    val=true;
         //}
         return val;
-
     }
 
     public ArrayList<Usuarios> getUsuarios() {
