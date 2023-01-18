@@ -65,13 +65,14 @@
             android:textColor="@color/black"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:layout_width="208dp"
             android:layout_height="wrap_content"
-            android:text="Pepito"
             android:layout_marginLeft="25dp"
-            android:textSize="18dp"
-            android:textColor="#607D8B"/>
+            android:text="Pepito"
+            android:textColor="#607D8B"
+            android:textSize="18dp" />
 
     </LinearLayout>
     <View
@@ -103,13 +104,14 @@
             android:textColor="@color/black"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:layout_width="205dp"
             android:layout_height="wrap_content"
-            android:text="Grillo"
             android:layout_marginLeft="18dp"
-            android:textSize="18dp"
-            android:textColor="#607D8B"/>
+            android:text="Grillo"
+            android:textColor="#607D8B"
+            android:textSize="18dp" />
 
     </LinearLayout>
     <View
@@ -141,13 +143,14 @@
             android:textColor="@color/black"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:layout_width="209dp"
             android:layout_height="wrap_content"
-            android:text="123345565"
             android:layout_marginLeft="20dp"
-            android:textSize="18dp"
-            android:textColor="#607D8B"/>
+            android:text="123345565"
+            android:textColor="#607D8B"
+            android:textSize="18dp" />
 
     </LinearLayout>
     <View
@@ -179,13 +182,14 @@
             android:textColor="@color/black"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:layout_width="209dp"
             android:layout_height="wrap_content"
-            android:text="Pepito Grillo"
             android:layout_marginLeft="29dp"
-            android:textSize="18dp"
-            android:textColor="#607D8B"/>
+            android:text="Pepito Grillo"
+            android:textColor="#607D8B"
+            android:textSize="18dp" />
 
     </LinearLayout>
     <View
@@ -217,13 +221,14 @@
             android:textColor="@color/black"
             android:textSize="18dp"
             android:layout_marginLeft="5dp"/>
-        <TextView
-            android:layout_width="wrap_content"
+
+        <EditText
+            android:layout_width="259dp"
             android:layout_height="wrap_content"
-            android:text="pepito@123145.com"
             android:layout_marginLeft="46dp"
-            android:textSize="18dp"
-            android:textColor="#607D8B"/>
+            android:text="pepito@123145.com"
+            android:textColor="#607D8B"
+            android:textSize="18dp" />
 
     </LinearLayout>
     <View
@@ -242,27 +247,27 @@
         android:orientation="vertical"/>
 
 
-        <TextView
+        <Button
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:background="@drawable/bg_btn"
         android:text="Editar Perfil"
         android:gravity="center"
-        android:textColor="#004d40"
-        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
         android:drawableLeft="@drawable/ic_edit"
         android:paddingLeft="15dp"
         android:layout_marginLeft="100dp"/>
 
-    <TextView
+    <Button
         android:layout_marginTop="10dp"
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:background="@drawable/bg_btn"
         android:text="Cambiar Contraseña"
         android:gravity="center"
-        android:textColor="#004d40"
-        android:textSize="20dp"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp"
         android:drawableLeft="@drawable/ic_lock"
         android:paddingLeft="15dp"
         android:layout_marginLeft="100dp"/>
