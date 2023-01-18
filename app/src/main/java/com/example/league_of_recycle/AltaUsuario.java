@@ -13,11 +13,11 @@ public class AltaUsuario extends AppCompatActivity {
     String nombre = "";
     String apellidos = "";
     String email = "";
-    String contraseña = "";
-    Usuarios usuario = new Usuarios(nombre, apellidos, email, contraseña);
+    String pass = "";
+    Usuarios usuario = new Usuarios(nombre, apellidos, email, pass);
 
     SQLiteConexion db = new SQLiteConexion(AltaUsuario.this);
 
-    Long usercode = db.guardarUsuario(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getContraseña());
+    Long usercode = db.guardarUsuario(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getPass());
 
 }
