@@ -24,7 +24,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="80dp"
         android:background="#501D2D44"
-        android:drawableLeft="@drawable/ic_baseline_person_24"
+        android:drawableLeft="@drawable/ic_person"
         android:drawablePadding="15dp"
         android:hint="Usuario"
         android:paddingLeft="15dp"

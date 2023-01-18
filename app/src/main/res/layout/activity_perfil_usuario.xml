@@ -1,112 +1,270 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+    <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Perfil_Usuario">
+    android:orientation="vertical"
+    tools:context=".Perfil_Usuario"
+    android:background="@drawable/background_login">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_login"
-        android:orientation="vertical">
+        android:layout_height="146dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingTop="15dp">
 
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/MISDATOSTXT"
-            android:textColor="#000"
-            android:textSize="25sp" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:src="@drawable/img_avatar" />
 
-
         <TextView
-            android:id="@+id/NombresDato"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:text="@string/NombresDato"
-            android:textColor="#000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/ApellidosDato"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:text="@string/ApellidosDato"
-            android:textColor="#000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/CorreoDato"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:text="@string/CorreoDato"
-            android:textColor="#000"
-            android:textSize="18sp" />
-
-
-        <TextView
-            android:id="@+id/PsswordDato"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:text="@string/PasswordDato"
-            android:textColor="#000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/ColegioDato"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:text="@string/ColegioDato"
-            android:textColor="#000"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/TelefonoDato"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginTop="30dp"
-            android:text="@string/TelefonoDato"
-            android:textColor="#000"
-            android:textSize="18sp" />
-
-
-        <Button
-            android:id="@+id/Actualizar_Datos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:text="@string/Actualizar_Datos"
-            android:textColor="#fff"
-            app:icon="@drawable/ic_baseline_person_24" />
-
-
-        <Button
-            android:id="@+id/Actualizar_Contraseña"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:text="Pepito grillo"
+            android:textColor="@color/black"
+            android:textSize="20dp"
             android:layout_marginTop="10dp"
-            android:text="@string/Actualizar_Contraseña"
-            android:textColor="#fff"
-            app:icon="@drawable/ic_baseline_lock_24" />
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="7dp"
+        android:layout_marginTop="20dp"
+        android:background="#004d40" />
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
-</ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_person"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pepito"
+            android:layout_marginLeft="25dp"
+            android:textSize="18dp"
+            android:textColor="#607D8B"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#607D8B"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_person"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apellidos"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grillo"
+            android:layout_marginLeft="18dp"
+            android:textSize="18dp"
+            android:textColor="#607D8B"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#607D8B"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_baseline_phone_24"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telefono"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123345565"
+            android:layout_marginLeft="20dp"
+            android:textSize="18dp"
+            android:textColor="#607D8B"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#607D8B"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_cole"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Colegio"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pepito Grillo"
+            android:layout_marginLeft="29dp"
+            android:textSize="18dp"
+            android:textColor="#607D8B"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#607D8B"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical">
+
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_email"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:layout_marginLeft="5dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="pepito@123145.com"
+            android:layout_marginLeft="46dp"
+            android:textSize="18dp"
+            android:textColor="#607D8B"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#607D8B"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"/>
+    
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:orientation="vertical"/>
+
+
+        <TextView
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_btn"
+        android:text="Editar Perfil"
+        android:gravity="center"
+        android:textColor="#004d40"
+        android:textSize="20dp"
+        android:drawableLeft="@drawable/ic_edit"
+        android:paddingLeft="15dp"
+        android:layout_marginLeft="100dp"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bg_btn"
+        android:text="Cambiar Contraseña"
+        android:gravity="center"
+        android:textColor="#004d40"
+        android:textSize="20dp"
+        android:drawableLeft="@drawable/ic_lock"
+        android:paddingLeft="15dp"
+        android:layout_marginLeft="100dp"/>
+
+</LinearLayout>
