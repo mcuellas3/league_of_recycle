@@ -5,19 +5,17 @@ public class Usuarios {
     private String nombre = "";
     private String apellidos = "";
     private String email = "";
-    private String contraseña = "";
+    private String pass = "";
 
 
-    public Usuarios( String nombre, String apellidos, String email, String contraseña) {
+    public Usuarios( String nombre, String apellidos, String email, String pass) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.email = email;
-        this.contraseña = contraseña;
+        this.pass = pass;
     }
 
-    public Integer getId_usuario() {
-        return id_usuario;
-    }
+    public Integer getId_usuario() { return id_usuario; }
 
     public void setId_usuario(Integer id_usuario) {
         this.id_usuario = id_usuario;
@@ -47,11 +45,11 @@ public class Usuarios {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getPass() {
+        return pass;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 }

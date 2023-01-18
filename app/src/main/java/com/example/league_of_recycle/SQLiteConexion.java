@@ -63,6 +63,27 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         super.close();
     }
 
+    public boolean getUser(String Usuario, String pass){
+       this.open();
+        String[] columnas = new String[] {KEY_ID_USUARIO};
+
+        String selection = "email = ? and contraseña = ?" ;
+
+        String[] selectionArgs = new String[] { Usuario, pass };
+
+        Cursor c = this.ourDatabase.query(DATABASE_TABLE_USUARIOS, columnas,selection,selectionArgs,null,null,null,null);
+        boolean val =false;
+        if (!c.isAfterLast()){
+            val=true;
+        }
+        //Cursor c2 = this.ourDatabase.rawQuery ("select * from usuarios where usuario= ? and password= ?", selectionArgs );
+        //for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+        //    val=true;
+        //}
+        return val;
+
+    }
+
     public ArrayList<Usuarios> getUsuarios() {
         this.open();
         String[] columnas = new String[] {KEY_ID_USUARIO, KEY_NOMBRE, KEY_APELLIDOS, KEY_EMAIL, KEY_CONTRASEÑA};
@@ -91,13 +112,13 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         return resultado;
     }
 
-    public Long guardarUsuario(String nombre, String apellidos, String email, String contraseña) {
+    public Long guardarUsuario(String nombre, String apellidos, String email, String pass) {
         this.open();
         ContentValues cv = new ContentValues();
         cv.put(KEY_NOMBRE, nombre);
         cv.put(KEY_APELLIDOS, apellidos);
         cv.put(KEY_EMAIL, email);
-        cv.put(KEY_CONTRASEÑA, contraseña);
+        cv.put(KEY_CONTRASEÑA, pass);
         this.close();
         return this.ourDatabase.insert(DATABASE_TABLE_USUARIOS, null,cv);
     }
