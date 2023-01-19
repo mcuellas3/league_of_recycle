@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -38,11 +39,17 @@ public class MainActivity extends AppCompatActivity {
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Usuarios usuario = new Usuarios(nombre.getText().toString(), apellidos.getText().toString(), email.getText().toString(), pass.getText().toString());
-                Long codigoInsert = db.guardarUsuario(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getPass());
+                if (pass==repass){
+                    Usuarios usuario = new Usuarios(nombre.getText().toString(), apellidos.getText().toString(), email.getText().toString(), pass.getText().toString());
+                    Long codigoInsert = db.guardarUsuario(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getPass());
 
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
+                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Las contraseñas no coinciden", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 
