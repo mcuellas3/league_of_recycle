@@ -15,6 +15,13 @@ public class Usuarios {
         this.pass = pass;
     }
 
+    public Usuarios() {
+        this.nombre = "";
+        this.apellidos = "";
+        this.email = "";
+        this.pass = "";
+    }
+
     public Integer getId_usuario() { return id_usuario; }
 
     public void setId_usuario(Integer id_usuario) {

@@ -13,6 +13,8 @@ import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
+import java.util.ArrayList;
+
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -41,8 +43,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
                 if (isEmailValid(usuario.getText().toString())) {
-                    if (db.getUser(usuario.getText().toString(), pass.getText().toString())) {
+                    int idUsuario=db.login(usuario.getText().toString(), pass.getText().toString());
+                    if (idUsuario!=0) {
+                        //Usuarios user = db.getUser(idUsuario);
                         Intent i = new Intent(LoginActivity.this, ScanerActivity.class);
+                        i.putExtra("idUsuario", idUsuario);
                         startActivity(i);
                     } else {
                         Toast.makeText(LoginActivity.this, "No existe el usuario", Toast.LENGTH_LONG).show();

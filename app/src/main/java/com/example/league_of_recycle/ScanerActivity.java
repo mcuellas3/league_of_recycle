@@ -17,7 +17,6 @@ public class ScanerActivity extends AppCompatActivity {
 
     Button BtnScan;
     EditText TxtResult;
-
     ImageButton casa, mapa, escaner, ranking, informacion;
 
 
@@ -26,6 +25,7 @@ public class ScanerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scaner);
 
+        String idUsuario = getIntent().getStringExtra("idUsuario"); //pasamos el usuario entre activitys
         BtnScan = findViewById(R.id.btnScan);
         TxtResult = findViewById(R.id.TxtResult);
 

@@ -67,6 +67,7 @@
             android:layout_marginLeft="5dp"/>
 
         <EditText
+            android:id="@+id/perfilNombre"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -106,6 +107,7 @@
             android:layout_marginLeft="5dp"/>
 
         <EditText
+            android:id="@+id/perfilApellidos"
             android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
@@ -145,6 +147,7 @@
             android:layout_marginLeft="5dp"/>
 
         <EditText
+            android:id="@+id/perfilTelefono"
             android:layout_width="209dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -184,6 +187,7 @@
             android:layout_marginLeft="5dp"/>
 
         <EditText
+            android:id="@+id/perfilColegio"
             android:layout_width="209dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"
@@ -223,6 +227,7 @@
             android:layout_marginLeft="5dp"/>
 
         <EditText
+            android:id="@+id/perfilEmail"
             android:layout_width="259dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
