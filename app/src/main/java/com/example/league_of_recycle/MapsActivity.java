@@ -16,6 +16,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    String idUsuario = getIntent().getStringExtra("idUsuario"); //pasamos el usuario entre activitys
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

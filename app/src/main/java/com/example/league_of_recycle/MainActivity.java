@@ -39,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
         registerbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (pass==repass){
+                String password = pass.getText().toString();
+                String repeatpassword = repass.getText().toString();
+
+                if (password.equals(repeatpassword)){
                     Usuarios usuario = new Usuarios(nombre.getText().toString(), apellidos.getText().toString(), email.getText().toString(), pass.getText().toString());
                     Long codigoInsert = db.guardarUsuario(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getPass());
 

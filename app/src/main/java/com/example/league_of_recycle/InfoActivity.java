@@ -26,6 +26,9 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        Bundle b = this.getIntent().getExtras();
+        int idUsuario=b.getInt("idUsuario");
+
         respuesta1 = findViewById(R.id.respuesta1);
         layout1 = findViewById(R.id.layout1);
         layout1.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
@@ -56,8 +59,9 @@ public class InfoActivity extends AppCompatActivity {
 
         casa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent home = new Intent(InfoActivity.this, Perfil_Usuario.class);
-                startActivity(home);
+                Intent casa = new Intent(InfoActivity.this, Perfil_Usuario.class);
+                casa.putExtra("idUsuario", idUsuario);
+                startActivity(casa);
             }
         });
 
@@ -66,8 +70,9 @@ public class InfoActivity extends AppCompatActivity {
 
         mapa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent map = new Intent(InfoActivity.this, MapsActivity.class);
-                startActivity(map);
+                Intent mapa = new Intent(InfoActivity.this, MapsActivity.class);
+                mapa.putExtra("idUsuario", idUsuario);
+                startActivity(mapa);
             }
         });
 
@@ -76,8 +81,9 @@ public class InfoActivity extends AppCompatActivity {
 
         escaner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent scan = new Intent(InfoActivity.this, ScanerActivity.class);
-                startActivity(scan);
+                Intent escaner = new Intent(InfoActivity.this, ScanerActivity.class);
+                escaner.putExtra("idUsuario", idUsuario);
+                startActivity(escaner);
             }
         });
 
@@ -86,8 +92,9 @@ public class InfoActivity extends AppCompatActivity {
 
         ranking.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent rank = new Intent(InfoActivity.this, RankingActivity.class);
-                startActivity(rank);
+                Intent ranking = new Intent(InfoActivity.this, RankingActivity.class);
+                ranking.putExtra("idUsuario", idUsuario);
+                startActivity(ranking);
             }
         });
 
@@ -96,8 +103,9 @@ public class InfoActivity extends AppCompatActivity {
 
         informacion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent info = new Intent(InfoActivity.this, InfoActivity.class);
-                startActivity(info);
+                Intent informacion = new Intent(InfoActivity.this, InfoActivity.class);
+                informacion.putExtra("idUsuario", idUsuario);
+                startActivity(informacion);
             }
         });
 

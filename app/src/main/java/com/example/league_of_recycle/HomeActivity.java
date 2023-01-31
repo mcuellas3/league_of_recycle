@@ -12,35 +12,38 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
     }
 
-    // metodo boton menu casa
-    public void Home(View view) {
-        Intent home = new Intent(this, HomeActivity.class);
-        startActivity(home);
-    }
+        // metodo boton menu casa
+        public void Home(View view) {
+            Intent i = new Intent(this, HomeActivity.class);
+            startActivity(i);
+        }
 
-    // metodo boton menu mapa
-    public void Map(View view) {
-        Intent map = new Intent(this, MapsActivity.class);
-        startActivity(map);
-    }
+        // metodo boton menu mapa
+        public void Map(View view) {
 
-    // metodo boton menu scaner
-    public void Scan(View view) {
-        Intent scan = new Intent(this, ScanerActivity.class);
-        startActivity(scan);
-    }
+            Intent i = new Intent(this, MapsActivity.class);
 
-    // metodo boton menu ranking
-    public void Ranking(View view) {
-        Intent ranking = new Intent(this, RankingActivity.class);
-        startActivity(ranking);
-    }
+            startActivity(i);
+        }
 
-    // metodo boton menu info
-    public void Info(View view) {
-        Intent info = new Intent(this, InfoActivity.class);
-        startActivity(info);
-    }
+        // metodo boton menu scaner
+        public void Scan(View view) {
+            Intent scan = new Intent(this, ScanerActivity.class);
+            startActivity(scan);
+        }
+
+        // metodo boton menu ranking
+        public void Ranking(View view) {
+            Intent ranking = new Intent(this, RankingActivity.class);
+            startActivity(ranking);
+        }
+
+        // metodo boton menu info
+        public void Info(View view) {
+            Intent info = new Intent(this, InfoActivity.class);
+            startActivity(info);
+        }
 }

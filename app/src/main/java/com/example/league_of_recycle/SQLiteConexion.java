@@ -140,6 +140,26 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         return codigoInsert;
     }
 
+    public Long editarUsuario(int idUsuario, String nombre, String apellidos, String email) {
+        this.open();
+        long codigoInsert=0;
+
+        try {
+            ContentValues cv = new ContentValues();
+            cv.put(KEY_NOMBRE, nombre);
+            cv.put(KEY_APELLIDOS, apellidos);
+            cv.put(KEY_EMAIL, email);
+            String selection = KEY_ID_USUARIO + " = ?";
+            String[] selectionArgs = new String[] { String.valueOf(idUsuario) };
+            codigoInsert = this.ourDatabase.update(DATABASE_TABLE_USUARIOS, cv,selection,selectionArgs);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.close();
+        }
+        return codigoInsert;
+    }
+
     public ArrayList<Usuarios> getUsuarios() {
         this.open();
         String[] columnas = new String[] {KEY_ID_USUARIO, KEY_NOMBRE, KEY_APELLIDOS, KEY_EMAIL, KEY_PASS};

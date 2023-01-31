@@ -20,12 +20,14 @@ public class ScanerActivity extends AppCompatActivity {
     ImageButton casa, mapa, escaner, ranking, informacion;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scaner);
+        Bundle b = this.getIntent().getExtras();
+        int idUsuario=b.getInt("idUsuario");
 
-        String idUsuario = getIntent().getStringExtra("idUsuario"); //pasamos el usuario entre activitys
         BtnScan = findViewById(R.id.btnScan);
         TxtResult = findViewById(R.id.TxtResult);
 
@@ -34,8 +36,9 @@ public class ScanerActivity extends AppCompatActivity {
 
         casa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent home = new Intent(ScanerActivity.this, Perfil_Usuario.class);
-                startActivity(home);
+                Intent casa = new Intent(ScanerActivity.this, Perfil_Usuario.class);
+                casa.putExtra("idUsuario", idUsuario);
+                startActivity(casa);
             }
         });
 
@@ -44,8 +47,9 @@ public class ScanerActivity extends AppCompatActivity {
 
         mapa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent map = new Intent(ScanerActivity.this, MapsActivity.class);
-                startActivity(map);
+                Intent mapa = new Intent(ScanerActivity.this, MapsActivity.class);
+                mapa.putExtra("idUsuario", idUsuario);
+                startActivity(mapa);
             }
         });
 
@@ -54,8 +58,9 @@ public class ScanerActivity extends AppCompatActivity {
 
         escaner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent scan = new Intent(ScanerActivity.this, ScanerActivity.class);
-                startActivity(scan);
+                Intent escaner = new Intent(ScanerActivity.this, ScanerActivity.class);
+                escaner.putExtra("idUsuario", idUsuario);
+                startActivity(escaner);
             }
         });
 
@@ -64,8 +69,9 @@ public class ScanerActivity extends AppCompatActivity {
 
         ranking.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent rank = new Intent(ScanerActivity.this, RankingActivity.class);
-                startActivity(rank);
+                Intent ranking = new Intent(ScanerActivity.this, RankingActivity.class);
+                ranking.putExtra("idUsuario", idUsuario);
+                startActivity(ranking);
             }
         });
 
@@ -74,8 +80,9 @@ public class ScanerActivity extends AppCompatActivity {
 
         informacion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent info = new Intent(ScanerActivity.this, InfoActivity.class);
-                startActivity(info);
+                Intent informacion = new Intent(ScanerActivity.this, InfoActivity.class);
+                informacion.putExtra("idUsuario", idUsuario);
+                startActivity(informacion);
             }
         });
 

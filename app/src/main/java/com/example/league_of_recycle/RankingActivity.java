@@ -16,7 +16,9 @@ import java.util.List;
 
 public class RankingActivity extends AppCompatActivity {
 
+    String idUsuario = getIntent().getStringExtra("idUsuario"); //pasamos el usuario entre activitys
     List<ListRanking> elements;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +40,7 @@ public class RankingActivity extends AppCompatActivity {
    //
 
 
-    //Metodo para msotrar la lista del ranking
+    //Metodo para mostrar la lista del ranking
 
     public void init(){
         elements = new ArrayList<>();
@@ -51,33 +53,5 @@ public class RankingActivity extends AppCompatActivity {
         recyclerView.setAdapter(RankinglistAdapter);
     }
 
-    // metodo boton menu casa
-    public void Home(View view) {
-        Intent home = new Intent(this, HomeActivity.class);
-        startActivity(home);
-    }
 
-    // metodo boton menu mapa
-    public void Map(View view) {
-        Intent map = new Intent(this, MapsActivity.class);
-        startActivity(map);
-    }
-
-    // metodo boton menu scaner
-    public void Scan(View view) {
-        Intent scan = new Intent(this, ScanerActivity.class);
-        startActivity(scan);
-    }
-
-    // metodo boton menu ranking
-    public void Ranking(View view) {
-        Intent ranking = new Intent(this, RankingActivity.class);
-        startActivity(ranking);
-    }
-
-    // metodo boton menu info
-    public void Info(View view) {
-        Intent info = new Intent(this, InfoActivity.class);
-        startActivity(info);
-    }
 }

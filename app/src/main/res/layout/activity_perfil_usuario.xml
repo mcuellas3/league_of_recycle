@@ -26,13 +26,13 @@
             android:src="@drawable/img_avatar" />
 
         <TextView
+            android:id="@+id/perfilTitulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Pepito grillo"
+            android:layout_marginTop="10dp"
             android:textColor="@color/black"
             android:textSize="20dp"
-            android:layout_marginTop="10dp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -71,7 +71,6 @@
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
-            android:text="Pepito"
             android:textColor="#607D8B"
             android:textSize="18dp" />
 
@@ -111,7 +110,6 @@
             android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
-            android:text="Grillo"
             android:textColor="#607D8B"
             android:textSize="18dp" />
 
@@ -151,7 +149,6 @@
             android:layout_width="209dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:text="123345565"
             android:textColor="#607D8B"
             android:textSize="18dp" />
 
@@ -191,7 +188,6 @@
             android:layout_width="209dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"
-            android:text="Pepito Grillo"
             android:textColor="#607D8B"
             android:textSize="18dp" />
 
@@ -231,7 +227,6 @@
             android:layout_width="259dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
-            android:text="pepito@123145.com"
             android:textColor="#607D8B"
             android:textSize="18dp" />
 
@@ -252,29 +247,31 @@
         android:orientation="vertical"/>
 
 
-        <Button
+    <Button
+        android:id="@+id/btnEditar"
         android:layout_width="180dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="100dp"
         android:background="@drawable/bg_btn"
-        android:text="Editar Perfil"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
         android:drawableLeft="@drawable/ic_edit"
+        android:gravity="center"
         android:paddingLeft="15dp"
-        android:layout_marginLeft="100dp"/>
+        android:text="Editar Perfil"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp" />
 
     <Button
-        android:layout_marginTop="10dp"
+        android:id="@+id/btnCambiarpass"
         android:layout_width="180dp"
         android:layout_height="60dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_btn"
-        android:text="Cambiar Contraseña"
-        android:gravity="center"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp"
         android:drawableLeft="@drawable/ic_lock"
+        android:gravity="center"
         android:paddingLeft="15dp"
-        android:layout_marginLeft="100dp"/>
+        android:text="Cambiar Contraseña"
+        android:textColor="#FFFFFF"
+        android:textSize="15dp" />
 
 </LinearLayout>
