@@ -30,7 +30,7 @@ public class Perfil_Usuario extends AppCompatActivity {
         telefono = (EditText) findViewById(R.id.perfilTelefono);
         colegio = (EditText) findViewById(R.id.perfilColegio);
         editar = (Button) findViewById(R.id.btnEditar);
-        cambiarpass = (Button) findViewById(R.id.btnCambiarpass);
+      
 
 
         Usuarios usuario = db.getUser(idUsuario);
