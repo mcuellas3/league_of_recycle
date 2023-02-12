@@ -3,12 +3,16 @@ package com.example.league_of_recycle;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import java.sql.Array;
@@ -18,6 +22,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "Recycle_DB";
     private static final String DATABASE_TABLE_USUARIOS = "usuarios";
+    private static final String DATABASE_TABLE_PRODUCTOS = "productos";
+    private static final String DATABASE_TABLE_CENTROS = "centros";
     private static final int DATABASE_VERSION = 1;
 
     private final String KEY_ID_USUARIO = "id_usuario";
@@ -28,6 +34,27 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private final String KEY_ISADMIN = "is_admin";
     private final String KEY_TELEFONO = "telefono";
     private final String KEY_IDCENTRO = "id_centro";
+
+    private final String KEY_ID_PRODUCTO = "id_producto";
+    private final String KEY_CODIGO = "codigo";
+    private final String KEY_MARCA = "marca";
+    private final String KEY_NOMBRE_PRODUCTO = "nombre";
+    private final String KEY_CATEGORIA = "categoria";
+    private final String KEY_CANTIDAD = "cantidad";
+    private final String KEY_ENVASE = "envase";
+    private final String KEY_GREENDOT = "greendot";
+    private final String KEY_PUNTOS = "puntos";
+
+
+    private final String KEY_ID_CENTRO = "id_centro";
+    private final String KEY_CODIGO_CENTRO = "codigo";
+    private final String KEY_NOMBRE_CENTRO = "nombre";
+    private final String KEY_LOC_LON = "lon";
+    private final String KEY_LOC_LAT = "lat";
+    private final String KEY_RESPONSABLE = "responsable";
+    private final String KEY_DIRECCION = "direccion";
+    private final String KEY_TELEFONO_CENTRO = "telefono";
+
 
     private SQLiteDatabase ourDatabase;
     private final Context ourContext;
@@ -58,12 +85,36 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_IDCENTRO + " INTEGER);";
         db.execSQL(sql);
 
+        sql = "CREATE TABLE " + DATABASE_TABLE_PRODUCTOS + " (" +
+                KEY_ID_PRODUCTO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                KEY_CODIGO + " TEXT NOT NULL, " +
+                KEY_MARCA + " TEXT NOT NULL, " +
+                KEY_NOMBRE_PRODUCTO + " TEXT NOT NULL, " +
+                KEY_CATEGORIA + " TEXT NOT NULL," +
+                KEY_CANTIDAD + " TEXT NOT NULL," +
+                KEY_ENVASE + " TEXT," +
+                KEY_GREENDOT + " TEXT NOT NULL," +
+                KEY_PUNTOS + " INTEGER);";
+        db.execSQL(sql);
+
+        sql = "CREATE TABLE " + DATABASE_TABLE_CENTROS + " (" +
+                KEY_ID_CENTRO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                KEY_CODIGO_CENTRO + " TEXT NOT NULL, " +
+                KEY_NOMBRE_CENTRO + " TEXT NOT NULL, " +
+                KEY_LOC_LON + " TEXT NOT NULL, " +
+                KEY_LOC_LAT + " TEXT NOT NULL," +
+                KEY_RESPONSABLE + " TEXT NOT NULL," +
+                KEY_DIRECCION + " TEXT," +
+                KEY_TELEFONO_CENTRO + " TEXT NOT NULL);";
+        db.execSQL(sql);
 
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_USUARIOS);
+        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_PRODUCTOS);
+        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_CENTROS);
         onCreate(db);
     }
 
@@ -128,6 +179,39 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         return usuario;
     }
 
+    public Productos getProducto (String codigo){
+        this.open();
+        Productos producto = new Productos();
+
+        String[] columnas = new String[] {KEY_ID_PRODUCTO,KEY_CODIGO, KEY_MARCA, KEY_NOMBRE_PRODUCTO,KEY_CATEGORIA,KEY_CANTIDAD,KEY_ENVASE, KEY_GREENDOT};
+        String selection = KEY_CODIGO + " = ?";
+        String[] selectionArgs = new String[] { String.valueOf(codigo) };
+
+        Cursor c = this.ourDatabase.query(DATABASE_TABLE_PRODUCTOS, columnas,selection,selectionArgs,null,null,null,null);
+        boolean val =false;
+        int iid_producto = c.getColumnIndex(KEY_ID_PRODUCTO);
+        int icodigo = c.getColumnIndex(KEY_CODIGO);
+        int imarca = c.getColumnIndex(KEY_MARCA);
+        int inombre = c.getColumnIndex(KEY_NOMBRE_PRODUCTO);
+        int icategoria = c.getColumnIndex(KEY_CATEGORIA);
+        int icantidad = c.getColumnIndex(KEY_CANTIDAD);
+        int ienvase = c.getColumnIndex(KEY_ENVASE);
+        int igreendot = c.getColumnIndex(KEY_GREENDOT);
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
+            producto.setId_producto(c.getInt(iid_producto));
+            producto.setNombre(c.getString(icodigo));
+            producto.setMarca(c.getString(imarca));
+            producto.setNombre(c.getString(inombre));
+            producto.setCategoria(c.getString(icategoria));
+            //producto.setCantidad(c.getString(icantidad));
+            producto.setEnvase(c.getString(ienvase));
+            //producto.setgreendot(c.getString(igreendot));
+        }
+
+        return producto;
+    }
+
     public boolean getUserbyMail (String email){
         this.open();
         Usuarios usuario = new Usuarios();
@@ -185,8 +269,39 @@ public class SQLiteConexion extends SQLiteOpenHelper {
 
     }
 
+    public void insertar(String tabla,ContentValues cv){
+        try {
+            this.open();
+            this.ourDatabase.beginTransaction();
+            this.ourDatabase.insert(tabla, null, cv);
+            this.ourDatabase.setTransactionSuccessful();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.ourDatabase.endTransaction();
+            this.close();
+        }
+    }
+    public void actualizar(String tabla,ContentValues cv,String selection,String[] selectionArgs){
+        try {
+            this.open();
+            this.ourDatabase.beginTransaction();
+            this.ourDatabase.update(tabla, cv,selection,selectionArgs);
+            this.ourDatabase.setTransactionSuccessful();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            this.ourDatabase.endTransaction();
+            this.close();
+        }
+    }
+
+
     public Long editarUsuario(int idUsuario, String nombre, String apellidos, String email, String telefono, String id_centro) {
         this.open();
+        this.ourDatabase.beginTransaction();
         long codigoInsert=0;
 
         try {
@@ -200,11 +315,14 @@ public class SQLiteConexion extends SQLiteOpenHelper {
             String selection = KEY_ID_USUARIO + " = ?";
             String[] selectionArgs = new String[] { String.valueOf(idUsuario) };
             codigoInsert = this.ourDatabase.update(DATABASE_TABLE_USUARIOS, cv,selection,selectionArgs);
+            this.ourDatabase.setTransactionSuccessful();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            this.ourDatabase.endTransaction();
             this.close();
         }
+
         return codigoInsert;
     }
 
@@ -263,6 +381,16 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         this.close();
         return resultado;
     }
+
+    public long cantidadRegistros(String tabla){
+
+        this.open();
+        long cont = DatabaseUtils.queryNumEntries(this.ourDatabase, tabla );
+        this.close();
+
+        return cont;
+    }
+
 
 }
 

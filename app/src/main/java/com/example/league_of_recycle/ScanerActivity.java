@@ -1,9 +1,11 @@
 package com.example.league_of_recycle;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,7 +22,6 @@ public class ScanerActivity extends AppCompatActivity {
     ImageButton casa, mapa, escaner, ranking, informacion;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,7 @@ public class ScanerActivity extends AppCompatActivity {
 
         BtnScan = findViewById(R.id.btnScan);
         TxtResult = findViewById(R.id.TxtResult);
+        IntentIntegrator integrador = new IntentIntegrator(ScanerActivity.this);
 
         // Casa
         casa = findViewById(R.id.imageButton7);
@@ -99,32 +101,47 @@ public class ScanerActivity extends AppCompatActivity {
         BtnScan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                IntentIntegrator integrador = new IntentIntegrator(ScanerActivity.this);
-                integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-                integrador.setPrompt("Lector - CDP");
-                integrador.setCameraId(0);
-                integrador.setBeepEnabled(true);
-                integrador.setBarcodeImageEnabled(true);
-                integrador.initiateScan();
+                if (TxtResult.getText().toString().equals("")){
+                    integrador.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                    integrador.setPrompt("Lector - CDP");
+                    integrador.setCameraId(0);
+                    integrador.setBeepEnabled(true);
+                    integrador.setBarcodeImageEnabled(true);
+                    integrador.initiateScan();
 
-
+                }else{
+                    String codigo = TxtResult.getText().toString();
+                    Intent producto = new Intent(ScanerActivity.this, ProductosActivity.class);
+                    producto.putExtra("codigo", codigo);
+                    startActivity(producto);
+                }
             }
         });
 
+
     }
 
-    protected void OnActivityResult(int RequestCode, int ResultCode, Intent Data) {
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
-        IntentResult result = IntentIntegrator.parseActivityResult(RequestCode, ResultCode, Data);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
         if (result != null) {
             if (result.getContents() == null) {
                 Toast.makeText(this, "Lectura Cancelada", Toast.LENGTH_LONG).show();
                 TxtResult.setText(result.getContents());
+
             } else {
-                super.onActivityResult(RequestCode, ResultCode, Data);
+                TxtResult.setText(result.getContents());
+                String codigo = TxtResult.getText().toString();
+                Intent producto = new Intent(ScanerActivity.this, ProductosActivity.class);
+                producto.putExtra("codigo", codigo);
+                startActivity(producto);
+
+                super.onActivityResult(requestCode, resultCode, data);
             }
         }
 
     }
 }
+
