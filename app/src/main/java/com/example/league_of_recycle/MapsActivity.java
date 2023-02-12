@@ -16,7 +16,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    String idUsuario = getIntent().getStringExtra("idUsuario"); //pasamos el usuario entre activitys
+																									
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +44,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        // añade marcador instituto usuario
+        LatLng instituto = new LatLng(36.70850, -4.44825);
+        mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+        mMap.addMarker(new MarkerOptions().position(instituto).title("Medac San Rafael"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(instituto, 20.01f));
     }
 }

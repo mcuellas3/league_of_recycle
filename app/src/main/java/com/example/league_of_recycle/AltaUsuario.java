@@ -14,10 +14,11 @@ public class AltaUsuario extends AppCompatActivity {
     String apellidos = "";
     String email = "";
     String pass = "";
-    Usuarios usuario = new Usuarios(nombre, apellidos, email, pass);
+    boolean is_admin = false;
+    Usuarios usuario = new Usuarios(nombre, apellidos, email, pass, is_admin);
 
     SQLiteConexion db = new SQLiteConexion(AltaUsuario.this);
 
-    Long usercode = db.guardarUsuario(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getPass());
+    Long usercode = db.guardarUsuario(usuario.getNombre(), usuario.getApellidos(), usuario.getEmail(), usuario.getPass(), false);
 
 }

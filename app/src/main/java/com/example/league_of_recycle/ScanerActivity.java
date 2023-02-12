@@ -25,6 +25,7 @@ public class ScanerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scaner);
+        SQLiteConexion db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
         int idUsuario=b.getInt("idUsuario");
 
@@ -36,9 +37,17 @@ public class ScanerActivity extends AppCompatActivity {
 
         casa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent casa = new Intent(ScanerActivity.this, Perfil_Usuario.class);
-                casa.putExtra("idUsuario", idUsuario);
-                startActivity(casa);
+                Usuarios usuario = db.getUser(idUsuario);
+
+                if (usuario.getIs_admin()){
+                    Intent casa = new Intent(ScanerActivity.this, Perfil_Usuario_AdminActivity.class);
+                    casa.putExtra("idUsuario", idUsuario);
+                    startActivity(casa);
+                }else {
+                    Intent casa = new Intent(ScanerActivity.this, Perfil_Usuario.class);
+                    casa.putExtra("idUsuario", idUsuario);
+                    startActivity(casa);
+                }
             }
         });
 

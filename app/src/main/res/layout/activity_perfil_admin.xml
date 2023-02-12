@@ -26,7 +26,7 @@
             android:src="@drawable/img_avatar" />
 
         <TextView
-            android:id="@+id/perfilTitulo"
+            android:id="@+id/perfilCentro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -106,7 +106,7 @@
             android:layout_marginLeft="5dp"/>
 
         <EditText
-            android:id="@+id/perfilApellidos"
+            android:id="@+id/perfilRes"
             android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
@@ -184,7 +184,7 @@
             android:layout_marginLeft="5dp"/>
 
         <EditText
-            android:id="@+id/perfilColegio"
+            android:id="@+id/perfilIdcentro"
             android:layout_width="209dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="29dp"

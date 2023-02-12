@@ -25,7 +25,9 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private final String KEY_APELLIDOS = "apellidos";
     private final String KEY_EMAIL = "email";
     private final String KEY_PASS = "pass";
-
+    private final String KEY_ISADMIN = "is_admin";
+    private final String KEY_TELEFONO = "telefono";
+    private final String KEY_IDCENTRO = "id_centro";
 
     private SQLiteDatabase ourDatabase;
     private final Context ourContext;
@@ -36,6 +38,13 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         this.ourContext = context;
     }
 
+    public void callonUpgrade() {
+        this.open();
+        this.ourDatabase.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_USUARIOS);
+        onCreate(this.ourDatabase);
+        this.close();
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         String sql = "CREATE TABLE " + DATABASE_TABLE_USUARIOS + " (" +
@@ -43,9 +52,13 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_NOMBRE + " TEXT NOT NULL, " +
                 KEY_APELLIDOS + " TEXT NOT NULL, " +
                 KEY_EMAIL + " TEXT NOT NULL, " +
-                KEY_PASS + " TEXT NOT NULL);";
-
+                KEY_PASS + " TEXT NOT NULL," +
+                KEY_ISADMIN + " BOOLEAN NOT NULL," +
+                KEY_TELEFONO + " TEXT," +
+                KEY_IDCENTRO + " INTEGER);";
         db.execSQL(sql);
+
+
     }
 
     @Override
@@ -64,7 +77,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     }
 
     public int login (String Usuario, String pass){
-       this.open();
+        this.open();
+
         String[] columnas = new String[] {KEY_ID_USUARIO};
 
         String selection = KEY_EMAIL + " = ? and " + KEY_PASS + " = ?" ;
@@ -85,7 +99,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         this.open();
         Usuarios usuario = new Usuarios();
 
-        String[] columnas = new String[] {KEY_ID_USUARIO,KEY_NOMBRE,KEY_APELLIDOS,KEY_EMAIL,KEY_PASS};
+        String[] columnas = new String[] {KEY_ID_USUARIO,KEY_NOMBRE,KEY_APELLIDOS,KEY_EMAIL,KEY_PASS, KEY_ISADMIN};
         String selection = KEY_ID_USUARIO + " = ?";
         String[] selectionArgs = new String[] { String.valueOf(idUsuario) };
 
@@ -96,6 +110,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         int iapellidos = c.getColumnIndex(KEY_APELLIDOS);
         int iemail = c.getColumnIndex(KEY_EMAIL);
         int ipass = c.getColumnIndex(KEY_PASS);
+        int iis_admin = c.getColumnIndex(KEY_ISADMIN);
 
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
             usuario.setId_usuario(c.getInt(iid_usuario));
@@ -103,9 +118,32 @@ public class SQLiteConexion extends SQLiteOpenHelper {
             usuario.setApellidos(c.getString(iapellidos));
             usuario.setEmail(c.getString(iemail));
             usuario.setPass(c.getString(ipass));
+            if (c.getInt(iis_admin)==0){
+                usuario.setIs_admin(false);
+            } else{
+                usuario.setIs_admin(true);
+            }
         }
 
         return usuario;
+    }
+
+    public boolean getUserbyMail (String email){
+        this.open();
+        Usuarios usuario = new Usuarios();
+
+        String[] columnas = new String[] {KEY_ID_USUARIO,KEY_NOMBRE,KEY_APELLIDOS,KEY_EMAIL,KEY_PASS, KEY_ISADMIN};
+        String selection = KEY_EMAIL + " = ?";
+        String[] selectionArgs = new String[] { String.valueOf(email) };
+        boolean val;
+        Cursor c = this.ourDatabase.query(DATABASE_TABLE_USUARIOS, columnas,selection,selectionArgs,null,null,null,null);
+        if (c.getCount()<=0){
+            val =false;
+        } else {
+            val= true;
+        }
+        this.close();;
+        return val;
     }
 
     public boolean checkUserByName (String Usuario){
@@ -121,26 +159,33 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         return val;
     }
 
-    public Long guardarUsuario(String nombre, String apellidos, String email, String pass) {
-        this.open();
-        long codigoInsert=0;
+    public Long guardarUsuario(String nombre, String apellidos, String email, String pass, boolean is_admin) {
+					
+        long codigoInsert = 0;
+        if (getUserbyMail(email) == false) {
 
-        try {
-            ContentValues cv = new ContentValues();
-            cv.put(KEY_NOMBRE, nombre);
-            cv.put(KEY_APELLIDOS, apellidos);
-            cv.put(KEY_EMAIL, email);
-            cv.put(KEY_PASS, pass);
-            codigoInsert = this.ourDatabase.insert(DATABASE_TABLE_USUARIOS, null,cv);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } finally {
-            this.close();
+            this.open();
+
+            try {
+                ContentValues cv = new ContentValues();
+                cv.put(KEY_NOMBRE, nombre);
+                cv.put(KEY_APELLIDOS, apellidos);
+                cv.put(KEY_EMAIL, email);
+                cv.put(KEY_PASS, pass);
+                cv.put(KEY_ISADMIN, is_admin);
+
+                codigoInsert = this.ourDatabase.insert(DATABASE_TABLE_USUARIOS, null, cv);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            } finally {
+                this.close();
+            }
         }
         return codigoInsert;
+
     }
 
-    public Long editarUsuario(int idUsuario, String nombre, String apellidos, String email) {
+    public Long editarUsuario(int idUsuario, String nombre, String apellidos, String email, String telefono, String id_centro) {
         this.open();
         long codigoInsert=0;
 
@@ -149,6 +194,9 @@ public class SQLiteConexion extends SQLiteOpenHelper {
             cv.put(KEY_NOMBRE, nombre);
             cv.put(KEY_APELLIDOS, apellidos);
             cv.put(KEY_EMAIL, email);
+            cv.put(KEY_TELEFONO, telefono);
+            cv.put(KEY_IDCENTRO, id_centro);
+
             String selection = KEY_ID_USUARIO + " = ?";
             String[] selectionArgs = new String[] { String.valueOf(idUsuario) };
             codigoInsert = this.ourDatabase.update(DATABASE_TABLE_USUARIOS, cv,selection,selectionArgs);
