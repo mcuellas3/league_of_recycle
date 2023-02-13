@@ -28,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     SQLiteConexion db = new SQLiteConexion(this);
     EditText usuario,pass;
     TextView registrateAqui;
-    Button lectorQR;
     MaterialButton btnLogin;
 
     @Override
@@ -42,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         pass = (EditText) findViewById(R.id.passwordLogin);
         btnLogin = (MaterialButton) findViewById(R.id.btnLogin);
         registrateAqui = (TextView) findViewById(R.id.others2);
-        lectorQR = (Button) findViewById(R.id.lectorQR);
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -76,13 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        lectorQR.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent j = new Intent(MainActivity.this, ScanerActivity.class);
-                startActivity(j);
-            }
-        });
+
 
     }
 

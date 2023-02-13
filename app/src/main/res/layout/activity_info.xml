@@ -9,14 +9,13 @@
 
     <LinearLayout
         android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
+        android:layout_width="409dp"
         android:layout_height="70dp"
         android:background="@color/Primary"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
@@ -81,7 +80,7 @@
         android:layout_width="357dp"
         android:layout_height="137dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="48dp"
         android:text="Estamos aquí para ayudarte y responder a cualquier duda que tengas, estas son las más comunes."
         android:textColor="@color/black"
         android:textSize="65px"
@@ -112,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginTop="272dp"
         android:layout_marginEnd="25dp"
         android:animateLayoutChanges="true"
         android:background="@drawable/shape"
@@ -168,7 +167,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="3dp"
-            android:text="¿En qué consiste Zabbal?"
+            android:text="¿Quién puede utilizar Zabbal?"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold" />
@@ -179,7 +178,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="5dp"
-            android:text="Zabbal es una aplicación móvil realizada para concienciar y a ayudar a la gente jóven de la importancia del reciclaje."
+            android:text="Cualquier centro educativo que tenga intención de utilizar Zabbal se puede poner en contacto con nosotros para comenzar."
             android:textColor="@color/black"
             android:textSize="13dp"
             android:visibility="gone" />
@@ -208,7 +207,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="3dp"
-            android:text="¿En qué consiste Zabbal?"
+            android:text="¿De donde viene el nombre?"
             android:textColor="@color/black"
             android:textSize="15dp"
             android:textStyle="bold" />
@@ -219,7 +218,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="5dp"
-            android:text="Zabbal es una aplicación móvil realizada para concienciar y a ayudar a la gente jóven de la importancia del reciclaje."
+            android:text="El Zabbal es un trabajador incansable en la tarea de reciclaje, con su habilidad única para separar y clasificar los materiales, el Zabbal es fundamental en la lucha contra la contaminación y el exceso de basura en nuestro mundo. Gracias a su arduo trabajo, podemos darle una nueva vida a los materiales que de otra forma estarían destinados a ser desperdiciados.Pero su tarea va más allá de la simple separación de materiales. El Zabbal es un defensor de la sostenibilidad, un embajador de un mundo más verde. A través de su trabajo, nos muestra la importancia de reducir, reutilizar y reciclar en nuestras vidas diarias.Únete a nosotros en esta aventura para conocer más sobre el Zabbal, su tarea crucial y su impacto en el mundo. Descubre cómo cada pequeña acción puede tener un gran impacto y cómo juntos podemos continuar con el legado de los trabajadores de Zabbaleen, construyendo un futuro más sostenible para todos."
             android:textColor="@color/black"
             android:textSize="13dp"
             android:visibility="gone" />
@@ -259,7 +258,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="3dp"
             android:layout_marginTop="5dp"
-            android:text="Zabbal es una aplicación móvil realizada para concienciar y a ayudar a la gente jóven de la importancia del reciclaje."
+            android:text="Zabbal es una aplicación móvil realizada para concienciar y ayudar a la gente jóven de la importancia del reciclaje."
             android:textColor="@color/black"
             android:textSize="13dp"
             android:visibility="gone" />
