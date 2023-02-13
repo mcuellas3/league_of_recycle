@@ -93,25 +93,19 @@ public class MainActivity extends AppCompatActivity {
             for (int i=0;i< texto.length;i++){
                 String[] linea = texto[i].split(";");
                 ContentValues cv = new ContentValues();
-                cv.put("codigo",Codificador(linea[0]));
-                cv.put("marca",Codificador(linea[1]));
-                cv.put("nombre",Codificador(linea[2]));
-                cv.put("categoria",Codificador(linea[3]));
-                cv.put("cantidad",Codificador(linea[4]));
-                cv.put("envase",Codificador(linea[5]));
-                cv.put("greendot",Codificador(linea[6]));
+                cv.put("codigo",(linea[0]));
+                cv.put("marca",(linea[1]));
+                cv.put("nombre",(linea[2]));
+                cv.put("categoria",(linea[3]));
+                cv.put("cantidad",(linea[4]));
+                cv.put("envase",(linea[5]));
+                cv.put("greendot",(linea[6]));
+                cv.put("puntos",(linea[7]));
                 db.insertar("productos",cv);
             }
         }
     }
 
-    public String Codificador(String cadena) {
-
-        //byte[] ptext = cadena.getBytes(ANSI);
-        //String resultado = new String(ptext,UTF_8);
-
-        return cadena;
-    }
 
     private String[] leerArchivo() {
         InputStream inputStream = getResources().openRawResource(R.raw.productos);

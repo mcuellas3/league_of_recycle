@@ -24,6 +24,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private static final String DATABASE_TABLE_USUARIOS = "usuarios";
     private static final String DATABASE_TABLE_PRODUCTOS = "productos";
     private static final String DATABASE_TABLE_CENTROS = "centros";
+    private static final String DATABASE_TABLE_PUNTOS = "puntos";
+    private static final String DATABASE_VIEW_RANKING = "ranking";
     private static final int DATABASE_VERSION = 1;
 
     private final String KEY_ID_USUARIO = "id_usuario";
@@ -54,6 +56,10 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private final String KEY_RESPONSABLE = "responsable";
     private final String KEY_DIRECCION = "direccion";
     private final String KEY_TELEFONO_CENTRO = "telefono";
+
+    private final String KEY_ID_PUNTOS = "id_puntos";
+    private final String KEY_ID_USUARIO_PUNTOS = "id_usuario";
+    private final String KEY_SUMAR_PUNTOS = "puntos";
 
 
     private SQLiteDatabase ourDatabase;
@@ -94,7 +100,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_CANTIDAD + " TEXT NOT NULL," +
                 KEY_ENVASE + " TEXT," +
                 KEY_GREENDOT + " TEXT NOT NULL," +
-                KEY_PUNTOS + " INTEGER);";
+                KEY_PUNTOS + " TEXT);";
         db.execSQL(sql);
 
         sql = "CREATE TABLE " + DATABASE_TABLE_CENTROS + " (" +
@@ -108,6 +114,19 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_TELEFONO_CENTRO + " TEXT NOT NULL);";
         db.execSQL(sql);
 
+        sql = "CREATE TABLE " + DATABASE_TABLE_PUNTOS + " (" +
+                KEY_ID_PUNTOS + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                KEY_ID_USUARIO_PUNTOS + " INTEGER NOT NULL, " +
+                KEY_SUMAR_PUNTOS + " INTEGER NOT NULL);";
+        db.execSQL(sql);
+
+        sql="create view " +DATABASE_VIEW_RANKING +" as " +
+        "select nombre,sum(puntos) puntos " +
+        "from puntos inner join usuarios on usuarios.id_usuario=puntos.id_usuario "  +
+        "group by puntos.id_usuario " +
+        "order by sum(puntos) desc";
+        db.execSQL(sql);
+
     }
 
     @Override
@@ -115,6 +134,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_USUARIOS);
         db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_PRODUCTOS);
         db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_CENTROS);
+        db.execSQL("DROP TABLE IF EXISTS " + DATABASE_TABLE_PUNTOS);
         onCreate(db);
     }
 
@@ -183,7 +203,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         this.open();
         Productos producto = new Productos();
 
-        String[] columnas = new String[] {KEY_ID_PRODUCTO,KEY_CODIGO, KEY_MARCA, KEY_NOMBRE_PRODUCTO,KEY_CATEGORIA,KEY_CANTIDAD,KEY_ENVASE, KEY_GREENDOT};
+        String[] columnas = new String[] {KEY_ID_PRODUCTO,KEY_CODIGO, KEY_MARCA, KEY_NOMBRE_PRODUCTO,KEY_CATEGORIA,KEY_CANTIDAD,KEY_ENVASE, KEY_PUNTOS,KEY_GREENDOT};
         String selection = KEY_CODIGO + " = ?";
         String[] selectionArgs = new String[] { String.valueOf(codigo) };
 
@@ -196,7 +216,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         int icategoria = c.getColumnIndex(KEY_CATEGORIA);
         int icantidad = c.getColumnIndex(KEY_CANTIDAD);
         int ienvase = c.getColumnIndex(KEY_ENVASE);
-        int igreendot = c.getColumnIndex(KEY_GREENDOT);
+        int ipuntos = c.getColumnIndex(KEY_PUNTOS);
 
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
             producto.setId_producto(c.getInt(iid_producto));
@@ -204,9 +224,10 @@ public class SQLiteConexion extends SQLiteOpenHelper {
             producto.setMarca(c.getString(imarca));
             producto.setNombre(c.getString(inombre));
             producto.setCategoria(c.getString(icategoria));
-            //producto.setCantidad(c.getString(icantidad));
+            producto.setCantidad(c.getString(icantidad));
             producto.setEnvase(c.getString(ienvase));
             //producto.setgreendot(c.getString(igreendot));
+            producto.setPuntos(c.getString(ipuntos));
         }
 
         return producto;
@@ -391,6 +412,28 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         return cont;
     }
 
+
+    public  ArrayList<ListRanking> getRanking() {
+        this.open();
+        String[] columnas = new String[] {KEY_NOMBRE, KEY_PUNTOS};
+        Cursor c = this.ourDatabase.query(DATABASE_VIEW_RANKING, columnas,null,null,null,null,null,null);
+
+        ArrayList<ListRanking> resultado = new ArrayList<ListRanking>();
+
+        int inombre = c.getColumnIndex(KEY_NOMBRE);
+        int ipuntos = c.getColumnIndex(KEY_PUNTOS);
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            String nombre = c.getString(inombre);
+            String puntos = c.getString(ipuntos);
+
+            //Usuarios usuario = new Usuarios(id_usuario, ipuntos);
+            resultado.add(new ListRanking(nombre, puntos,""));
+        }
+        c.close();
+        this.close();
+        return resultado;
+    }
 
 }
 

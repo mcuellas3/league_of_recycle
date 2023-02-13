@@ -20,7 +20,7 @@ public class ScanerActivity extends AppCompatActivity {
     Button BtnScan;
     EditText TxtResult;
     ImageButton casa, mapa, escaner, ranking, informacion;
-
+    Integer coduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class ScanerActivity extends AppCompatActivity {
         SQLiteConexion db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
         int idUsuario=b.getInt("idUsuario");
+        coduser =idUsuario;
 
         BtnScan = findViewById(R.id.btnScan);
         TxtResult = findViewById(R.id.TxtResult);
@@ -113,6 +114,7 @@ public class ScanerActivity extends AppCompatActivity {
                     String codigo = TxtResult.getText().toString();
                     Intent producto = new Intent(ScanerActivity.this, ProductosActivity.class);
                     producto.putExtra("codigo", codigo);
+                    producto.putExtra("idUsuario", idUsuario);
                     startActivity(producto);
                 }
             }
@@ -136,6 +138,7 @@ public class ScanerActivity extends AppCompatActivity {
                 String codigo = TxtResult.getText().toString();
                 Intent producto = new Intent(ScanerActivity.this, ProductosActivity.class);
                 producto.putExtra("codigo", codigo);
+                producto.putExtra("idUsuario", this.coduser);
                 startActivity(producto);
 
                 super.onActivityResult(requestCode, resultCode, data);

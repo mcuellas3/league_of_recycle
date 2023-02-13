@@ -37,33 +37,45 @@
         android:layout_width="182dp"
         android:layout_height="32dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
+        android:text="Marca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/prodCantidad"
+        android:layout_width="182dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:text="Cantidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/prodNombre" />
+
+    <TextView
         android:id="@+id/prodNombre"
         android:layout_width="182dp"
         android:layout_height="32dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="24dp"
-        android:text="TextView"
+        android:layout_marginTop="16dp"
+        android:text="Nombre"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/prodMarca" />
 
     <TextView
         android:id="@+id/prodPuntos"
-        android:layout_width="182dp"
-        android:layout_height="32dp"
+        android:layout_width="180dp"
+        android:layout_height="33dp"
         android:layout_marginBottom="48dp"
-        android:text="TextView"
+        android:text="Puntos"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnReciclar"
-        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -99,11 +111,11 @@
         tools:layout_editor_absoluteX="1dp" />
 
     <TextView
-        android:id="@+id/prodMaterial"
+        android:id="@+id/prodEnvase"
         android:layout_width="257dp"
         android:layout_height="35dp"
         android:layout_marginTop="32dp"
-        android:text="TextView"
+        android:text="Envase"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
@@ -121,11 +133,11 @@
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/prodDegrad"
         android:layout_width="257dp"
         android:layout_height="35dp"
         android:layout_marginTop="168dp"
-        android:text="TextView"
+        android:text="Degradacion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +148,7 @@
         android:layout_width="257dp"
         android:layout_height="35dp"
         android:layout_marginTop="100dp"
-        android:text="TextView"
+        android:text="Huella carbono"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.103"
         app:layout_constraintStart_toStartOf="parent"
@@ -145,10 +157,10 @@
     <RatingBar
         android:id="@+id/prodPuntuacion"
         android:layout_width="187dp"
-        android:layout_height="24dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="12dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/prodNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/prodCantidad" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

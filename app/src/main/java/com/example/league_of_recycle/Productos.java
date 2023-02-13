@@ -4,20 +4,24 @@ public class Productos {
     private Integer id_producto = 0;
     private String marca = "";
     private String nombre = "";
+    private String cantidad = "";
     private String envase = "";
     private String codigo = "";
     private String categoria = "";
-    private Integer puntos = 0;
+    private String degrad = "";
+    private String puntos = "";
     private Integer altura = 0;
     private Integer peso = 0;
 
-    public Productos(Integer id_producto, String marca, String nombre, String envase, String codigo, String categoria, Integer puntos, Integer altura, Integer peso) {
+    public Productos(Integer id_producto, String marca, String nombre, String cantidad, String envase, String codigo, String categoria, String degrad, String puntos, Integer altura, Integer peso) {
         this.id_producto = id_producto;
         this.marca = marca;
         this.nombre = nombre;
+        this.cantidad = cantidad;
         this.envase = envase;
         this.codigo = codigo;
         this.categoria = categoria;
+        this.degrad = degrad;
         this.puntos = puntos;
         this.altura = altura;
         this.peso = peso;
@@ -27,10 +31,12 @@ public class Productos {
         this.id_producto = id_producto;
         this.marca = "";
         this.nombre = "";
+        this.cantidad = "";
         this.envase = "";
         this.codigo = "";
         this.categoria = "";
-        this.puntos = 0;
+        this.degrad = "";
+        this.puntos = "";
         this.altura = 0;
         this.peso = 0;
     }
@@ -61,11 +67,11 @@ public class Productos {
         this.envase = envase;
     }
 
-    public Integer getPuntos() {
+    public String getPuntos() {
         return puntos;
     }
 
-    public void setPuntos(Integer puntos) {
+    public void setPuntos(String puntos) {
         this.puntos = puntos;
     }
 
@@ -104,4 +110,22 @@ public class Productos {
     public String getCodigo() {
         return codigo;
     }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getDegrad() {
+        return degrad;
+    }
+
+    public void setDegrad(String degrad) {
+        this.degrad = degrad;
+    }
+
+
 }
