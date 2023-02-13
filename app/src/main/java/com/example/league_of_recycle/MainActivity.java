@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void inicializar(){
         if(db.cantidadRegistros("productos")==0){
-            String[] texto = leerArchivo();
+            String[] texto = leerArchivo(R.raw.productos);
 
             for (int i=0;i< texto.length;i++){
                 String[] linea = texto[i].split(";");
@@ -96,11 +96,27 @@ public class MainActivity extends AppCompatActivity {
                 db.insertar("productos",cv);
             }
         }
+
+        if(db.cantidadRegistros("centros")==0){
+            String[] texto = leerArchivo(R.raw.centros);
+
+            for (int i=0;i< texto.length;i++){
+                String[] linea = texto[i].split(";");
+                ContentValues cv = new ContentValues();
+                cv.put("nombre",(linea[0]));
+                cv.put("lat",(linea[1]));
+                cv.put("lon",(linea[2]));
+                cv.put("responsable",(linea[3]));
+                cv.put("direccion",(linea[4]));
+                cv.put("telefono",(linea[5]));
+                db.insertar("centros",cv);
+            }
+        }
     }
 
 
-    private String[] leerArchivo() {
-        InputStream inputStream = getResources().openRawResource(R.raw.productos);
+    private String[] leerArchivo(int res ) {
+        InputStream inputStream = getResources().openRawResource(res);
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         try {
             int i = inputStream.read();

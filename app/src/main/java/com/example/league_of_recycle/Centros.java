@@ -11,6 +11,9 @@ public class Centros {
     private Usuarios responsable;
     private String locLat = "";
     private String locLong = "";
+    private String direccion = "";
+    private String telefono = "";
+
     private ArrayList geo[];
 
 
@@ -19,6 +22,9 @@ public class Centros {
         this.id_responsable=0;
         this.locLat="";
         this.locLong="";
+        this.direccion = "";
+        this.telefono = "";
+
     }
 
     public Centros(int centro, int id_responsable) {
@@ -29,9 +35,9 @@ public class Centros {
 
     }
 
-    public Integer getId_usuario() { return id_centro; }
+    public Integer getId_centro() { return id_centro; }
 
-    public void setId_usuario(Integer id_usuario) {
+    public void setId_centro(Integer id_usuario) {
         this.id_centro = id_usuario;
     }
 
@@ -75,5 +81,41 @@ public class Centros {
 
     public void setGeo(ArrayList[] geo) {
         this.geo = geo;
+    }
+
+    public String getCentro() {
+        return centro;
+    }
+
+    public Integer getId_responsable() {
+        return id_responsable;
+    }
+
+    public Usuarios getResponsable() {
+        return responsable;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setCentro(String centro) {
+        this.centro = centro;
+    }
+
+    public void setId_responsable(Integer id_responsable) {
+        this.id_responsable = id_responsable;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

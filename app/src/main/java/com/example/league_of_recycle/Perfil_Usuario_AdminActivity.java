@@ -45,7 +45,7 @@ public class Perfil_Usuario_AdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                long codigoinsert = db.editarUsuario(idUsuario, centro.getText().toString(),responsable.getText().toString(),email.getText().toString(),telefono.getText().toString(),id_centro.getText().toString());
+                long codigoinsert = db.editarUsuario(idUsuario, centro.getText().toString(),responsable.getText().toString(),email.getText().toString(),telefono.getText().toString(),Integer.valueOf(id_centro.getText().toString()));
 
             }
         });

@@ -16,6 +16,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    Double Lat;
+    Double Lon;
+    String Nombre;
+    String centro;
 																									
 
     @Override
@@ -42,12 +46,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
+        SQLiteConexion db  = new SQLiteConexion(this);
+        Bundle b = this.getIntent().getExtras();
+        int idUsuario=b.getInt("idUsuario");
+
+        Usuarios usuario = db.getUser(idUsuario);
+        Centros centro = db.getCentro(usuario.getCentro());
+
+
+
         mMap = googleMap;
 
         // añade marcador instituto usuario
-        LatLng instituto = new LatLng(36.70850, -4.44825);
+        LatLng instituto = new LatLng(Double.valueOf(centro.getLocLat()), Double.valueOf(centro.getLocLong()));
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-        mMap.addMarker(new MarkerOptions().position(instituto).title("Medac San Rafael"));
+        mMap.addMarker(new MarkerOptions().position(instituto).title(centro.getCentro()));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(instituto, 20.01f));
     }
 }

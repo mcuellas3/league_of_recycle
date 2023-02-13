@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,8 +14,9 @@ public class Perfil_Usuario extends AppCompatActivity {
 
 
     TextView titulo;
-    EditText nombre, apellidos, email, telefono, id_centro;
+    EditText nombre, apellidos, email, telefono;
     Button editar, cambiarpass;
+    Spinner centro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class Perfil_Usuario extends AppCompatActivity {
         apellidos = (EditText) findViewById(R.id.perfilRes);
         email = (EditText) findViewById(R.id.perfilEmail);
         telefono = (EditText) findViewById(R.id.perfilTelefono);
-        id_centro = (EditText) findViewById(R.id.perfilIdcentro);
+        centro = (Spinner) findViewById(R.id.perfilCentr);
         editar = (Button) findViewById(R.id.btnEditar);
         cambiarpass = (Button) findViewById(R.id.btnCambiarpass);
 
@@ -43,16 +45,17 @@ public class Perfil_Usuario extends AppCompatActivity {
             telefono.setText(usuario.getTelefono());
         }
         email.setText(usuario.getEmail());
-        if (usuario.getId_centro() != 0){
-            telefono.setText(usuario.getId_centro());
+        if (usuario.getCentro() != 0){
+            centro.setSelection(usuario.getCentro());
         }
 
 
         editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                long codigoinsert = db.editarUsuario(idUsuario, nombre.getText().toString(),apellidos.getText().toString(),email.getText().toString(),telefono.getText().toString(),id_centro.getText().toString());
+                int codc=(int)centro.getSelectedItemId();
+                //codc=codc+1;
+                long codigoinsert = db.editarUsuario(idUsuario, nombre.getText().toString(),apellidos.getText().toString(),email.getText().toString(),telefono.getText().toString(),codc);
 
                 Toast.makeText(Perfil_Usuario.this, "Datos actualizados", Toast.LENGTH_LONG).show();
 

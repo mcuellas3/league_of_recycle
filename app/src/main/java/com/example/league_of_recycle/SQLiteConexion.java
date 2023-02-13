@@ -49,7 +49,6 @@ public class SQLiteConexion extends SQLiteOpenHelper {
 
 
     private final String KEY_ID_CENTRO = "id_centro";
-    private final String KEY_CODIGO_CENTRO = "codigo";
     private final String KEY_NOMBRE_CENTRO = "nombre";
     private final String KEY_LOC_LON = "lon";
     private final String KEY_LOC_LAT = "lat";
@@ -105,10 +104,9 @@ public class SQLiteConexion extends SQLiteOpenHelper {
 
         sql = "CREATE TABLE " + DATABASE_TABLE_CENTROS + " (" +
                 KEY_ID_CENTRO + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_CODIGO_CENTRO + " TEXT NOT NULL, " +
                 KEY_NOMBRE_CENTRO + " TEXT NOT NULL, " +
-                KEY_LOC_LON + " TEXT NOT NULL, " +
-                KEY_LOC_LAT + " TEXT NOT NULL," +
+                KEY_LOC_LAT + " TEXT NOT NULL, " +
+                KEY_LOC_LON + " TEXT NOT NULL," +
                 KEY_RESPONSABLE + " TEXT NOT NULL," +
                 KEY_DIRECCION + " TEXT," +
                 KEY_TELEFONO_CENTRO + " TEXT NOT NULL);";
@@ -170,7 +168,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         this.open();
         Usuarios usuario = new Usuarios();
 
-        String[] columnas = new String[] {KEY_ID_USUARIO,KEY_NOMBRE,KEY_APELLIDOS,KEY_EMAIL,KEY_PASS, KEY_ISADMIN};
+        String[] columnas = new String[] {KEY_ID_USUARIO,KEY_NOMBRE,KEY_APELLIDOS,KEY_EMAIL,KEY_PASS, KEY_ISADMIN,KEY_ID_CENTRO};
         String selection = KEY_ID_USUARIO + " = ?";
         String[] selectionArgs = new String[] { String.valueOf(idUsuario) };
 
@@ -182,6 +180,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         int iemail = c.getColumnIndex(KEY_EMAIL);
         int ipass = c.getColumnIndex(KEY_PASS);
         int iis_admin = c.getColumnIndex(KEY_ISADMIN);
+        int iidCentro = c.getColumnIndex(KEY_ID_CENTRO);
 
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
             usuario.setId_usuario(c.getInt(iid_usuario));
@@ -194,6 +193,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
             } else{
                 usuario.setIs_admin(true);
             }
+            usuario.setCentro(c.getInt(iidCentro));
         }
 
         return usuario;
@@ -249,6 +249,71 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         }
         this.close();;
         return val;
+    }
+
+    public Centros getCentro (String ncentro){
+        this.open();
+        Centros centro = new Centros();
+
+        String[] columnas = new String[] {KEY_ID_CENTRO,KEY_NOMBRE_CENTRO,KEY_LOC_LAT,KEY_LOC_LON,KEY_RESPONSABLE, KEY_DIRECCION, KEY_TELEFONO_CENTRO};
+        String selection = KEY_NOMBRE_CENTRO + " = ?";
+        String[] selectionArgs = new String[] { String.valueOf(ncentro) };
+
+        Cursor c = this.ourDatabase.query(DATABASE_TABLE_CENTROS, columnas,selection,selectionArgs,null,null,null,null);
+        boolean val =false;
+        int iid_centro = c.getColumnIndex(KEY_ID_CENTRO);
+        int inombre = c.getColumnIndex(KEY_NOMBRE_CENTRO);
+        int ilat = c.getColumnIndex(KEY_LOC_LAT);
+        int ilon = c.getColumnIndex(KEY_LOC_LON);
+        int iid_responsable = c.getColumnIndex(KEY_RESPONSABLE);
+        int idireccion = c.getColumnIndex(KEY_DIRECCION);
+        int itelefono = c.getColumnIndex(KEY_TELEFONO_CENTRO);
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            centro.setId_centro(c.getInt(iid_centro));
+            centro.setNombre(c.getString(inombre));
+            centro.setLocLat(c.getString(ilat));
+            centro.setLocLong(c.getString(ilon));
+            centro.setId_responsable(c.getInt(iid_responsable));
+            centro.setDireccion(c.getString(idireccion));
+            centro.setTelefono(c.getString(itelefono));
+            centro.setResponsable(getUser(centro.getId_responsable()));
+        }
+
+        return centro;
+    }
+
+    public Centros getCentro (int ncentro){
+        this.open();
+        Centros centro = new Centros();
+
+        String[] columnas = new String[] {KEY_ID_CENTRO,KEY_NOMBRE_CENTRO,KEY_LOC_LAT,KEY_LOC_LON,KEY_RESPONSABLE, KEY_DIRECCION, KEY_TELEFONO_CENTRO};
+        String selection = KEY_ID_CENTRO + " = ?";
+        String[] selectionArgs = new String[] { String.valueOf(ncentro) };
+
+        Cursor c = this.ourDatabase.query(DATABASE_TABLE_CENTROS, columnas,selection,selectionArgs,null,null,null,null);
+        boolean val =false;
+        int iid_centro = c.getColumnIndex(KEY_ID_CENTRO);
+        int inombre = c.getColumnIndex(KEY_NOMBRE_CENTRO);
+        int ilat = c.getColumnIndex(KEY_LOC_LAT);
+        int ilon = c.getColumnIndex(KEY_LOC_LON);
+        int iid_responsable = c.getColumnIndex(KEY_RESPONSABLE);
+        int idireccion = c.getColumnIndex(KEY_DIRECCION);
+        int itelefono = c.getColumnIndex(KEY_TELEFONO_CENTRO);
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            centro.setId_centro(c.getInt(iid_centro));
+            centro.setNombre(c.getString(inombre));
+            centro.setLocLat(c.getString(ilat));
+            centro.setLocLong(c.getString(ilon));
+            centro.setId_responsable(c.getInt(iid_responsable));
+            centro.setDireccion(c.getString(idireccion));
+            centro.setTelefono(c.getString(itelefono));
+
+            centro.setResponsable(getUser(centro.getId_responsable()));
+        }
+
+        return centro;
     }
 
     public boolean checkUserByName (String Usuario){
@@ -320,7 +385,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     }
 
 
-    public Long editarUsuario(int idUsuario, String nombre, String apellidos, String email, String telefono, String id_centro) {
+    public Long editarUsuario(int idUsuario, String nombre, String apellidos, String email, String telefono, int id_centro) {
         this.open();
         this.ourDatabase.beginTransaction();
         long codigoInsert=0;
@@ -434,6 +499,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         this.close();
         return resultado;
     }
+
 
 }
 

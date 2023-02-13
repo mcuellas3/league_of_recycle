@@ -61,27 +61,10 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-			
-																				   
 
-													
-
-																						
-
-																							  
-																						 
-																	   
-		   
-				  
-														 
-										   
 
         <activity
-            android:name=".MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps" />
-        <activity
-            android:name=".CasaActivity"
+            android:name=".HomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

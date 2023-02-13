@@ -184,13 +184,17 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/perfilIdcentro"
-            android:layout_width="209dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="29dp"
-            android:textColor="#607D8B"
-            android:textSize="18dp" />
+        <Spinner
+            android:id="@+id/perfilCentr"
+            android:layout_width="235dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="1"
+            android:entries="@array/centros"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:spinnerMode="dropdown" />
 
     </LinearLayout>
     <View

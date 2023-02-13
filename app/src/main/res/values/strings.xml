@@ -14,6 +14,13 @@
     <string name="TelefonoDato">TELEFONO:</string>
     <string name="Actualizar_Datos">Actualizar Datos:</string>
     <string name="Actualizar_Contraseña">Actualizar Contraseña:</string>
+    <string-array name="centros">
+        <item></item>
+        <item>IES Medac San Rafael</item>
+        <item>IES Alvaro de Mendaña</item>
+        <item>IES Medac Valladolid</item>
+        <item>IES Medac Cordoba</item>
+    </string-array>
 
 
 </resources>

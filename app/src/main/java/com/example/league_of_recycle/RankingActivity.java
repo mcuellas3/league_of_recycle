@@ -9,8 +9,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ListAdapter;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +26,7 @@ public class RankingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ranking);
         String idUsuario = getIntent().getStringExtra("idUsuario"); //pasamos el usuario entre activitys
 
-         this.db = new SQLiteConexion(this);
+        this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
         int idUser=b.getInt("idUsuario");
 
@@ -100,7 +98,7 @@ public class RankingActivity extends AppCompatActivity {
 
     //metodo para mostra el menu superior
     public boolean onCreateOptionsMenu(Menu menu){
-        getMenuInflater().inflate(R.menu.menu, menu);
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
         return true;
     }
     // metodo ocultar menu no funciona getItemId
