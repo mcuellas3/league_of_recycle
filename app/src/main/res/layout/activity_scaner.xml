@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="50dp"
         android:background="@color/Primary"
         android:gravity="center"
         android:orientation="horizontal"
@@ -22,9 +22,9 @@
 
         <ImageButton
             android:id="@+id/imageButton7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
             android:background="@color/Primary"
             android:contentDescription="home"
             android:onClick="Home"
@@ -33,9 +33,9 @@
 
         <ImageButton
             android:id="@+id/imageButton12"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
             android:background="@color/Primary"
             android:contentDescription="map"
             android:onClick="Map"
@@ -44,9 +44,9 @@
 
         <ImageButton
             android:id="@+id/imageButton13"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
             android:background="@color/Primary"
             android:contentDescription="scan"
             android:onClick="scan"
@@ -55,9 +55,9 @@
 
         <ImageButton
             android:id="@+id/imageButton14"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
             android:background="@color/Primary"
             android:contentDescription="ranking"
             android:onClick="Ranking"
@@ -66,9 +66,9 @@
 
         <ImageButton
             android:id="@+id/imageButton15"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_margin="15dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
             android:background="@color/Primary"
             android:contentDescription="info"
             android:onClick="Info"
