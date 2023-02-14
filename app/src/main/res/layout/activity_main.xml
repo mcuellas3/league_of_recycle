@@ -4,20 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mundo"
+    android:background="@drawable/background_login"
     tools:context=".MainActivity">
 
 
     <ImageView
         android:id="@+id/logozabbal"
-        android:layout_width="346dp"
-        android:layout_height="294dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="217dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.041"
         app:srcCompat="@drawable/logo_zabbal" />
 
     <EditText
@@ -25,6 +24,7 @@
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:layout_below="@+id/logozabbal"
+        android:layout_marginTop="48dp"
         android:background="@drawable/shape2"
         android:drawableLeft="@drawable/ic_person"
         android:drawablePadding="15dp"
@@ -32,32 +32,28 @@
         android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toTopOf="@+id/passwordLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.975" />
-
+        app:layout_constraintTop_toBottomOf="@+id/logozabbal" />
 
     <EditText
         android:id="@+id/passwordLogin"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:layout_below="@+id/usuarioRecpass"
+
+        android:layout_marginTop="8dp"
         android:background="@drawable/shape2"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
-
         android:drawablePadding="15dp"
         android:editable="true"
         android:hint="Contraseña"
         android:inputType="textPassword"
         android:paddingLeft="15dp"
         android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
+        app:layout_constraintTop_toBottomOf="@+id/usuarioRecpass" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnSend"
@@ -72,10 +68,9 @@
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.618"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLogin"
+        app:layout_constraintVertical_bias="0.032"
         tools:ignore="MissingConstraints" />
 
     <TextView
@@ -83,22 +78,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/white"
         android:text="¿Olvidaste la contraseña?"
         android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSend"
-        app:layout_constraintVertical_bias="0.056" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSend" />
 
     <TextView
         android:id="@+id/forgotpass2"
         android:layout_width="115dp"
         android:layout_height="31dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="4dp"
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif-black"
         android:text="Recuperala aquí"
@@ -117,10 +110,10 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.908" />
+        app:layout_constraintVertical_bias="0.883" />
 
     <TextView
         android:id="@+id/txvRecpass"
@@ -133,10 +126,9 @@
         android:textColor="@color/Primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.93" />
+        app:layout_constraintTop_toBottomOf="@+id/others"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
