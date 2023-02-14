@@ -1,5 +1,6 @@
 package com.example.league_of_recycle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -17,7 +19,7 @@ public class RankingActivity extends AppCompatActivity {
 
     List<ListRanking> elements;
     ImageButton casa, mapa, escaner, ranking, informacion;
-
+    int idUser;
     SQLiteConexion db;
 
     @Override
@@ -28,7 +30,7 @@ public class RankingActivity extends AppCompatActivity {
 
         this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
-        int idUser=b.getInt("idUsuario");
+        this.idUser=b.getInt("idUsuario");
 
         init();
 
@@ -37,17 +39,9 @@ public class RankingActivity extends AppCompatActivity {
 
         casa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Usuarios usuario = db.getUser(idUser);
-
-                if (usuario.getIs_admin()){
-                    Intent casa = new Intent(RankingActivity.this, Perfil_Usuario_AdminActivity.class);
-                    casa.putExtra("idUsuario", idUser);
-                    startActivity(casa);
-                }else {
-                    Intent casa = new Intent(RankingActivity.this, Perfil_Usuario.class);
-                    casa.putExtra("idUsuario", idUser);
-                    startActivity(casa);
-                }
+                Intent casa = new Intent(RankingActivity.this, HomeActivity.class);
+                casa.putExtra("idUsuario", idUsuario);
+                startActivity(casa);
             }
         });
 
@@ -107,13 +101,43 @@ public class RankingActivity extends AppCompatActivity {
         //return super.onOptionsItemSelected(item);
    //
 
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Bundle b = this.getIntent().getExtras();
+        int idUsuario = b.getInt("idUsuario");
+
+        switch ((item.getItemId())) {
+            case R.id.item1:
+                Usuarios usuario = db.getUser(idUsuario);
+
+                if (usuario.getIs_admin()) {
+                    Intent perfil = new Intent(RankingActivity.this, Perfil_Usuario.class);
+                    perfil.putExtra("idUsuario", idUsuario);
+                    startActivity(perfil);
+                } else {
+                    Intent perfil = new Intent(RankingActivity.this, Perfil_Usuario.class);
+                    perfil.putExtra("idUsuario", idUsuario);
+                    startActivity(perfil);
+                }
+                return true;
+
+            case R.id.item2:
+                Intent login = new Intent(RankingActivity.this, MainActivity.class);
+                startActivity(login);
+
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     //Metodo para mostrar la lista del ranking
 
     public void init(){
 
         elements = new ArrayList<>();
-        elements=this.db.getRanking();
+        Usuarios usuario = db.getUser(this.idUser);
+
+        elements=this.db.getRanking(usuario.getCentro());
 
         //elements.add(new ListRanking("manuel", "1500",""));
 

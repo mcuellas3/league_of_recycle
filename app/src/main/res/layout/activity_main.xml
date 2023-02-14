@@ -21,7 +21,7 @@
         app:srcCompat="@drawable/logo_zabbal" />
 
     <EditText
-        android:id="@+id/usuarioLogin"
+        android:id="@+id/usuarioRecpass"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:layout_below="@+id/logozabbal"
@@ -43,7 +43,7 @@
         android:id="@+id/passwordLogin"
         android:layout_width="275dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/usuarioLogin"
+        android:layout_below="@+id/usuarioRecpass"
         android:background="@drawable/shape2"
         android:drawableLeft="@drawable/ic_baseline_lock_24"
 
@@ -60,7 +60,7 @@
         app:layout_constraintVertical_bias="0.499" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnSend"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:layout_below="@+id/passwordLogin"
@@ -90,25 +90,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+        app:layout_constraintTop_toBottomOf="@+id/btnSend"
         app:layout_constraintVertical_bias="0.056" />
 
     <TextView
         android:id="@+id/forgotpass2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="31dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="236dp"
+        android:layout_marginTop="4dp"
         android:backgroundTint="@color/white"
         android:fontFamily="sans-serif-black"
         android:text="Recuperala aquí"
         android:textColor="@color/Primary"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoFaq"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textoFaq" />
 
     <TextView
         android:id="@+id/others"
@@ -126,7 +123,7 @@
         app:layout_constraintVertical_bias="0.908" />
 
     <TextView
-        android:id="@+id/others2"
+        android:id="@+id/txvRecpass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/others"

@@ -1,11 +1,14 @@
 package com.example.league_of_recycle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,13 +23,14 @@ public class ScanerActivity extends AppCompatActivity {
     Button BtnScan;
     EditText TxtResult;
     ImageButton casa, mapa, escaner, ranking, informacion;
+    SQLiteConexion db;
     Integer coduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scaner);
-        SQLiteConexion db = new SQLiteConexion(this);
+        this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
         int idUsuario=b.getInt("idUsuario");
         coduser =idUsuario;
@@ -40,17 +44,9 @@ public class ScanerActivity extends AppCompatActivity {
 
         casa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Usuarios usuario = db.getUser(idUsuario);
-
-                if (usuario.getIs_admin()){
-                    Intent casa = new Intent(ScanerActivity.this, Perfil_Usuario_AdminActivity.class);
-                    casa.putExtra("idUsuario", idUsuario);
-                    startActivity(casa);
-                }else {
-                    Intent casa = new Intent(ScanerActivity.this, Perfil_Usuario.class);
-                    casa.putExtra("idUsuario", idUsuario);
-                    startActivity(casa);
-                }
+                Intent casa = new Intent(ScanerActivity.this, HomeActivity.class);
+                casa.putExtra("idUsuario", idUsuario);
+                startActivity(casa);
             }
         });
 
@@ -121,6 +117,40 @@ public class ScanerActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Bundle b = this.getIntent().getExtras();
+        int idUsuario = b.getInt("idUsuario");
+
+        switch ((item.getItemId())) {
+            case R.id.item1:
+                Usuarios usuario = db.getUser(idUsuario);
+
+                if (usuario.getIs_admin()) {
+                    Intent perfil = new Intent(ScanerActivity.this, Perfil_Usuario_AdminActivity.class);
+                    perfil.putExtra("idUsuario", idUsuario);
+                    startActivity(perfil);
+                } else {
+                    Intent perfil = new Intent(ScanerActivity.this, Perfil_Usuario.class);
+                    perfil.putExtra("idUsuario", idUsuario);
+                    startActivity(perfil);
+                }
+                return true;
+
+            case R.id.item2:
+                Intent login = new Intent(ScanerActivity.this, MainActivity.class);
+                startActivity(login);
+
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

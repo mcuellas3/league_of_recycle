@@ -119,9 +119,9 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         db.execSQL(sql);
 
         sql="create view " +DATABASE_VIEW_RANKING +" as " +
-        "select nombre,sum(puntos) puntos " +
+        "select nombre,id_centro,sum(puntos) puntos " +
         "from puntos inner join usuarios on usuarios.id_usuario=puntos.id_usuario "  +
-        "group by puntos.id_usuario " +
+        "group by puntos.id_usuario,id_centro " +
         "order by sum(puntos) desc";
         db.execSQL(sql);
 
@@ -478,10 +478,12 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     }
 
 
-    public  ArrayList<ListRanking> getRanking() {
+    public  ArrayList<ListRanking> getRanking(int ncentro ) {
         this.open();
-        String[] columnas = new String[] {KEY_NOMBRE, KEY_PUNTOS};
-        Cursor c = this.ourDatabase.query(DATABASE_VIEW_RANKING, columnas,null,null,null,null,null,null);
+        String[] columnas = new String[] {KEY_NOMBRE,KEY_ID_CENTRO, KEY_PUNTOS};
+        String selection = KEY_ID_CENTRO + " = ?" ;
+        String[] selectionArgs = new String[] {  String.valueOf(ncentro) };
+        Cursor c = this.ourDatabase.query(DATABASE_VIEW_RANKING, columnas,selection,selectionArgs,null,null,null,null);
 
         ArrayList<ListRanking> resultado = new ArrayList<ListRanking>();
 

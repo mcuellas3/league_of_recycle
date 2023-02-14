@@ -1,16 +1,11 @@
 package com.example.league_of_recycle;
 
-import static java.nio.charset.StandardCharsets.ISO_8859_1;
-import static java.nio.charset.StandardCharsets.UTF_8;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.database.DatabaseUtils;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,20 +22,22 @@ public class MainActivity extends AppCompatActivity {
 
     SQLiteConexion db = new SQLiteConexion(this);
     EditText usuario,pass;
-    TextView registrateAqui;
+    TextView registrateAqui, forgotpass;
     MaterialButton btnLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //getActionBar().hide();
 
         inicializar();
 
-        usuario = (EditText) findViewById(R.id.usuarioLogin);
+        usuario = (EditText) findViewById(R.id.usuarioRecpass);
         pass = (EditText) findViewById(R.id.passwordLogin);
-        btnLogin = (MaterialButton) findViewById(R.id.btnLogin);
-        registrateAqui = (TextView) findViewById(R.id.others2);
+        btnLogin = (MaterialButton) findViewById(R.id.btnSend);
+        forgotpass = (TextView) findViewById(R.id.forgotpass2);
+        registrateAqui = (TextView) findViewById(R.id.txvRecpass);
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -52,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
                     int idUsuario=db.login(usuario.getText().toString(), pass.getText().toString());
                     if (idUsuario!=0) {
                         //Usuarios user = db.getUser(idUsuario);
-                        Intent i = new Intent(MainActivity.this, ScanerActivity.class);
+                        Intent i = new Intent(MainActivity.this, HomeActivity.class);
                         i.putExtra("idUsuario", idUsuario);
                         startActivity(i);
                     } else {
-                        Toast.makeText(MainActivity.this, "No existe el usuario", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "No existe el usuario o la contraseña es incorrecta", Toast.LENGTH_LONG).show();
                     }
                 }
                 else    {
@@ -66,11 +63,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent pass = new Intent(MainActivity.this, RecpassActivity.class);
+                startActivity(pass);
+            }
+        });
+
         registrateAqui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, RegistroActivity.class);
-                startActivity(i);
+                Intent registro = new Intent(MainActivity.this, RegistroActivity.class);
+                startActivity(registro);
             }
         });
 

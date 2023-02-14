@@ -1,5 +1,6 @@
 package com.example.league_of_recycle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +10,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -21,11 +24,14 @@ public class InfoActivity extends AppCompatActivity {
 
     ImageButton casa, mapa, escaner, ranking, informacion;
 
+    SQLiteConexion db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
         int idUsuario=b.getInt("idUsuario");
 
@@ -59,7 +65,7 @@ public class InfoActivity extends AppCompatActivity {
 
         casa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent casa = new Intent(InfoActivity.this, Perfil_Usuario.class);
+                Intent casa = new Intent(InfoActivity.this, HomeActivity.class);
                 casa.putExtra("idUsuario", idUsuario);
                 startActivity(casa);
             }
@@ -109,6 +115,40 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.activity_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        Bundle b = this.getIntent().getExtras();
+        int idUsuario = b.getInt("idUsuario");
+
+        switch ((item.getItemId())) {
+            case R.id.item1:
+                Usuarios usuario = db.getUser(idUsuario);
+
+                if (usuario.getIs_admin()) {
+                    Intent perfil = new Intent(InfoActivity.this, Perfil_Usuario.class);
+                    perfil.putExtra("idUsuario", idUsuario);
+                    startActivity(perfil);
+                } else {
+                    Intent perfil = new Intent(InfoActivity.this, Perfil_Usuario.class);
+                    perfil.putExtra("idUsuario", idUsuario);
+                    startActivity(perfil);
+                }
+                return true;
+
+            case R.id.item2:
+                Intent login = new Intent(InfoActivity.this, MainActivity.class);
+                startActivity(login);
+
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void expand(View view) {

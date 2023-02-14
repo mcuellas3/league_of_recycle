@@ -35,4 +35,5 @@ public class ListRanking {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+
 }
