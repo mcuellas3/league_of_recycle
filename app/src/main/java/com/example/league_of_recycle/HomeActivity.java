@@ -9,11 +9,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class HomeActivity extends AppCompatActivity {
 
     ImageButton casa, mapa, escaner, ranking, informacion;
     SQLiteConexion db;
+    ImageView desafio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +24,17 @@ public class HomeActivity extends AppCompatActivity {
         this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
         int idUsuario = b.getInt("idUsuario");
+
+        desafio = (ImageView)findViewById(R.id.desafio);
+
+        desafio.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent pass = new Intent(HomeActivity.this, DesafiosActivity.class);
+                startActivity(pass);
+            }
+        });
+
 
         // Casa
         casa = findViewById(R.id.imageButton7);
