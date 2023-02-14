@@ -75,4 +75,56 @@
             app:srcCompat="@drawable/menu" />
 
     </LinearLayout>
+
+
+    <TextView
+            android:id="@+id/tv_infop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:text="Envases reciclados"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/tv_inforec"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/tv_inforec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:orientation="vertical"
+            android:text="Tus puntos actuales son:"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/tv_pinfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="puntos"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_inforec"
+        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintStart_toStartOf="@+id/tv_inforec"
+        tools:layout_editor_absoluteY="125dp" />
+
+    <TextView
+        android:id="@+id/tv_recinf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="puntos"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/tv_infop"
+        app:layout_constraintHorizontal_bias="0.919"
+        app:layout_constraintStart_toStartOf="@+id/tv_infop"
+        tools:layout_editor_absoluteY="237dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
