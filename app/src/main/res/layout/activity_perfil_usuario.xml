@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_login"
     android:orientation="vertical"
-    tools:context=".Perfil_Usuario"
-    android:background="@drawable/background_login">
+    tools:context=".Perfil_Usuario">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +25,7 @@
             android:src="@drawable/img_avatar" />
 
         <TextView
-            android:id="@+id/perfilCentro"
+            android:id="@+id/admNombreCentro"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -46,28 +45,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical">
+        android:paddingRight="15dp">
 
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_person"/>
+            android:src="@drawable/ic_person" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="Nombre"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18dp"
-            android:layout_marginLeft="5dp"/>
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/perfilNombre"
+            android:id="@+id/admResp"
             android:layout_width="208dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
@@ -75,38 +75,41 @@
             android:textSize="18dp" />
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#607D8B"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="#607D8B" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical">
+        android:paddingRight="15dp">
 
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_person"/>
+            android:src="@drawable/ic_person" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="Apellidos"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18dp"
-            android:layout_marginLeft="5dp"/>
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/perfilRes"
+            android:id="@+id/admDireccion"
             android:layout_width="205dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
@@ -114,38 +117,41 @@
             android:textSize="18dp" />
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#607D8B"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="#607D8B" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical">
+        android:paddingRight="15dp">
 
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_baseline_phone_24"/>
+            android:src="@drawable/ic_baseline_phone_24" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="Telefono"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18dp"
-            android:layout_marginLeft="5dp"/>
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/perfilTelefono"
+            android:id="@+id/admTelefono"
             android:layout_width="209dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -153,27 +159,29 @@
             android:textSize="18dp" />
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#607D8B"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="#607D8B" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical">
+        android:paddingRight="15dp">
 
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_cole"/>
+            android:src="@drawable/ic_cole" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -197,38 +205,41 @@
             android:spinnerMode="dropdown" />
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#607D8B"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="#607D8B" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
         android:orientation="horizontal"
         android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center_vertical">
+        android:paddingRight="15dp">
 
 
         <ImageView
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:src="@drawable/ic_email"/>
+            android:src="@drawable/ic_email" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="Email"
-            android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18dp"
-            android:layout_marginLeft="5dp"/>
+            android:textStyle="bold" />
 
         <EditText
-            android:id="@+id/perfilEmail"
+            android:id="@+id/admEmail"
             android:layout_width="259dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="46dp"
@@ -236,20 +247,21 @@
             android:textSize="18dp" />
 
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="#607D8B"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"/>
-    
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="15dp"
+        android:background="#607D8B" />
+
     <LinearLayout
-        android:layout_height="wrap_content"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:gravity="center"
-        android:orientation="vertical"/>
+        android:orientation="vertical" />
 
 
     <Button

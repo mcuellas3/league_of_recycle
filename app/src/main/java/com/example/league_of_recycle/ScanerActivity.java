@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -133,12 +132,12 @@ public class ScanerActivity extends AppCompatActivity {
             case R.id.item1:
                 Usuarios usuario = db.getUser(idUsuario);
 
-                if (usuario.getIs_admin()) {
-                    Intent perfil = new Intent(ScanerActivity.this, Perfil_Usuario_AdminActivity.class);
+                if (!usuario.getIs_admin()) {
+                    Intent perfil = new Intent(ScanerActivity.this, Perfil_Usuario.class);
                     perfil.putExtra("idUsuario", idUsuario);
                     startActivity(perfil);
                 } else {
-                    Intent perfil = new Intent(ScanerActivity.this, Perfil_Usuario.class);
+                    Intent perfil = new Intent(ScanerActivity.this, PerfilAdminActivity.class);
                     perfil.putExtra("idUsuario", idUsuario);
                     startActivity(perfil);
                 }

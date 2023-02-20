@@ -80,7 +80,7 @@
         android:layout_width="357dp"
         android:layout_height="137dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:text="Estamos aquí para ayudarte y responder a cualquier duda que tengas, estas son las más comunes."
         android:textColor="@color/black"
         android:textSize="65px"
@@ -100,10 +100,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.092"
+        app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277" />
+        app:layout_constraintVertical_bias="0.216" />
 
     <ScrollView
         android:layout_width="match_parent"

@@ -110,12 +110,12 @@ public class RankingActivity extends AppCompatActivity {
             case R.id.item1:
                 Usuarios usuario = db.getUser(idUsuario);
 
-                if (usuario.getIs_admin()) {
+                if (!usuario.getIs_admin()) {
                     Intent perfil = new Intent(RankingActivity.this, Perfil_Usuario.class);
                     perfil.putExtra("idUsuario", idUsuario);
                     startActivity(perfil);
                 } else {
-                    Intent perfil = new Intent(RankingActivity.this, Perfil_Usuario.class);
+                    Intent perfil = new Intent(RankingActivity.this, PerfilAdminActivity.class);
                     perfil.putExtra("idUsuario", idUsuario);
                     startActivity(perfil);
                 }

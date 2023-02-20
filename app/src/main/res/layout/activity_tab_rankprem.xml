@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAlignment="center"
+    tools:context=".HomeActivity">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabRankPrem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/Primary"
+        app:tabTextColor="@color/black">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabRanking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ranking" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabPremios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Premios" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/tabPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabRankPrem">
+
+    </androidx.viewpager.widget.ViewPager>
+</RelativeLayout>

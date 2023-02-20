@@ -26,11 +26,11 @@ public class Perfil_Usuario extends AppCompatActivity {
         Bundle b = this.getIntent().getExtras();
         int idUsuario=b.getInt("idUsuario");
 
-        titulo = (TextView) findViewById(R.id.perfilCentro);
-        nombre = (EditText) findViewById(R.id.perfilNombre);
-        apellidos = (EditText) findViewById(R.id.perfilRes);
-        email = (EditText) findViewById(R.id.perfilEmail);
-        telefono = (EditText) findViewById(R.id.perfilTelefono);
+        titulo = (TextView) findViewById(R.id.admNombreCentro);
+        nombre = (EditText) findViewById(R.id.admResp);
+        apellidos = (EditText) findViewById(R.id.admDireccion);
+        email = (EditText) findViewById(R.id.admEmail);
+        telefono = (EditText) findViewById(R.id.admTelefono);
         centro = (Spinner) findViewById(R.id.perfilCentr);
         editar = (Button) findViewById(R.id.btnEditar);
         cambiarpass = (Button) findViewById(R.id.btnCambiarpass);
@@ -54,7 +54,6 @@ public class Perfil_Usuario extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 int codc=(int)centro.getSelectedItemId();
-                //codc=codc+1;
                 long codigoinsert = db.editarUsuario(idUsuario, nombre.getText().toString(),apellidos.getText().toString(),email.getText().toString(),telefono.getText().toString(),codc);
 
                 Toast.makeText(Perfil_Usuario.this, "Datos actualizados", Toast.LENGTH_LONG).show();

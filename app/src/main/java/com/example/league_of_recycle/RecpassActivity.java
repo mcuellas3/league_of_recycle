@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +13,7 @@ import com.google.android.material.button.MaterialButton;
 
 public class RecpassActivity extends AppCompatActivity {
 
-    SQLiteConexion db = new SQLiteConexion(this);
+    SQLiteConexion db;
     EditText usuario;
     MaterialButton btnLogin;
 
@@ -22,6 +23,7 @@ public class RecpassActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recpass);
         //getActionBar().hide();
 
+        db = new SQLiteConexion(this);
         usuario = (EditText) findViewById(R.id.usuarioRecpass);
         btnLogin = (MaterialButton) findViewById(R.id.btnSend);
 
@@ -32,6 +34,7 @@ public class RecpassActivity extends AppCompatActivity {
 
                 //Usuarios user = db.getUser(idUsuario);
                 Intent i = new Intent(RecpassActivity.this, MainActivity.class);
+                Toast.makeText(RecpassActivity.this, "Recibiras en tu email instrucciones para el cambio de contraseña", Toast.LENGTH_LONG).show();
                 startActivity(i);
             }
         });

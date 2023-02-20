@@ -20,6 +20,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView nombre;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +34,9 @@ public class HomeActivity extends AppCompatActivity {
         desafio = (ImageView)findViewById(R.id.desafio);
         noticias = (ImageView)findViewById(R.id.news);
 
-
-        SQLiteConexion db = new SQLiteConexion(this);
         Usuarios usuario = db.getUser(idUsuario);
         nombre.setText(usuario.getNombre() + " " + usuario.getApellidos());
+
 
         desafio.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -93,7 +93,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ranking.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent ranking = new Intent(HomeActivity.this, RankingActivity.class);
+                Intent ranking = new Intent(HomeActivity.this, TabRankPremActivity.class);
                 ranking.putExtra("idUsuario", idUsuario);
                 startActivity(ranking);
             }
@@ -125,12 +125,12 @@ public class HomeActivity extends AppCompatActivity {
             case R.id.item1:
                 Usuarios usuario = db.getUser(idUsuario);
 
-                if (usuario.getIs_admin()) {
+                if (!usuario.getIs_admin()) {
                     Intent perfil = new Intent(HomeActivity.this, Perfil_Usuario.class);
                     perfil.putExtra("idUsuario", idUsuario);
                     startActivity(perfil);
                 } else {
-                    Intent perfil = new Intent(HomeActivity.this, Perfil_Usuario.class);
+                    Intent perfil = new Intent(HomeActivity.this, PerfilAdminActivity.class);
                     perfil.putExtra("idUsuario", idUsuario);
                     startActivity(perfil);
                 }
@@ -144,4 +144,5 @@ public class HomeActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

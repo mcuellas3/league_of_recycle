@@ -78,9 +78,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(registro);
             }
         });
-
-
-
     }
 
     private void inicializar(){
