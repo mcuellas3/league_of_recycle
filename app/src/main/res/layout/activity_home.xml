@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv1"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
         android:layout_marginBottom="28dp"
         android:animateLayoutChanges="true"
         app:cardCornerRadius="20dp"
@@ -21,7 +21,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/cv2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.083">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -34,7 +34,7 @@
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/envase"
+                android:background="@drawable/recycling"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp" />
 
@@ -49,9 +49,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:orientation="vertical"
-                    android:text="Envases reciclados"
+                    android:text="Envases reciclados:"
                     android:textColor="@android:color/black"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -73,8 +73,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv2"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-400dp"
+        android:layout_height="230dp"
         android:animateLayoutChanges="true"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
@@ -84,7 +83,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.509">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -97,7 +96,7 @@
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/puntos"
+                android:background="@drawable/punt"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp" />
 
@@ -112,9 +111,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginLeft="4dp"
                     android:orientation="vertical"
-                    android:text="Puntos obtenidos"
+                    android:text="Puntos obtenidos:"
                     android:textColor="@android:color/black"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -136,7 +135,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv3"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
         android:animateLayoutChanges="true"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
@@ -146,7 +145,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cv2"
-        app:layout_constraintVertical_bias="0.229">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -159,7 +158,7 @@
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/huella2"
+                android:background="@drawable/huelco2"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp" />
 
@@ -174,9 +173,9 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:orientation="vertical"
-                    android:text="Has reducido tu huella de carbono en "
+                    android:text="Reducción huella carbono:"
                     android:textColor="@android:color/black"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -198,7 +197,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv4"
         android:layout_width="200dp"
-        android:layout_height="wrap_content"
+        android:layout_height="230dp"
         android:animateLayoutChanges="true"
         app:cardCornerRadius="20dp"
         app:cardElevation="4dp"
@@ -206,7 +205,7 @@
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cv2"
-        app:layout_constraintVertical_bias="0.229">
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -219,7 +218,7 @@
                 android:layout_width="200dp"
                 android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:background="@drawable/montana"
+                android:background="@drawable/kil"
                 android:paddingLeft="14dp"
                 android:paddingRight="14dp" />
 
@@ -234,13 +233,133 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:orientation="vertical"
-                    android:text="Kilos recogidos"
+                    android:text="Kilos recogidos:"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_info4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="puntos"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv5"
+        android:layout_width="200dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="208dp"
+        android:animateLayoutChanges="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/desafio"
+                android:layout_width="201dp"
+                android:layout_height="154dp"
+                android:layout_gravity="center"
+                android:background="@drawable/desaf"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_text5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:orientation="vertical"
+                    android:text="Desafio mensual:"
+                    android:textColor="@android:color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_info5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:text="puntos"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv6"
+        android:layout_width="200dp"
+        android:layout_height="230dp"
+        android:animateLayoutChanges="true"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="4dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/news"
+                android:layout_width="200dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:background="@drawable/nott"
+                android:paddingLeft="14dp"
+                android:paddingRight="14dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_text6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:orientation="vertical"
+                    android:text="Noticias:"
                     android:textColor="@android:color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/tv_info4"
+                    android:id="@+id/tv_info6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="20dp"
