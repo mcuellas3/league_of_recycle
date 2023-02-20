@@ -140,6 +140,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Inicia sesión"
+        android:fontFamily="sans-serif-black"
         android:textColor="@color/Primary"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
