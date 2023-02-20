@@ -1,376 +1,350 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Hola, "
+        android:textColor="@color/Primary"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nombreDelUsuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-black"
+
+        android:textColor="@color/Primary"
+        android:textSize="25dp"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        android:text="Aquí tienes un resumen de tu actividad:"
+        android:textColor="@color/black"
+        android:textSize="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cv1"
-        android:layout_width="200dp"
-        android:layout_height="230dp"
-        android:layout_marginBottom="28dp"
-        android:animateLayoutChanges="true"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:layout_width="150dp"
+        android:layout_height="175dp"
+        app:layout_constraintBottom_toTopOf="@+id/cv4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/cv2"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="175dp"
             android:animateLayoutChanges="true"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/fotograf"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:background="@drawable/recycling"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp" />
+                app:srcCompat="@drawable/recycling"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="61dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_txt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Envases reciclados:"
+                android:textColor="@color/black"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_info1"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:fontFamily="sans-serif"
+                android:text="puntos">
 
-                <TextView
-                    android:id="@+id/tv_txt1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:orientation="vertical"
-                    android:text="Envases reciclados:"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_info1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="puntos"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            </TextView>
 
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv2"
-        android:layout_width="200dp"
-        android:layout_height="230dp"
-        android:animateLayoutChanges="true"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_width="150dp"
+        android:layout_height="175dp"
+        app:layout_constraintBottom_toTopOf="@+id/cv3"
+        app:layout_constraintEnd_toStartOf="@+id/cv1"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="175dp"
             android:animateLayoutChanges="true"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/fotoenv"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:background="@drawable/punt"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp" />
+                app:srcCompat="@drawable/punt"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="61dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_txtenv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Puntos obtenidos:"
+                android:textColor="@color/black"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_infoenv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:fontFamily="sans-serif"
+                android:text="puntos">
 
-                <TextView
-                    android:id="@+id/tv_txtenv"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="4dp"
-                    android:orientation="vertical"
-                    android:text="Puntos obtenidos:"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_infoenv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="puntos"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            </TextView>
 
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv3"
-        android:layout_width="200dp"
-        android:layout_height="230dp"
-        android:animateLayoutChanges="true"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_width="150dp"
+        android:layout_height="175dp"
+        app:layout_constraintBottom_toTopOf="@+id/cv5"
+        app:layout_constraintEnd_toStartOf="@+id/cv4"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cv2"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="175dp"
             android:animateLayoutChanges="true"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/huella"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:background="@drawable/huelco2"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp" />
+                app:srcCompat="@drawable/huelco2"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="61dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Reducción huella carbono:"
+                android:textColor="@color/black"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_info3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:fontFamily="sans-serif"
+                android:text="puntos">
 
-                <TextView
-                    android:id="@+id/tv_text3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:orientation="vertical"
-                    android:text="Reducción huella carbono:"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_info3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="puntos"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            </TextView>
 
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv4"
-        android:layout_width="200dp"
-        android:layout_height="230dp"
-        android:animateLayoutChanges="true"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:layout_width="150dp"
+        android:layout_height="175dp"
+        app:layout_constraintBottom_toTopOf="@+id/cv6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv2"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cv3"
+        app:layout_constraintTop_toBottomOf="@+id/cv1"
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="175dp"
             android:animateLayoutChanges="true"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/montaña"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:background="@drawable/kil"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp" />
+                app:srcCompat="@drawable/kil"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="61dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Kilos recogidos:"
+                android:textColor="@color/black"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_info4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:fontFamily="sans-serif"
+                android:text="puntos">
 
-                <TextView
-                    android:id="@+id/tv_text4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:orientation="vertical"
-                    android:text="Kilos recogidos:"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_info4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="puntos"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            </TextView>
 
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv5"
-        android:layout_width="200dp"
-        android:layout_height="230dp"
-        android:layout_marginTop="228dp"
-        android:layout_marginEnd="208dp"
-        android:animateLayoutChanges="true"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cv2">
+        android:layout_width="150dp"
+        android:layout_height="175dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintEnd_toStartOf="@+id/cv6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv3"
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="175dp"
             android:animateLayoutChanges="true"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/desafio"
-                android:layout_width="201dp"
-                android:layout_height="154dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:background="@drawable/desaf"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp" />
+                app:srcCompat="@drawable/desaf"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="61dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_text5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Desafio mensual:"
+                android:textColor="@color/black"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_info5"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:fontFamily="sans-serif"
+                android:text="puntos">
 
-                <TextView
-                    android:id="@+id/tv_text5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:orientation="vertical"
-                    android:text="Desafio mensual:"
-                    android:textColor="@android:color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_info5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="puntos"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            </TextView>
 
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cv6"
-        android:layout_width="200dp"
-        android:layout_height="230dp"
-        android:animateLayoutChanges="true"
-        app:cardCornerRadius="20dp"
-        app:cardElevation="4dp"
-        app:cardUseCompatPadding="true"
+        android:layout_width="150dp"
+        android:layout_height="175dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/cv5"
         app:layout_constraintTop_toBottomOf="@+id/cv4"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="175dp"
             android:animateLayoutChanges="true"
+            android:background="@drawable/shape"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/news"
-                android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
                 android:layout_gravity="center"
-                android:background="@drawable/nott"
-                android:paddingLeft="14dp"
-                android:paddingRight="14dp" />
+                app:srcCompat="@drawable/nott"
+                tools:layout_editor_absoluteX="146dp"
+                tools:layout_editor_absoluteY="61dp" />
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/tv_text6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif"
+                android:text="Noticias:"
+                android:textColor="@color/black"
+                android:textSize="12dp">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_info6"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:fontFamily="sans-serif"
+                android:text="puntos">
 
-                <TextView
-                    android:id="@+id/tv_text6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="4dp"
-                    android:orientation="vertical"
-                    android:text="Noticias:"
-                    android:textColor="@android:color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/tv_info6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginRight="20dp"
-                    android:text="puntos"
-                    android:textSize="20dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+            </TextView>
 
         </LinearLayout>
-
 
     </androidx.cardview.widget.CardView>
 
@@ -442,5 +416,6 @@
             app:srcCompat="@drawable/menu" />
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

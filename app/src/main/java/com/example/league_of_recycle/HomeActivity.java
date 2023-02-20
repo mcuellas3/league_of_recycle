@@ -10,12 +10,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
 
     ImageButton casa, mapa, escaner, ranking, informacion;
     SQLiteConexion db;
     ImageView desafio, noticias;
+    TextView nombre;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,8 +28,15 @@ public class HomeActivity extends AppCompatActivity {
         Bundle b = this.getIntent().getExtras();
         int idUsuario = b.getInt("idUsuario");
 
+        nombre = (TextView) findViewById(R.id.nombreDelUsuario);
+
         desafio = (ImageView)findViewById(R.id.desafio);
         noticias = (ImageView)findViewById(R.id.news);
+
+
+        SQLiteConexion db = new SQLiteConexion(this);
+        Usuarios usuario = db.getUser(idUsuario);
+        nombre.setText(usuario.getNombre() + " " + usuario.getApellidos());
 
         desafio.setOnClickListener(new View.OnClickListener(){
             @Override
