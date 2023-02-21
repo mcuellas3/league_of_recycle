@@ -78,10 +78,11 @@
     <TextView
         android:id="@+id/textoFaq"
         android:layout_width="357dp"
-        android:layout_height="137dp"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"
-        android:text="Estamos aquí para ayudarte y responder a cualquier duda que tengas, estas son las más comunes."
+        android:fontFamily="sans-serif"
+        android:text="Bienvenido a la sección de preguntas frecuentes de Zabbal, la aplicación destinada al reciclaje en centros educativos."
         android:textColor="@color/black"
         android:textSize="65px"
         android:textStyle="bold"
@@ -90,31 +91,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/FAQ"
-        android:layout_width="wrap_content"
+        android:id="@+id/textoFaq2"
+        android:layout_width="357dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="FAQ"
+        android:layout_marginTop="17dp"
+        android:fontFamily="sans-serif"
+        android:text="Aquí encontrarás respuestas a las preguntas más comunes sobre nuestra aplicación."
         android:textColor="@color/black"
-        android:textSize="45px"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        android:textSize="50px"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.216" />
+        app:layout_constraintTop_toBottomOf="@+id/textoFaq" />
+
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="460dp"
+        android:layout_width="409dp"
+        android:layout_height="539dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintTop_toBottomOf="@+id/FAQ"
-        tools:layout_editor_absoluteX="16dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textoFaq2"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="200dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <LinearLayout
@@ -134,7 +139,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
-                    android:text="¿En qué consiste Zabbal?"
+                    android:text="¿Qué es Zabbal?"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -145,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="5dp"
-                    android:text="Zabbal es una aplicación móvil realizada para concienciar y a ayudar a la gente jóven de la importancia del reciclaje."
+                    android:text="Zabbal es una aplicación que busca fomentar el reciclaje en centros educativos. Nuestra plataforma ofrece una manera sencilla y eficiente de reciclar y gestionar los residuos en tu escuela o instituto."
                     android:textColor="@color/black"
                     android:textSize="13dp"
                     android:visibility="gone" />
@@ -170,7 +175,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
-                    android:text="¿Quién puede utilizar Zabbal?"
+                    android:text="¿De donde viene el nombre?"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -181,7 +186,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="5dp"
-                    android:text="Cualquier centro educativo que tenga intención de utilizar Zabbal se puede poner en contacto con nosotros para comenzar."
+                    android:text="El Zabbal es un trabajador incansable en la tarea de reciclaje, con su habilidad única para separar y clasificar los materiales, el Zabbal es fundamental en la lucha contra la contaminación y el exceso de basura en nuestro mundo. Gracias a su arduo trabajo, podemos darle una nueva vida a los materiales que de otra forma estarían destinados a ser desperdiciados.Pero su tarea va más allá de la simple separación de materiales. El Zabbal es un defensor de la sostenibilidad, un embajador de un mundo más verde. A través de su trabajo, nos muestra la importancia de reducir, reutilizar y reciclar en nuestras vidas diarias.Únete a nosotros en esta aventura para conocer más sobre el Zabbal, su tarea crucial y su impacto en el mundo. Descubre cómo cada pequeña acción puede tener un gran impacto y cómo juntos podemos continuar con el legado de los trabajadores de Zabbaleen, construyendo un futuro más sostenible para todos."
                     android:textColor="@color/black"
                     android:textSize="13dp"
                     android:visibility="gone" />
@@ -206,7 +211,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
-                    android:text="¿De donde viene el nombre?"
+                    android:text="¿Qué tipos de residuos puedo reciclar con Zabbal?"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -217,7 +222,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="5dp"
-                    android:text="El Zabbal es un trabajador incansable en la tarea de reciclaje, con su habilidad única para separar y clasificar los materiales, el Zabbal es fundamental en la lucha contra la contaminación y el exceso de basura en nuestro mundo. Gracias a su arduo trabajo, podemos darle una nueva vida a los materiales que de otra forma estarían destinados a ser desperdiciados.Pero su tarea va más allá de la simple separación de materiales. El Zabbal es un defensor de la sostenibilidad, un embajador de un mundo más verde. A través de su trabajo, nos muestra la importancia de reducir, reutilizar y reciclar en nuestras vidas diarias.Únete a nosotros en esta aventura para conocer más sobre el Zabbal, su tarea crucial y su impacto en el mundo. Descubre cómo cada pequeña acción puede tener un gran impacto y cómo juntos podemos continuar con el legado de los trabajadores de Zabbaleen, construyendo un futuro más sostenible para todos."
+                    android:text="Con Zabbal podrás reciclar una amplia variedad de residuos, incluyendo papel, cartón, plástico, vidrio, metal y residuos orgánicos."
                     android:textColor="@color/black"
                     android:textSize="13dp"
                     android:visibility="gone" />
@@ -242,7 +247,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
-                    android:text="¿En qué consiste Zabbal?"
+                    android:text="¿Cómo puedo saber qué residuos van en cada contenedor?"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -253,7 +258,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="5dp"
-                    android:text="Zabbal es una aplicación móvil realizada para concienciar y ayudar a la gente jóven de la importancia del reciclaje."
+                    android:text="Zabbal te ofrece información detallada sobre qué residuos van en cada contenedor de reciclaje. Además, la aplicación también cuenta con un sistema de escaneo de códigos QR que te ayudará a identificar el contenedor correspondiente para cada tipo de residuo."
                     android:textColor="@color/black"
                     android:textSize="13dp"
                     android:visibility="gone" />
@@ -278,7 +283,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
-                    android:text="¿En qué consiste Zabbal?"
+                    android:text="¿Puedo realizar un seguimiento de mis estadísticas de reciclaje?"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -289,7 +294,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="5dp"
-                    android:text="Zabbal es una aplicación móvil realizada para concienciar y a ayudar a la gente jóven de la importancia del reciclaje."
+                    android:text="Sí, Zabbal te ofrece la posibilidad de realizar un seguimiento de tus estadísticas de reciclaje. Podrás ver cuántos residuos has reciclado, cuánto has contribuido al medio ambiente y cómo te comparas con otros usuarios de la aplicación."
                     android:textColor="@color/black"
                     android:textSize="13dp"
                     android:visibility="gone" />
@@ -314,7 +319,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="3dp"
-                    android:text="¿En qué consiste Zabbal?"
+                    android:text="¿Cómo puedo obtener puntos y recompensas en Zabbal?"
                     android:textColor="@color/black"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -325,7 +330,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
                     android:layout_marginTop="5dp"
-                    android:text="Zabbal es una aplicación móvil realizada para concienciar y a ayudar a la gente jóven de la importancia del reciclaje."
+                    android:text="Reciclar con Zabbal te permitirá obtener puntos que podrás canjear por diferentes recompensas. Además, la aplicación también cuenta con un sistema de logros que te permitirá desbloquear nuevas funciones y beneficios."
                     android:textColor="@color/black"
                     android:textSize="13dp"
                     android:visibility="gone" />
