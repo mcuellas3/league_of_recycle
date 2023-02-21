@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroundscan"
-    tools:context=".InfoActivity"
-    >
+    tools:context=".InfoActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout3"
@@ -101,6 +100,7 @@
         android:text="Aquí encontrarás respuestas a las preguntas más comunes sobre nuestra aplicación."
         android:textColor="@color/black"
         android:textSize="50px"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoFaq" />
@@ -108,20 +108,16 @@
 
     <ScrollView
         android:layout_width="409dp"
-        android:layout_height="539dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textoFaq2"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/textoFaq2">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="200dp"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout3">
 
             <LinearLayout
                 android:id="@+id/layout1"
