@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/logo_zabbal" />
 
     <EditText
-        android:id="@+id/usuarioRecpass"
+        android:id="@+id/usuarioRepeatNewpass"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:layout_below="@+id/logozabbal"
@@ -40,7 +40,7 @@
         android:id="@+id/passwordLogin"
         android:layout_width="275dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/usuarioRecpass"
+        android:layout_below="@+id/usuarioRepeatNewpass"
 
         android:layout_marginTop="8dp"
         android:background="@drawable/shape2"
@@ -53,10 +53,10 @@
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/usuarioRecpass" />
+        app:layout_constraintTop_toBottomOf="@+id/usuarioRepeatNewpass" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSend"
+        android:id="@+id/btnCambPass"
         android:layout_width="275dp"
         android:layout_height="50dp"
         android:layout_below="@+id/passwordLogin"
@@ -85,7 +85,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSend" />
+        app:layout_constraintTop_toBottomOf="@+id/btnCambPass" />
 
     <TextView
         android:id="@+id/forgotpass2"

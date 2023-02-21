@@ -24,8 +24,8 @@ public class RecpassActivity extends AppCompatActivity {
         //getActionBar().hide();
 
         db = new SQLiteConexion(this);
-        usuario = (EditText) findViewById(R.id.usuarioRecpass);
-        btnLogin = (MaterialButton) findViewById(R.id.btnSend);
+        usuario = (EditText) findViewById(R.id.usuarioRepeatNewpass);
+        btnLogin = (MaterialButton) findViewById(R.id.btnCambPass);
 
 
         btnLogin.setOnClickListener(new View.OnClickListener() {

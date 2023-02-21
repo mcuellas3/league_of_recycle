@@ -260,35 +260,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:gravity="center"
-        android:orientation="vertical" />
+        android:gravity="center" >
 
+        <Button
+            android:id="@+id/btnEditar"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bg_btn"
+            android:drawableLeft="@drawable/ic_edit"
+            android:gravity="center"
+            android:text="Editar Perfil"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp" />
 
-    <Button
-        android:id="@+id/btnEditar"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="100dp"
-        android:background="@drawable/bg_btn"
-        android:drawableLeft="@drawable/ic_edit"
-        android:gravity="center"
-        android:paddingLeft="15dp"
-        android:text="Editar Perfil"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp" />
+        <Button
+            android:id="@+id/btnCambiarpass"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/bg_btn"
+            android:drawableLeft="@drawable/ic_lock"
+            android:gravity="center"
+            android:text="Cambiar Contraseña"
+            android:textColor="#FFFFFF"
+            android:textSize="15dp" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/btnCambiarpass"
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="100dp"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/bg_btn"
-        android:drawableLeft="@drawable/ic_lock"
-        android:gravity="center"
-        android:paddingLeft="15dp"
-        android:text="Cambiar Contraseña"
-        android:textColor="#FFFFFF"
-        android:textSize="15dp" />
 
 </LinearLayout>

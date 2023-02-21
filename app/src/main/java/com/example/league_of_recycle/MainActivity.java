@@ -33,9 +33,9 @@ public class MainActivity extends AppCompatActivity {
 
         inicializar();
 
-        usuario = (EditText) findViewById(R.id.usuarioRecpass);
+        usuario = (EditText) findViewById(R.id.usuarioRepeatNewpass);
         pass = (EditText) findViewById(R.id.passwordLogin);
-        btnLogin = (MaterialButton) findViewById(R.id.btnSend);
+        btnLogin = (MaterialButton) findViewById(R.id.btnCambPass);
         forgotpass = (TextView) findViewById(R.id.forgotpass2);
         registrateAqui = (TextView) findViewById(R.id.txvRecpass);
 

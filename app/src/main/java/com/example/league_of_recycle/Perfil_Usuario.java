@@ -2,6 +2,7 @@ package com.example.league_of_recycle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -61,6 +62,14 @@ public class Perfil_Usuario extends AppCompatActivity {
                 finish();
                 startActivity(getIntent());
 
+            }
+        });
+
+        cambiarpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent pass = new Intent(Perfil_Usuario.this, RecpassActivity.class);
+                startActivity(pass);
             }
         });
     }
