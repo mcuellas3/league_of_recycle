@@ -18,17 +18,23 @@
 
         <Button
             android:id="@+id/premTabRanking"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:backgroundTint="@color/PrimaryVariant"
             android:layout_weight="1"
             android:text="Ranking" />
 
         <Button
             android:id="@+id/premTabPremios"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="50dp"
+            android:layout_marginLeft="50dp"
+            android:backgroundTint="@color/Primary"
             android:layout_weight="1"
             android:text="Premios" />
+
 
     </LinearLayout>
 
