@@ -7,74 +7,6 @@
     android:background="@drawable/backgroundscan"
     tools:context=".InfoActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="1918dp"
-        android:layout_height="50dp"
-        android:background="@color/Primary"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/imageButton7"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="home"
-            android:onClick="Home"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/casa" />
-
-        <ImageButton
-            android:id="@+id/imageButton12"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="map"
-            android:onClick="Map"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/map" />
-
-        <ImageButton
-            android:id="@+id/imageButton13"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="scan"
-            android:onClick="scan"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/recycle" />
-
-        <ImageButton
-            android:id="@+id/imageButton14"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="ranking"
-            android:onClick="Ranking"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/trophy" />
-
-        <ImageButton
-            android:id="@+id/imageButton15"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="info"
-            android:onClick="Info"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/menu" />
-
-    </LinearLayout>
-
     <TextView
         android:id="@+id/textoFaq"
         android:layout_width="357dp"
@@ -335,6 +267,74 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="1918dp"
+        android:layout_height="50dp"
+        android:background="@color/Primary"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="home"
+            android:onClick="Home"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/casa" />
+
+        <ImageButton
+            android:id="@+id/imageButton12"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="map"
+            android:onClick="Map"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/map" />
+
+        <ImageButton
+            android:id="@+id/imageButton13"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="scan"
+            android:onClick="scan"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/recycle" />
+
+        <ImageButton
+            android:id="@+id/imageButton14"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="ranking"
+            android:onClick="Ranking"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/trophy" />
+
+        <ImageButton
+            android:id="@+id/imageButton15"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="info"
+            android:onClick="Info"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/menu" />
+
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
