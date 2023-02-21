@@ -17,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton casa, mapa, escaner, ranking, informacion;
     SQLiteConexion db;
     ImageView desafio, noticias;
-    TextView nombre;
+    TextView nombre, puntos, envases, huella, kilos;
 
 
 
@@ -30,12 +30,22 @@ public class HomeActivity extends AppCompatActivity {
         int idUsuario = b.getInt("idUsuario");
 
         nombre = (TextView) findViewById(R.id.nombreDelUsuario);
-
+        puntos = (TextView) findViewById(R.id.tv_HomePuntos);
+        envases = (TextView) findViewById(R.id.tv_HomeEnvases);
+        huella = (TextView) findViewById(R.id.tv_HomeHuella);
+        kilos = (TextView) findViewById(R.id.tv_HomeKilos);
         desafio = (ImageView)findViewById(R.id.desafio);
         noticias = (ImageView)findViewById(R.id.news);
 
         Usuarios usuario = db.getUser(idUsuario);
+
+
+
         nombre.setText(usuario.getNombre() + " " + usuario.getApellidos());
+        puntos.setText(db.getPuntos(idUsuario));
+        envases.setText(db.getEnvases(idUsuario));
+        huella.setText(db.getHuella(idUsuario));
+        kilos.setText(db.getPeso(idUsuario));
 
 
         desafio.setOnClickListener(new View.OnClickListener(){
@@ -93,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
 
         ranking.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent ranking = new Intent(HomeActivity.this, TabRankPremActivity.class);
+                Intent ranking = new Intent(HomeActivity.this, RankingActivity.class);
                 ranking.putExtra("idUsuario", idUsuario);
                 startActivity(ranking);
             }

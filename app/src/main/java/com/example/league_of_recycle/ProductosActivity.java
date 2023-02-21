@@ -50,7 +50,7 @@ public class ProductosActivity extends AppCompatActivity {
 
                 ContentValues cv = new ContentValues();
                 cv.put("id_usuario", idUsuario);
-                cv.put("puntos",producto.getPuntos());
+                cv.put("id_producto",producto.getId_producto());
                 db.insertar("puntos",cv);
 
                 Intent escaner = new Intent(ProductosActivity.this, ScanerActivity.class);

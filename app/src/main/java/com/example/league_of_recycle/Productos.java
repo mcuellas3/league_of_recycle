@@ -10,7 +10,7 @@ public class Productos {
     private String categoria = "";
     private String degrad = "";
     private String puntos = "";
-    private Integer altura = 0;
+    private Integer huella = 0;
     private Integer peso = 0;
 
     public Productos(Integer id_producto, String marca, String nombre, String cantidad, String envase, String codigo, String categoria, String degrad, String puntos, Integer altura, Integer peso) {
@@ -23,7 +23,7 @@ public class Productos {
         this.categoria = categoria;
         this.degrad = degrad;
         this.puntos = puntos;
-        this.altura = altura;
+        this.huella = altura;
         this.peso = peso;
     }
 
@@ -37,7 +37,7 @@ public class Productos {
         this.categoria = "";
         this.degrad = "";
         this.puntos = "";
-        this.altura = 0;
+        this.huella = 0;
         this.peso = 0;
     }
 
@@ -75,12 +75,12 @@ public class Productos {
         this.puntos = puntos;
     }
 
-    public Integer getAltura() {
-        return altura;
+    public Integer getHuella() {
+        return huella;
     }
 
-    public void setAltura(Integer altura) {
-        this.altura = altura;
+    public void setHuella(Integer huella) {
+        this.huella = huella;
     }
 
     public Integer getPeso() {

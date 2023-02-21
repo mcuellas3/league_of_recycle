@@ -82,7 +82,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tv_info1"
+                android:id="@+id/tv_HomeEnvases"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif"
@@ -132,7 +132,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tv_infoenv"
+                android:id="@+id/tv_HomePuntos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif"
@@ -183,7 +183,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tv_info3"
+                android:id="@+id/tv_HomeHuella"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif"
@@ -234,7 +234,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tv_info4"
+                android:id="@+id/tv_HomeKilos"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="sans-serif"

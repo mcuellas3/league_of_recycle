@@ -24,7 +24,7 @@
             android:padding="2dp">
 
             <ImageView
-                android:id="@+id/fotousuario"
+                android:id="@+id/fotoPremio"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
@@ -37,15 +37,15 @@
                 app:srcCompat="@drawable/img_avatar" />
 
             <TextView
-                android:id="@+id/tv_nombre"
+                android:id="@+id/tv_nombrePremio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="4dp"
-                android:layout_toEndOf="@+id/fotousuario"
-                android:layout_toRightOf="@+id/fotousuario"
+                android:layout_toEndOf="@+id/fotoPremio"
+                android:layout_toRightOf="@+id/fotoPremio"
                 android:orientation="vertical"
                 android:text="nombre"
                 android:textColor="@android:color/black"
@@ -53,7 +53,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tv_puntos"
+                android:id="@+id/tv_puntosPremio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"

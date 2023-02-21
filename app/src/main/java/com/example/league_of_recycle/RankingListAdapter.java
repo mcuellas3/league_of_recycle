@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -45,9 +44,9 @@ public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.
 
         ViewHolder(View itemview){
             super(itemview);
-            iconImage = itemView.findViewById(R.id.fotousuario);
-            nombre = itemView.findViewById(R.id.tv_nombre);
-            puntos = itemView.findViewById(R.id.tv_puntos);
+            iconImage = itemView.findViewById(R.id.fotoPremio);
+            nombre = itemView.findViewById(R.id.tv_nombrePremio);
+            puntos = itemView.findViewById(R.id.tv_puntosPremio);
         }
 
         void bindData(final ListRanking item) {

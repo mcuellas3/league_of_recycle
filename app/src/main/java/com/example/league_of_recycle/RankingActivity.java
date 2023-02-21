@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.util.ArrayList;
@@ -19,20 +20,31 @@ public class RankingActivity extends AppCompatActivity {
 
     List<ListRanking> elements;
     ImageButton casa, mapa, escaner, ranking, informacion;
-    int idUser;
+    Button premios;
+    int idUsuario;
     SQLiteConexion db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
-        String idUsuario = getIntent().getStringExtra("idUsuario"); //pasamos el usuario entre activitys
+
+        premios =(Button) findViewById(R.id.premTabPremios);
 
         this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
-        this.idUser=b.getInt("idUsuario");
+        this.idUsuario=b.getInt("idUsuario");
 
         init();
+
+        premios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent tab = new Intent(RankingActivity.this, PremiosActivity.class);
+                tab.putExtra("idUsuario", idUsuario);
+                startActivity(tab);
+            }
+        });
 
         // Casa
         casa = findViewById(R.id.imageButton7);
@@ -51,7 +63,7 @@ public class RankingActivity extends AppCompatActivity {
         mapa.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent mapa = new Intent(RankingActivity.this, MapsActivity.class);
-                mapa.putExtra("idUsuario", idUser);
+                mapa.putExtra("idUsuario", idUsuario);
                 startActivity(mapa);
             }
         });
@@ -62,7 +74,7 @@ public class RankingActivity extends AppCompatActivity {
         escaner.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent escaner = new Intent(RankingActivity.this, ScanerActivity.class);
-                escaner.putExtra("idUsuario", idUser);
+                escaner.putExtra("idUsuario", idUsuario);
                 startActivity(escaner);
             }
         });
@@ -73,7 +85,7 @@ public class RankingActivity extends AppCompatActivity {
         ranking.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent ranking = new Intent(RankingActivity.this, RankingActivity.class);
-                ranking.putExtra("idUsuario", idUser);
+                ranking.putExtra("idUsuario", idUsuario);
                 startActivity(ranking);
             }
         });
@@ -84,7 +96,7 @@ public class RankingActivity extends AppCompatActivity {
         informacion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent informacion = new Intent(RankingActivity.this, InfoActivity.class);
-                informacion.putExtra("idUsuario", idUser);
+                informacion.putExtra("idUsuario", idUsuario);
                 startActivity(informacion);
             }
         });
@@ -135,11 +147,12 @@ public class RankingActivity extends AppCompatActivity {
     public void init(){
 
         elements = new ArrayList<>();
-        Usuarios usuario = db.getUser(this.idUser);
+        Usuarios usuario = db.getUser(this.idUsuario);
 
         elements=this.db.getRanking(usuario.getCentro());
 
-        //elements.add(new ListRanking("manuel", "1500",""));
+
+
 
         RankingListAdapter RankinglistAdapter = new RankingListAdapter(elements, this);
         RecyclerView recyclerView = findViewById(R.id.recyclerRanking);

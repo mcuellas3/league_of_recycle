@@ -9,17 +9,28 @@
     tools:context=".RankingActivity">
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerRanking"
-        android:layout_width="412dp"
-        android:layout_height="554dp"
-        android:background="@null"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
-        app:layout_constraintVertical_bias="0.071"
-        tools:layout_editor_absoluteX="0dp">
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.recyclerview.widget.RecyclerView>
+        <Button
+            android:id="@+id/premTabRanking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ranking" />
+
+        <Button
+            android:id="@+id/premTabPremios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Premios" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout6"
@@ -27,9 +38,8 @@
         android:layout_height="180dp"
         android:orientation="horizontal"
         android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/recyclerRanking"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cvr1"
@@ -212,6 +222,17 @@
 
         </androidx.cardview.widget.CardView>
     </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerRanking"
+        android:layout_width="410dp"
+        android:layout_height="452dp"
+        android:background="@null"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        tools:layout_editor_absoluteX="0dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
         android:id="@+id/linearLayout2"

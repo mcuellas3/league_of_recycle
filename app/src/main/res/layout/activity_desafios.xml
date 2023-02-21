@@ -77,7 +77,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/tv_info1"
+                            android:id="@+id/tv_HomeEnvases"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="200 / 500"
@@ -253,7 +253,7 @@
                             android:textStyle="bold" />
 
                         <TextView
-                            android:id="@+id/tv_info3"
+                            android:id="@+id/tv_HomeHuella"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="125 / 800"

@@ -26,6 +26,10 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private static final String DATABASE_TABLE_CENTROS = "centros";
     private static final String DATABASE_TABLE_PUNTOS = "puntos";
     private static final String DATABASE_VIEW_RANKING = "ranking";
+    private static final String DATABASE_VIEW_PUNTOS = "vpuntos";
+    private static final String DATABASE_VIEW_ENVASES = "venvases";
+    private static final String DATABASE_VIEW_HUELLA = "vhuella";
+    private static final String DATABASE_VIEW_PESO = "vpeso";
     private static final int DATABASE_VERSION = 1;
 
     private final String KEY_ID_USUARIO = "id_usuario";
@@ -47,6 +51,11 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private final String KEY_GREENDOT = "greendot";
     private final String KEY_PUNTOS = "puntos";
 
+    private final String KEY_HUELLAS = "huella";
+    private final String KEY_PESO = "peso";
+
+
+
 
     private final String KEY_ID_CENTRO = "id_centro";
     private final String KEY_NOMBRE_CENTRO = "nombre";
@@ -58,7 +67,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
 
     private final String KEY_ID_PUNTOS = "id_puntos";
     private final String KEY_ID_USUARIO_PUNTOS = "id_usuario";
-    private final String KEY_SUMAR_PUNTOS = "puntos";
+    private final String KEY_PRODUCTO_PUNTOS = "id_producto";
+
 
 
     private SQLiteDatabase ourDatabase;
@@ -99,7 +109,9 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_CANTIDAD + " TEXT NOT NULL," +
                 KEY_ENVASE + " TEXT," +
                 KEY_GREENDOT + " TEXT NOT NULL," +
-                KEY_PUNTOS + " TEXT);";
+                KEY_HUELLAS + " TEXT NOT NULL default '0'," +
+                KEY_PESO + " TEXT NOT NULL default '0'," +
+                KEY_PUNTOS + " TEXT NOT NULL default '0');";
         db.execSQL(sql);
 
         sql = "CREATE TABLE " + DATABASE_TABLE_CENTROS + " (" +
@@ -115,15 +127,49 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         sql = "CREATE TABLE " + DATABASE_TABLE_PUNTOS + " (" +
                 KEY_ID_PUNTOS + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 KEY_ID_USUARIO_PUNTOS + " INTEGER NOT NULL, " +
-                KEY_SUMAR_PUNTOS + " INTEGER NOT NULL);";
+                KEY_PRODUCTO_PUNTOS + " INTEGER NOT NULL);";
         db.execSQL(sql);
 
-        sql="create view " +DATABASE_VIEW_RANKING +" as " +
-        "select nombre,id_centro,sum(puntos) puntos " +
+        sql="create view " + DATABASE_VIEW_RANKING +" as " +
+        "select usuarios.nombre,usuarios.id_centro,sum(productos.puntos) puntos " +
         "from puntos inner join usuarios on usuarios.id_usuario=puntos.id_usuario "  +
-        "group by puntos.id_usuario,id_centro " +
+        " inner join productos on puntos.id_producto=productos.id_producto " +
+        "group by puntos.id_usuario,usuarios.id_centro " +
         "order by sum(puntos) desc";
         db.execSQL(sql);
+
+        sql="create view " + DATABASE_VIEW_PUNTOS +" as " +
+                "select usuarios.nombre,usuarios.id_centro,usuarios.id_usuario,sum(productos.puntos) puntos " +
+                "from puntos inner join usuarios on usuarios.id_usuario=puntos.id_usuario "  +
+                " inner join productos on puntos.id_producto=productos.id_producto " +
+                "group by puntos.id_usuario,usuarios.id_centro " +
+                "order by sum(puntos) desc";
+        db.execSQL(sql);
+
+        sql="create view " + DATABASE_VIEW_ENVASES +" as " +
+                "select usuarios.nombre,usuarios.id_centro,usuarios.id_usuario,count(usuarios.id_usuario) envase " +
+                "from puntos inner join usuarios on usuarios.id_usuario=puntos.id_usuario "  +
+                " inner join productos on puntos.id_producto=productos.id_producto " +
+                "group by puntos.id_usuario,usuarios.id_centro " +
+                "order by sum(puntos) desc";
+        db.execSQL(sql);
+
+        sql="create view " + DATABASE_VIEW_HUELLA +" as " +
+                "select usuarios.nombre,usuarios.id_centro,usuarios.id_usuario,sum(productos.huella) huella " +
+                "from puntos inner join usuarios on usuarios.id_usuario=puntos.id_usuario "  +
+                " inner join productos on puntos.id_producto=productos.id_producto " +
+                "group by puntos.id_usuario,usuarios.id_centro " +
+                "order by sum(puntos) desc";
+        db.execSQL(sql);
+
+        sql="create view " + DATABASE_VIEW_PESO +" as " +
+                "select usuarios.nombre,usuarios.id_centro,usuarios.id_usuario,sum(productos.peso) peso " +
+                "from puntos inner join usuarios on usuarios.id_usuario=puntos.id_usuario "  +
+                " inner join productos on puntos.id_producto=productos.id_producto " +
+                "group by puntos.id_usuario,usuarios.id_centro " +
+                "order by sum(puntos) desc";
+        db.execSQL(sql);
+
 
     }
 
@@ -502,6 +548,76 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         return resultado;
     }
 
+    public  String getPuntos(int id_usuario ) {
+        this.open();
+        String[] columnas = new String[] {KEY_NOMBRE,KEY_ID_CENTRO, KEY_PUNTOS};
+        String selection = KEY_ID_USUARIO + " = ?" ;
+        String[] selectionArgs = new String[] {  String.valueOf(id_usuario) };
+        Cursor c = this.ourDatabase.query(DATABASE_VIEW_PUNTOS, columnas,selection,selectionArgs,null,null,null,null);
+        String resultado="";
+        int idata = c.getColumnIndex(KEY_PUNTOS);
 
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            resultado = c.getString(idata);
+
+        }
+        c.close();
+        this.close();
+        return resultado;
+    }
+
+    public  String getEnvases(int id_usuario ) {
+        this.open();
+        String[] columnas = new String[] {KEY_NOMBRE,KEY_ID_CENTRO, KEY_ENVASE};
+        String selection = KEY_ID_USUARIO + " = ?" ;
+        String[] selectionArgs = new String[] {  String.valueOf(id_usuario) };
+        Cursor c = this.ourDatabase.query(DATABASE_VIEW_ENVASES, columnas,selection,selectionArgs,null,null,null,null);
+        String resultado="";
+        int idata = c.getColumnIndex(KEY_ENVASE);
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            resultado = c.getString(idata);
+
+        }
+        c.close();
+        this.close();
+        return resultado;
+    }
+
+    public  String getHuella(int id_usuario ) {
+        this.open();
+        String[] columnas = new String[] {KEY_NOMBRE,KEY_ID_CENTRO, KEY_HUELLAS};
+        String selection = KEY_ID_USUARIO + " = ?" ;
+        String[] selectionArgs = new String[] {  String.valueOf(id_usuario) };
+        Cursor c = this.ourDatabase.query(DATABASE_VIEW_HUELLA, columnas,selection,selectionArgs,null,null,null,null);
+        String resultado="";
+        int idata = c.getColumnIndex(KEY_HUELLAS);
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            resultado = c.getString(idata);
+
+        }
+        c.close();
+        this.close();
+        return resultado;
+    }
+
+    public  String getPeso(int id_usuario ) {
+        this.open();
+        String[] columnas = new String[] {KEY_NOMBRE,KEY_ID_CENTRO, KEY_PESO};
+        String selection = KEY_ID_USUARIO + " = ?" ;
+        String[] selectionArgs = new String[] {  String.valueOf(id_usuario) };
+        Cursor c = this.ourDatabase.query(DATABASE_VIEW_PESO, columnas,selection,selectionArgs,null,null,null,null);
+        String resultado="";
+        int idata = c.getColumnIndex(KEY_PESO);
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            resultado = c.getString(idata);
+
+        }
+        c.close();
+        this.close();
+        return resultado;
+    }
 }
 
