@@ -31,10 +31,6 @@ public class RegistroActivity extends AppCompatActivity {
         repass = (EditText) findViewById(R.id.repitePasswordRegister);
         registerbtn = (Button) findViewById(R.id.registerbtn);
         yaEstoyRegistrado = (TextView) findViewById(R.id.iniciaSesion);
-        //db.open();
-        //db.callonUpgrade();
-        Usuarios admin = new Usuarios("Medac", "Admin", "admin@medac.com", "1234", true);
-        Long codigoInsert = db.guardarUsuario(admin.getNombre(), admin.getApellidos(), admin.getEmail(), admin.getPass(), true);
 
 
         registerbtn.setOnClickListener(new View.OnClickListener() {

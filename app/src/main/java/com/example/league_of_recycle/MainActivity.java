@@ -114,6 +114,33 @@ public class MainActivity extends AppCompatActivity {
                 db.insertar("centros",cv);
             }
         }
+        if(db.cantidadRegistros("usuarios")==0){
+            String[] texto = leerArchivo(R.raw.usuarios);
+
+            for (int i=0;i< texto.length;i++){
+                String[] linea = texto[i].split(";");
+                ContentValues cv = new ContentValues();
+                cv.put("nombre",(linea[0]));
+                cv.put("apellidos",(linea[1]));
+                cv.put("email",(linea[2]));
+                cv.put("pass",(linea[3]));
+                cv.put("is_admin",(linea[4]));
+                cv.put("telefono",(linea[5]));
+                cv.put("id_centro",(linea[6]));
+                db.insertar("usuarios",cv);
+            }
+        }
+        if(db.cantidadRegistros("puntos")==0){
+            String[] texto = leerArchivo(R.raw.puntos);
+
+            for (int i=0;i< texto.length;i++){
+                String[] linea = texto[i].split(";");
+                ContentValues cv = new ContentValues();
+                cv.put("id_usuario",(linea[0]));
+                cv.put("id_producto",(linea[1]));
+                db.insertar("puntos",cv);
+            }
+        }
     }
 
 
