@@ -2,14 +2,25 @@ package com.example.league_of_recycle;
 
 public class ListRanking {
 
+    public String posicion;
     public String nombre;
     public String puntos;
     public String foto;
 
-    public ListRanking(String nombre, String puntos, String foto) {
+
+    public ListRanking(String posicion,String nombre, String puntos, String foto) {
+        this.posicion = posicion;
         this.nombre = nombre;
         this.puntos = puntos;
         this.foto = foto;
+    }
+
+    public String getPosicion() {
+        return this.posicion;
+    }
+
+    public void setPosicion(String posicion) {
+        this.posicion = posicion;
     }
 
     public String getNombre() {

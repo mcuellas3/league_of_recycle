@@ -12,13 +12,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RankingActivity extends AppCompatActivity {
 
-    List<ListRanking> elements;
+    List<ListRanking> topelements, elements;
+    TextView pos1, pos2, pos3, nom1, nom2, nom3, punt1, punt2, punt3;
     ImageButton casa, mapa, escaner, ranking, informacion;
     Button premios;
     int idUsuario;
@@ -30,6 +32,16 @@ public class RankingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_ranking);
 
         premios =(Button) findViewById(R.id.premTabPremios);
+        pos1 =(TextView) findViewById(R.id.tvPos1);
+        pos2=(TextView) findViewById(R.id.tvPos2);
+        pos3 =(TextView) findViewById(R.id.tvPos3);
+        nom1 =(TextView) findViewById(R.id.tvNombreRank1);
+        nom2 =(TextView) findViewById(R.id.tvNombreRank2);
+        nom3 =(TextView) findViewById(R.id.tvNombreRank3);
+        punt1 =(TextView) findViewById(R.id.tvPuntosRank1);
+        punt2 =(TextView) findViewById(R.id.tvPuntosRank2);
+        punt3 =(TextView) findViewById(R.id.tvPuntosRank3);
+
 
         this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
@@ -147,18 +159,38 @@ public class RankingActivity extends AppCompatActivity {
     public void init(){
 
         elements = new ArrayList<>();
+        topelements = new ArrayList<>();
         Usuarios usuario = db.getUser(this.idUsuario);
 
         elements=this.db.getRanking(usuario.getCentro());
 
+        int i;
+        ListRanking  item;
+        for (i=0;i<3;i++){
+            topelements.add(elements.get(0));
+            elements.remove(0);
+        }
 
+        if (i==3) {
+            item = topelements.get(0);
+            pos1.setText(item.getPosicion());
+            nom1.setText(item.getNombre());
+            punt1.setText(item.getPuntos());
+            item = topelements.get(1);
+            pos2.setText(item.getPosicion());
+            nom2.setText(item.getNombre());
+            punt2.setText(item.getPuntos());
+            item = topelements.get(2);
+            pos3.setText(item.getPosicion());
+            nom3.setText(item.getNombre());
+            punt3.setText(item.getPuntos());
+        }
 
-
-        RankingListAdapter RankinglistAdapter = new RankingListAdapter(elements, this);
-        RecyclerView recyclerView = findViewById(R.id.recyclerRanking);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager( new LinearLayoutManager(this));
-        recyclerView.setAdapter(RankinglistAdapter);
+            RankingListAdapter RankinglistAdapter = new RankingListAdapter(elements, this);
+            RecyclerView recyclerView = findViewById(R.id.recyclerRanking);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+            recyclerView.setAdapter(RankinglistAdapter);
     }
 
 

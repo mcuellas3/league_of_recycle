@@ -68,7 +68,7 @@ public class Perfil_Usuario extends AppCompatActivity {
         cambiarpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent pass = new Intent(Perfil_Usuario.this, RecpassActivity.class);
+                Intent pass = new Intent(Perfil_Usuario.this, CambiarPassActivity.class);
                 startActivity(pass);
             }
         });

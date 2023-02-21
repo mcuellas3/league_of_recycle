@@ -25,6 +25,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private static final String DATABASE_TABLE_PRODUCTOS = "productos";
     private static final String DATABASE_TABLE_CENTROS = "centros";
     private static final String DATABASE_TABLE_PUNTOS = "puntos";
+    private static final String DATABASE_TABLE_CONTENEDORES = "contenedores";
     private static final String DATABASE_VIEW_RANKING = "ranking";
     private static final String DATABASE_VIEW_PUNTOS = "vpuntos";
     private static final String DATABASE_VIEW_ENVASES = "venvases";
@@ -50,12 +51,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private final String KEY_ENVASE = "envase";
     private final String KEY_GREENDOT = "greendot";
     private final String KEY_PUNTOS = "puntos";
-
     private final String KEY_HUELLAS = "huella";
     private final String KEY_PESO = "peso";
-
-
-
 
     private final String KEY_ID_CENTRO = "id_centro";
     private final String KEY_NOMBRE_CENTRO = "nombre";
@@ -65,10 +62,14 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private final String KEY_DIRECCION = "direccion";
     private final String KEY_TELEFONO_CENTRO = "telefono";
 
+    private final String KEY_ID_CONT = "id_contenedor";
+    private final String KEY_TIPO = "nombre";
+    private final String KEY_COORDENADAS_CONT = "coordenadas";
+    private final String KEY_QR = "qr";
+
     private final String KEY_ID_PUNTOS = "id_puntos";
     private final String KEY_ID_USUARIO_PUNTOS = "id_usuario";
     private final String KEY_PRODUCTO_PUNTOS = "id_producto";
-
 
 
     private SQLiteDatabase ourDatabase;
@@ -119,7 +120,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_NOMBRE_CENTRO + " TEXT NOT NULL, " +
                 KEY_LOC_LAT + " TEXT NOT NULL, " +
                 KEY_LOC_LON + " TEXT NOT NULL," +
-                KEY_RESPONSABLE + " TEXT NOT NULL," +
+                KEY_RESPONSABLE + " INTEGER NOT NULL," +
                 KEY_DIRECCION + " TEXT," +
                 KEY_TELEFONO_CENTRO + " TEXT NOT NULL);";
         db.execSQL(sql);
@@ -130,8 +131,15 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_PRODUCTO_PUNTOS + " INTEGER NOT NULL);";
         db.execSQL(sql);
 
+        sql = "CREATE TABLE " + DATABASE_TABLE_CONTENEDORES + " (" +
+                KEY_ID_CONT + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                KEY_TIPO + " TEXT NOT NULL, " +
+                KEY_COORDENADAS_CONT + " TEXT NOT NULL, " +
+                KEY_QR + " TEXT NOT NULL);";
+        db.execSQL(sql);
+
         sql="create view " + DATABASE_VIEW_RANKING +" as " +
-        "select usuarios.nombre,usuarios.id_centro,sum(productos.puntos) puntos " +
+        "select usuarios.nombre,usuarios.apellidos, usuarios.id_centro,sum(productos.puntos) puntos " +
         "from puntos inner join usuarios on usuarios.id_usuario=puntos.id_usuario "  +
         " inner join productos on puntos.id_producto=productos.id_producto " +
         "group by puntos.id_usuario,usuarios.id_centro " +
@@ -526,7 +534,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
 
     public  ArrayList<ListRanking> getRanking(int ncentro ) {
         this.open();
-        String[] columnas = new String[] {KEY_NOMBRE,KEY_ID_CENTRO, KEY_PUNTOS};
+        String[] columnas = new String[] {KEY_NOMBRE,KEY_APELLIDOS, KEY_ID_CENTRO, KEY_PUNTOS};
         String selection = KEY_ID_CENTRO + " = ?" ;
         String[] selectionArgs = new String[] {  String.valueOf(ncentro) };
         Cursor c = this.ourDatabase.query(DATABASE_VIEW_RANKING, columnas,selection,selectionArgs,null,null,null,null);
@@ -534,14 +542,16 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         ArrayList<ListRanking> resultado = new ArrayList<ListRanking>();
 
         int inombre = c.getColumnIndex(KEY_NOMBRE);
+        int iapellidos = c.getColumnIndex(KEY_APELLIDOS);
         int ipuntos = c.getColumnIndex(KEY_PUNTOS);
-
+        int pos=1;
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
-            String nombre = c.getString(inombre);
+            String nombre = c.getString(inombre)+ " " + c.getString(iapellidos);
             String puntos = c.getString(ipuntos);
 
             //Usuarios usuario = new Usuarios(id_usuario, ipuntos);
-            resultado.add(new ListRanking(nombre, puntos,""));
+            resultado.add(new ListRanking(String.valueOf(pos),nombre, puntos,""));
+            pos=pos+1;
         }
         c.close();
         this.close();

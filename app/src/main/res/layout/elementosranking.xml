@@ -17,18 +17,30 @@
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
         android:orientation="vertical">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:padding="2dp">
 
+            <TextView
+                android:id="@+id/tv_posicion"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textColor="@android:color/black"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
             <ImageView
                 android:id="@+id/fotoPremio"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
+                android:layout_toEndOf="@+id/tv_posicion"
+                android:layout_toRightOf="@+id/tv_posicion"
                 android:layout_centerVertical="true"
                 android:layout_gravity="center"
                 android:background="@drawable/noticias2"
@@ -49,7 +61,7 @@
                 android:orientation="vertical"
                 android:text="nombre"
                 android:textColor="@android:color/black"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -63,7 +75,7 @@
                 android:layout_marginRight="20dp"
                 android:text="puntos"
                 android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
 

@@ -326,7 +326,7 @@
         android:drawableLeft="@drawable/ic_edit"
         android:gravity="center"
         android:paddingLeft="20dp"
-        android:text="Editar Perfil"
+        android:text="Guardar Datos"
         android:textColor="#FFFFFF"
         android:textSize="15dp" />
 

@@ -21,6 +21,7 @@ public class MapsSelectActivity extends FragmentActivity implements OnMapReadyCa
     private GoogleMap mMap;
     private ActivityMapsSelectBinding binding;
     LatLng coordenadas;
+    SQLiteConexion db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class MapsSelectActivity extends FragmentActivity implements OnMapReadyCa
 
         LatLng predeter = new LatLng(40.42026,-3.69756 );
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(predeter, 8.1f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(predeter, 12.1f));
 
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
@@ -59,6 +60,9 @@ public class MapsSelectActivity extends FragmentActivity implements OnMapReadyCa
             public void onMapClick(@NonNull LatLng position) {
                 coordenadas = position;
                 insertarMarcador(position);
+
+
+
 
                 /*DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                     @Override

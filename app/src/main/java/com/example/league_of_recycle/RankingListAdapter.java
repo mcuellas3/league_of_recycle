@@ -40,10 +40,11 @@ public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView iconImage;
-        TextView nombre, puntos;
+        TextView posicion, nombre, puntos;
 
         ViewHolder(View itemview){
             super(itemview);
+            posicion = itemView.findViewById(R.id.tv_posicion);
             iconImage = itemView.findViewById(R.id.fotoPremio);
             nombre = itemView.findViewById(R.id.tv_nombrePremio);
             puntos = itemView.findViewById(R.id.tv_puntosPremio);
@@ -51,6 +52,7 @@ public class RankingListAdapter extends RecyclerView.Adapter<RankingListAdapter.
 
         void bindData(final ListRanking item) {
             // iconImage.setColorFilter(Color.parseColor(item.getColor()), PorterDuff.Mode.SRC_IN);
+            posicion.setText(item.getPosicion());
             nombre.setText(item.getNombre());
             puntos.setText(item.getPuntos());
         }
