@@ -15,7 +15,7 @@ public class PremiosActivity extends AppCompatActivity {
 
     Button ranking;
     int idUsuario;
-    ImageButton casa, mapa, escaner, informacion;
+    ImageButton casa, mapa, escaner, informacion, ranking2;
 
 
     @Override
@@ -78,6 +78,17 @@ public class PremiosActivity extends AppCompatActivity {
                 Intent informacion = new Intent(PremiosActivity.this, InfoActivity.class);
                 informacion.putExtra("idUsuario", idUsuario);
                 startActivity(informacion);
+            }
+        });
+
+        // Ranking
+        ranking2 = findViewById(R.id.imageButton144);
+
+        ranking2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent ranking2 = new Intent(PremiosActivity.this, RankingActivity.class);
+                ranking2.putExtra("idUsuario", idUsuario);
+                startActivity(ranking2);
             }
         });
     }

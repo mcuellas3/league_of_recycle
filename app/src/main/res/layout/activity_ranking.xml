@@ -14,6 +14,9 @@
         android:layout_width="409dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
@@ -21,18 +24,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
-            android:backgroundTint="@color/PrimaryVariant"
             android:layout_weight="1"
+            android:backgroundTint="@color/PrimaryVariant"
             android:text="Ranking" />
 
         <Button
             android:id="@+id/premTabPremios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="50dp"
             android:layout_marginLeft="50dp"
-            android:backgroundTint="@color/Primary"
+            android:layout_marginRight="50dp"
             android:layout_weight="1"
+            android:backgroundTint="@color/Primary"
             android:text="Premios" />
 
 

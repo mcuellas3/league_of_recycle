@@ -81,7 +81,7 @@
             app:srcCompat="@drawable/recycle" />
 
         <ImageButton
-            android:id="@+id/imageButton14"
+            android:id="@+id/imageButton144"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_margin="20dp"
@@ -106,7 +106,7 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="671dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -374,7 +374,7 @@
                         android:layout_marginLeft="300dp"
                         android:layout_marginRight="5dp"
 
-                        app:srcCompat="@drawable/logoplanetahuerto" />
+                        app:srcCompat="@drawable/parquewarnerlogo" />
 
                     <TextView
                         android:id="@+id/tv_nombrePremio4"
