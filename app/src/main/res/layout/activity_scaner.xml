@@ -78,6 +78,7 @@
     </LinearLayout>
 
     <Button
+        app:cornerRadius="20dp"
         android:id="@+id/btnScan"
         android:layout_width="190dp"
         android:layout_height="60dp"
