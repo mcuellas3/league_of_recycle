@@ -75,7 +75,7 @@
         </activity>
         <activity
             android:name=".NoticiasActivity"
-            android:parentActivityName=".RankingActivity"
+            android:parentActivityName=".HomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -83,7 +83,7 @@
         </activity>
         <activity
             android:name=".DesafiosActivity"
-            android:parentActivityName=".InfoActivity"
+            android:parentActivityName=".HomeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
