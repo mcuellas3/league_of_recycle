@@ -51,7 +51,7 @@
             android:contentDescription="scan"
             android:onClick="scan"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/recycle" />
+            app:srcCompat="@drawable/recycle2" />
 
         <ImageButton
             android:id="@+id/imageButton14"
@@ -73,7 +73,7 @@
             android:contentDescription="info"
             android:onClick="Info"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/informacion" />
 
     </LinearLayout>
 

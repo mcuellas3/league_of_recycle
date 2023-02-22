@@ -295,7 +295,7 @@
             android:contentDescription="ranking"
             android:onClick="Ranking"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/trophy" />
+            app:srcCompat="@drawable/trophy2" />
 
         <ImageButton
             android:id="@+id/imageButton15"
@@ -306,7 +306,7 @@
             android:contentDescription="info"
             android:onClick="Info"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/informacion" />
 
     </LinearLayout>
 

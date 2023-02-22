@@ -381,7 +381,7 @@
             android:contentDescription="home"
             android:onClick="Home"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/casa" />
+            app:srcCompat="@drawable/casa2" />
 
         <ImageButton
             android:id="@+id/imageButton12"
@@ -425,7 +425,7 @@
             android:contentDescription="info"
             android:onClick="Info"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/informacion" />
 
     </LinearLayout>
 
