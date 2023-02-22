@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".HomeActivity"
+    android:background="@drawable/fondobonito2">
 
     <TextView
         android:id="@+id/textView2"
@@ -381,7 +382,7 @@
             android:contentDescription="home"
             android:onClick="Home"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/casa" />
+            app:srcCompat="@drawable/casa2" />
 
         <ImageButton
             android:id="@+id/imageButton12"
@@ -425,7 +426,7 @@
             android:contentDescription="info"
             android:onClick="Info"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/menu" />
+            app:srcCompat="@drawable/informacion" />
 
     </LinearLayout>
 

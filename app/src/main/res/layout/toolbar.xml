@@ -16,9 +16,10 @@
         <Button
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:id="@+id/botonAtrasToolbar"
             android:layout_alignParentLeft="true"
             android:background="@drawable/ic_arrow_back"
-            android:onClick="Home"
+
             android:src="@drawable/ic_arrow_back"
             android:visibility="visible"
             tools:visibility="visible" />

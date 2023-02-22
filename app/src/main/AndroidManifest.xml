@@ -16,7 +16,15 @@
         tools:targetApi="31">
         <activity
             android:name=".Pop_Up"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.League_Of_Recycle.TemaPopUp"/>
+        <activity
+            android:name=".Map"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".CambiarPassActivity"
             android:exported="false">
@@ -33,6 +41,7 @@
         </activity>
         <activity
             android:name=".PerfilAdminActivity"
+            android:parentActivityName=".RankingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -66,6 +75,7 @@
         </activity>
         <activity
             android:name=".NoticiasActivity"
+            android:parentActivityName=".RankingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -73,6 +83,7 @@
         </activity>
         <activity
             android:name=".DesafiosActivity"
+            android:parentActivityName=".RankingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -98,13 +109,7 @@
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".Perfil_Usuario"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".FaqActivity"
+            android:parentActivityName=".RankingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

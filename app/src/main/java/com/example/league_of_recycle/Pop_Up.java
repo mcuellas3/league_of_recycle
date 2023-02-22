@@ -18,6 +18,8 @@ public class Pop_Up extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pop_up);
+        Bundle b = this.getIntent().getExtras();
+        int idUsuario = b.getInt("idUsuario");
 
 
         DisplayMetrics medidasVentana = new DisplayMetrics();
@@ -40,6 +42,7 @@ public class Pop_Up extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Pop_Up.this, Perfil_Usuario.class);
+                intent.putExtra("idUsuario",idUsuario);
                 startActivity(intent);
                 finish();
             }
