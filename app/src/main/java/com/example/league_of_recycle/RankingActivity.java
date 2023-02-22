@@ -31,7 +31,7 @@ public class RankingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ranking);
 
-        premios =(Button) findViewById(R.id.premTabPremios);
+        premios =(Button) findViewById(R.id.ranTabPremios);
         pos1 =(TextView) findViewById(R.id.tvPos1);
         pos2=(TextView) findViewById(R.id.tvPos2);
         pos3 =(TextView) findViewById(R.id.tvPos3);
@@ -192,6 +192,5 @@ public class RankingActivity extends AppCompatActivity {
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             recyclerView.setAdapter(RankinglistAdapter);
     }
-
 
 }

@@ -35,83 +35,14 @@
             android:text="Premios" />
 
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="1918dp"
-        android:layout_height="50dp"
-        android:background="@color/Primary"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <ImageButton
-            android:id="@+id/imageButton77"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="home"
-            android:onClick="Home"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/casa" />
-
-        <ImageButton
-            android:id="@+id/imageButton122"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="map"
-            android:onClick="Map"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/map" />
-
-        <ImageButton
-            android:id="@+id/imageButton133"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="scan"
-            android:onClick="scan"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/recycle" />
-
-        <ImageButton
-            android:id="@+id/imageButton144"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="ranking"
-            android:onClick="Ranking"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/trophy" />
-
-        <ImageButton
-            android:id="@+id/imageButton155"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_margin="20dp"
-            android:background="@color/Primary"
-            android:contentDescription="info"
-            android:onClick="Info"
-            android:scaleType="centerCrop"
-            app:srcCompat="@drawable/menu" />
-
     </LinearLayout>
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="671dp"
+        android:layout_width="411dp"
+        android:layout_height="623dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -512,5 +443,73 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="1918dp"
+        android:layout_height="50dp"
+        android:background="@color/Primary"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/imageButton77"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="home"
+            android:onClick="Home"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/casa" />
+
+        <ImageButton
+            android:id="@+id/imageButton122"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="map"
+            android:onClick="Map"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/map" />
+
+        <ImageButton
+            android:id="@+id/imageButton133"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="scan"
+            android:onClick="scan"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/recycle" />
+
+        <ImageButton
+            android:id="@+id/imageButton144"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="ranking"
+            android:onClick="Ranking"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/trophy" />
+
+        <ImageButton
+            android:id="@+id/imageButton155"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="20dp"
+            android:background="@color/Primary"
+            android:contentDescription="info"
+            android:onClick="Info"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/menu" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

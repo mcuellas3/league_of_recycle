@@ -20,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/premTabRanking"
+            android:id="@+id/ranTabRanking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -29,7 +29,7 @@
             android:text="Ranking" />
 
         <Button
-            android:id="@+id/premTabPremios"
+            android:id="@+id/ranTabPremios"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"

@@ -21,18 +21,30 @@ public class HomeActivity extends AppCompatActivity {
     SQLiteConexion db;
     ImageView desafio, noticias;
     TextView nombre, puntos, envases, huella, kilos;
+    int idUsuario,centro;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Intent intent = new Intent(this, Pop_Up.class);
-        startActivity(intent);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+
         this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
-        int idUsuario = b.getInt("idUsuario");
+        idUsuario = b.getInt("idUsuario");
+
+        Usuarios usuario = new Usuarios();
+        usuario = db.getUser(idUsuario);
+        centro = usuario.getCentro();
+        if(centro==0){
+            Intent intent = new Intent(this, Pop_Up.class);
+            intent.putExtra("idUsuario",idUsuario);
+            startActivity(intent);
+        }
+
+
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+
 
 
         nombre = (TextView) findViewById(R.id.nombreDelUsuario);
@@ -43,9 +55,7 @@ public class HomeActivity extends AppCompatActivity {
         desafio = (ImageView)findViewById(R.id.desafio);
         noticias = (ImageView)findViewById(R.id.news);
 
-        Usuarios usuario = db.getUser(idUsuario);
-
-
+        usuario = db.getUser(idUsuario);
 
         nombre.setText(usuario.getNombre() + " " + usuario.getApellidos());
         puntos.setText(db.getPuntos(idUsuario));
