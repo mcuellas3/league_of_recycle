@@ -6,7 +6,7 @@
     android:layout_width="300dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:background="#009688"
+    android:background="@color/Primary"
     android:focusable="auto"
     android:gravity="center"
     android:orientation="vertical"
@@ -19,23 +19,25 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
         android:text="Por favor, antes de empezar a utilizar Zabbal, completa tu perfil"
         android:textColor="@color/white"
         android:textSize="20dp"
-        android:textStyle="bold" />
+        android:fontFamily="sans-serif-medium"  />
 
     <Button
         android:id="@+id/button"
         style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="250dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:onClick="Perfil_usuario"
-        android:text="Vale"
+        android:text="IR"
         android:textColor="@color/white"
-        android:textSize="25dp"
+        android:textSize="20dp"
         app:cornerRadius="20dp"
+        android:fontFamily="sans-serif-medium"
         app:strokeColor="@color/white" />
 
 </LinearLayout>

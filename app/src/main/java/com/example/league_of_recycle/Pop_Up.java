@@ -22,18 +22,6 @@ public class Pop_Up extends AppCompatActivity {
         int idUsuario = b.getInt("idUsuario");
 
 
-        DisplayMetrics medidasVentana = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(medidasVentana);
-
-
-
-        int ancho = medidasVentana.widthPixels;
-        int alto = medidasVentana.heightPixels;
-
-        getWindow().setLayout((int)(ancho * 0.85), (int)(alto * 0.34));
-        LinearLayout popup = (LinearLayout) findViewById(R.id.Popup);
-        popup.setVisibility(View.VISIBLE);
-
 
 
         Button button = (Button) findViewById(R.id.button);
