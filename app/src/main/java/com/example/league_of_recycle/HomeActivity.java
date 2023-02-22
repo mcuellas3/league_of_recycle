@@ -1,8 +1,10 @@
 package com.example.league_of_recycle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -69,6 +71,8 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
+
+
         // Casa
         casa = findViewById(R.id.imageButton7);
 
@@ -129,6 +133,9 @@ public class HomeActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.activity_menu, menu);
         return true;
     }
+
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

@@ -6,20 +6,23 @@ public class contenedores {
 
     private Integer id_centro = 0;
     private String tipo = "";
-    private LatLng coordenadas = null;
+    private LatLng lat = null;
+    private LatLng lon = null;
     private String qr = null;
 
-    public contenedores(Integer id_centro, String tipo, LatLng coordenadas, String qr) {
+    public contenedores(Integer id_centro, String tipo, LatLng lat,LatLng lon, String qr) {
         this.id_centro = id_centro;
         this.tipo = tipo;
-        this.coordenadas = coordenadas;
+        this.lat = lat;
+        this.lon = lon;
         this.qr = qr;
     }
 
     public contenedores() {
         this.id_centro = 0;
         this.tipo = "";
-        this.coordenadas = null;
+        this.lat = null;
+        this.lon = null;
         this.qr = null;
     }
 
@@ -29,10 +32,6 @@ public class contenedores {
 
     public String getTipo() {
         return tipo;
-    }
-
-    public LatLng getCoordenadas() {
-        return coordenadas;
     }
 
     public String getQr() {
@@ -47,11 +46,23 @@ public class contenedores {
         this.tipo = tipo;
     }
 
-    public void setCoordenadas(LatLng coordenadas) {
-        this.coordenadas = coordenadas;
-    }
-
     public void setQr(String qr) {
         this.qr = qr;
+    }
+
+    public LatLng getLat() {
+        return lat;
+    }
+
+    public LatLng getLon() {
+        return lon;
+    }
+
+    public void setLat(LatLng lat) {
+        this.lat = lat;
+    }
+
+    public void setLon(LatLng lon) {
+        this.lon = lon;
     }
 }
