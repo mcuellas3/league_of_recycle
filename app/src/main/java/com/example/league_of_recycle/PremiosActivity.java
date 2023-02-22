@@ -25,7 +25,8 @@ public class PremiosActivity extends AppCompatActivity {
 
         Bundle b = this.getIntent().getExtras();
         int idUsuario = b.getInt("idUsuario");
-        ranking = (Button) findViewById(R.id.premTabRanking);
+
+        ranking = findViewById(R.id.premTabRanking);
 
         ranking.setOnClickListener(new View.OnClickListener() {
             @Override

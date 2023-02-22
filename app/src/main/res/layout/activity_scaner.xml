@@ -81,7 +81,7 @@
         android:id="@+id/btnScan"
         android:layout_width="190dp"
         android:layout_height="60dp"
-        android:backgroundTint="@color/Secondary"
+        android:backgroundTint="@color/Primary"
         android:text="Pulsa para escanear"
         android:textColor="@color/black"
         android:textSize="16dp"
@@ -96,17 +96,17 @@
         android:id="@+id/textView"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
         android:gravity="center"
-        android:text="Escanea productos para ganar puntos y subir en el ranking."
+        android:text="¡Escanea productos para ganar puntos y canjear recompensas!"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="30sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.064" />
+        app:layout_constraintVertical_bias="0.045" />
 
     <EditText
         android:id="@+id/TxtResult"

@@ -11,7 +11,7 @@
     <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -33,6 +33,8 @@
             android:layout_weight="1"
             android:backgroundTint="@color/PrimaryVariant"
             android:text="Premios" />
+
+
 
     </LinearLayout>
 
@@ -183,7 +185,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="135 puntos"
+                        android:text="350 puntos"
                         android:textColor="@color/Primary"
                         android:textSize="20dp" />
 
@@ -259,7 +261,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="200 puntos"
+                        android:text="750 puntos"
                         android:textColor="@color/Primary"
                         android:textSize="20dp" />
 
@@ -374,7 +376,7 @@
                         android:layout_marginLeft="300dp"
                         android:layout_marginRight="5dp"
 
-                        app:srcCompat="@drawable/parquewarnerlogo" />
+                        app:srcCompat="@drawable/museologo" />
 
                     <TextView
                         android:id="@+id/tv_nombrePremio4"
@@ -385,7 +387,7 @@
                         android:layout_marginTop="2dp"
                         android:fontFamily="sans-serif-black"
                         android:orientation="vertical"
-                        android:text="Entradas Parque Warner"
+                        android:text="Entradas Museo Reina Sofia"
                         android:textColor="@android:color/black"
                         android:textSize="24sp" />
 
@@ -398,7 +400,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="sans-serif-medium"
                         android:orientation="vertical"
-                        android:text="¡Disfruta de una entrada doble para el Parque Warner!"
+                        android:text="¡Disfruta de una entrada doble para uno de los mejores museos de nuestro país!"
                         android:textColor="@android:color/black"
                         android:textSize="12sp" />
 
@@ -453,8 +455,7 @@
                         android:layout_gravity="center"
                         android:layout_marginLeft="300dp"
                         android:layout_marginRight="5dp"
-
-                        app:srcCompat="@drawable/logoplanetahuerto" />
+                        app:srcCompat="@drawable/parquewarnerlogo" />
 
                     <TextView
                         android:id="@+id/tv_nombrePremio5"
@@ -465,7 +466,7 @@
                         android:layout_marginTop="2dp"
                         android:fontFamily="sans-serif-black"
                         android:orientation="vertical"
-                        android:text="Descuento online Adidas"
+                        android:text="Entradas Parque Warner"
                         android:textColor="@android:color/black"
                         android:textSize="24sp" />
 
@@ -478,7 +479,7 @@
                         android:layout_marginTop="5dp"
                         android:fontFamily="sans-serif-medium"
                         android:orientation="vertical"
-                        android:text="Descuento del 15% en el carrito para toda la página web de Adidas."
+                        android:text="¡Disfruta de una entrada doble para el Parque Warner!"
                         android:textColor="@android:color/black"
                         android:textSize="12sp" />
 
@@ -490,7 +491,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginBottom="8dp"
                         android:fontFamily="sans-serif-medium"
-                        android:text="135 puntos"
+                        android:text="2000 puntos"
                         android:textColor="@color/Primary"
                         android:textSize="20dp" />
 
@@ -507,6 +508,7 @@
                 </ScrollView>
 
             </LinearLayout>
+
         </LinearLayout>
 
     </ScrollView>
