@@ -8,15 +8,16 @@
     tools:context=".HomeActivity">
 
 
-
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="43dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cv1"
@@ -55,7 +56,7 @@
                             android:layout_marginLeft="4dp"
                             android:layout_marginTop="20dp"
                             android:orientation="vertical"
-                            android:text="Colabora con todo tu centro  para llevar material a la planta de reciclaje, necesitan 500 latas de 33cl"
+                            android:text="Colabora con tu centro  para llevar material a la planta de reciclaje, necesitan 500 latas de 33cl"
                             android:textColor="@android:color/black"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -96,7 +97,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
-                            android:text="Suscribete" />
+                            android:text="Suscríbete" />
 
                     </LinearLayout>
 
@@ -143,7 +144,7 @@
                             android:layout_marginLeft="4dp"
                             android:layout_marginTop="20dp"
                             android:orientation="vertical"
-                            android:text="Smaug ha acumulado una montaña de envases. Ayudas a reciclar todos esos envases y vencerlo!!!"
+                            android:text="Smaug ha acumulado una montaña de envases. Ayúdanos a reciclarlos todos para derrotarlo!!!"
                             android:textColor="@android:color/black"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -184,7 +185,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
-                            android:text="Suscribete" />
+                            android:text="Suscríbete" />
 
                     </LinearLayout>
 
@@ -231,7 +232,7 @@
                             android:layout_marginLeft="4dp"
                             android:layout_marginTop="20dp"
                             android:orientation="vertical"
-                            android:text="Un camión de reciclaje se ha atascado limpiando un vertedero,necesitamos tu ayuda para reciclar todas las botellas de plástico de L."
+                            android:text="Un camión de reciclaje se ha atascado limpiando un vertedero,necesitamos tu ayuda para reciclar todas las botellas de plástico."
                             android:textColor="@android:color/black"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -272,7 +273,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="20dp"
                             android:layout_marginTop="10dp"
-                            android:text="Suscribete" />
+                            android:text="Suscríbete" />
 
                     </LinearLayout>
 

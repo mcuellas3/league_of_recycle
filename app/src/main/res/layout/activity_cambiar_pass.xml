@@ -85,7 +85,7 @@
         android:layout_above="@+id/others"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-black"
-        android:text="Introduce tu contraseña, despues puedes indicar una nueva contraseña, repítela para validarla."
+        android:text="Introduce tu contraseña, después puedes indicar una nueva contraseña, repítela para validarla."
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

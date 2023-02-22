@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class ProductosActivity extends AppCompatActivity {
 
-    TextView  marca, nombre, cantidad, envase, degradacion, material, puntos;
+    TextView  marca, nombre, cantidad, envase, huella, degradacion, material, puntos;
     Button reciclar;
 
     @Override
@@ -30,6 +30,7 @@ public class ProductosActivity extends AppCompatActivity {
         envase = (TextView) findViewById(R.id.prodEnvase);
         degradacion = (TextView) findViewById(R.id.prodDegrad);
         puntos = (TextView) findViewById(R.id.prodPuntos);
+        huella =(TextView) findViewById(R.id.txthuella);
 
         reciclar = (Button) findViewById(R.id.btnReciclar);
 
@@ -41,7 +42,8 @@ public class ProductosActivity extends AppCompatActivity {
         nombre.setText(producto.getNombre());
         cantidad.setText(producto.getCantidad());
         envase.setText(producto.getEnvase());
-        degradacion.setText("Este producto tardara en degradarse en la naturaleza" + producto.getDegrad());
+        huella.setText("Reciclando este producto reduces la huella de carbono en " + producto.getHuella() + "Kg CO2eq");
+        degradacion.setText("Este producto tardara" + producto.getDegrad());
         puntos.setText(producto.getPuntos());
 
         reciclar.setOnClickListener(new View.OnClickListener() {

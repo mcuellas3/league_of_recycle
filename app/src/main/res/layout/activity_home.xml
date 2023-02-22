@@ -180,7 +180,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="Reducción huella carbono:"
+                android:text="Huella carbono:"
                 android:textColor="@color/black"
                 android:textSize="12dp">
 
@@ -286,7 +286,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="sans-serif"
-                android:text="Desafio mensual:"
+                android:text="Desafío mensual:"
                 android:textColor="@color/black"
                 android:textSize="12dp">
 

@@ -117,7 +117,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="Direccion"
+                    android:text="Dirección"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -202,7 +202,7 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:text="Telefono"
+                    android:text="Teléfono"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     android:textStyle="bold" />

@@ -98,7 +98,10 @@ public class MainActivity extends AppCompatActivity {
                 cv.put("cantidad",(linea[4]));
                 cv.put("envase",(linea[5]));
                 cv.put("greendot",(linea[6]));
-                cv.put("puntos",(linea[7]));
+                cv.put("huella",(linea[7]));
+                cv.put("peso",(linea[8]));
+                cv.put("puntos",(linea[9]));
+                cv.put("deg",(linea[10]));
                 db.insertar("productos",cv);
             }
         }
@@ -143,6 +146,19 @@ public class MainActivity extends AppCompatActivity {
                 cv.put("id_usuario",(linea[0]));
                 cv.put("id_producto",(linea[1]));
                 db.insertar("puntos",cv);
+            }
+        }
+        if(db.cantidadRegistros("contenedores")==0){
+            String[] texto = leerArchivo(R.raw.contenedores);
+
+            for (int i=0;i< texto.length;i++){
+                String[] linea = texto[i].split(";");
+                ContentValues cv = new ContentValues();
+                cv.put("id_centro",(linea[0]));
+                cv.put("tipo",(linea[1]));
+                cv.put("lat",(linea[2]));
+                cv.put("lon",(linea[3]));
+                db.insertar("contenedores",cv);
             }
         }
     }

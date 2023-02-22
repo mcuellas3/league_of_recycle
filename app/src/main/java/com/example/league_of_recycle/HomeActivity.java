@@ -54,8 +54,8 @@ public class HomeActivity extends AppCompatActivity {
         nombre.setText(usuario.getNombre() + " " + usuario.getApellidos());
         puntos.setText(db.getPuntos(idUsuario));
         envases.setText(db.getEnvases(idUsuario));
-        huella.setText(db.getHuella(idUsuario));
-        kilos.setText(db.getPeso(idUsuario));
+        huella.setText(db.getHuella(idUsuario)+ "Kg CO2eq");
+        kilos.setText(db.getPeso(idUsuario)+" Kg");
 
         if(centro==0){
             Intent intent = new Intent(this, Pop_Up.class);

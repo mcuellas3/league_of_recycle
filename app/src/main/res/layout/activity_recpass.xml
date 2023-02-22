@@ -63,7 +63,7 @@
         android:layout_above="@+id/others"
         android:layout_centerHorizontal="true"
         android:fontFamily="sans-serif-black"
-        android:text="Itroduce tu usuario y te enviaremosun mail con un enlace que te permitira recuperar tu contraseña."
+        android:text="Itroduce tu usuario y te enviaremos un email con un enlace que te permitirá recuperar tu contraseña."
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

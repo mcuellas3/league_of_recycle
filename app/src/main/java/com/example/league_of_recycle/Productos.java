@@ -12,6 +12,8 @@ public class Productos {
     private String puntos = "";
     private Integer huella = 0;
     private Integer peso = 0;
+    private String greendot = "";
+
 
     public Productos(Integer id_producto, String marca, String nombre, String cantidad, String envase, String codigo, String categoria, String degrad, String puntos, Integer altura, Integer peso) {
         this.id_producto = id_producto;
@@ -25,6 +27,7 @@ public class Productos {
         this.puntos = puntos;
         this.huella = altura;
         this.peso = peso;
+
     }
 
     public Productos() {
@@ -127,5 +130,11 @@ public class Productos {
         this.degrad = degrad;
     }
 
+    public String getGreendot() {
+        return greendot;
+    }
 
+    public void setGreendot(String greendot) {
+        this.greendot = greendot;
+    }
 }

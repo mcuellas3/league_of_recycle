@@ -53,6 +53,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private final String KEY_PUNTOS = "puntos";
     private final String KEY_HUELLAS = "huella";
     private final String KEY_PESO = "peso";
+    private final String KEY_DEG = "deg";
+
 
     private final String KEY_ID_CENTRO = "id_centro";
     private final String KEY_NOMBRE_CENTRO = "nombre";
@@ -113,7 +115,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_GREENDOT + " TEXT NOT NULL," +
                 KEY_HUELLAS + " TEXT NOT NULL default '0'," +
                 KEY_PESO + " TEXT NOT NULL default '0'," +
-                KEY_PUNTOS + " TEXT NOT NULL default '0');";
+                KEY_PUNTOS + " TEXT NOT NULL default '0'," +
+                KEY_DEG + " TEXT NOT NULL default '0');";
         db.execSQL(sql);
 
         sql = "CREATE TABLE " + DATABASE_TABLE_CENTROS + " (" +
@@ -262,7 +265,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         this.open();
         Productos producto = new Productos();
 
-        String[] columnas = new String[] {KEY_ID_PRODUCTO,KEY_CODIGO, KEY_MARCA, KEY_NOMBRE_PRODUCTO,KEY_CATEGORIA,KEY_CANTIDAD,KEY_ENVASE, KEY_PUNTOS,KEY_GREENDOT};
+        String[] columnas = new String[] {KEY_ID_PRODUCTO,KEY_CODIGO, KEY_MARCA, KEY_NOMBRE_PRODUCTO,KEY_CATEGORIA,KEY_CANTIDAD,KEY_ENVASE, KEY_PUNTOS,KEY_GREENDOT, KEY_DEG, KEY_HUELLAS};
         String selection = KEY_CODIGO + " = ?";
         String[] selectionArgs = new String[] { String.valueOf(codigo) };
 
@@ -274,8 +277,11 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         int inombre = c.getColumnIndex(KEY_NOMBRE_PRODUCTO);
         int icategoria = c.getColumnIndex(KEY_CATEGORIA);
         int icantidad = c.getColumnIndex(KEY_CANTIDAD);
+        int igreendot = c.getColumnIndex(KEY_GREENDOT);
         int ienvase = c.getColumnIndex(KEY_ENVASE);
         int ipuntos = c.getColumnIndex(KEY_PUNTOS);
+        int ideg = c.getColumnIndex(KEY_DEG);
+        int ihuella = c.getColumnIndex(KEY_HUELLAS);
 
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()) {
             producto.setId_producto(c.getInt(iid_producto));
@@ -285,8 +291,10 @@ public class SQLiteConexion extends SQLiteOpenHelper {
             producto.setCategoria(c.getString(icategoria));
             producto.setCantidad(c.getString(icantidad));
             producto.setEnvase(c.getString(ienvase));
-            //producto.setgreendot(c.getString(igreendot));
+            producto.setGreendot(c.getString(igreendot));
             producto.setPuntos(c.getString(ipuntos));
+            producto.setDegrad(c.getString(ideg));
+            producto.setHuella(c.getInt(ihuella));
         }
 
         return producto;
@@ -530,7 +538,11 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     public ArrayList<contenedores> getContenedores(int idcentro) {
         this.open();
         String[] columnas = new String[] {KEY_TIPO, KEY_CONT_LAT, KEY_CONT_LON};
-        Cursor c = this.ourDatabase.query(DATABASE_TABLE_CONTENEDORES, columnas,null,null,null,null,null,null);
+
+        String selection = KEY_ID_CENTRO + " = ?";
+        String[] selectionArgs = new String[] { String.valueOf(idcentro) };
+
+        Cursor c = this.ourDatabase.query(DATABASE_TABLE_CONTENEDORES, columnas,selection,selectionArgs,null,null,null,null);
 
         ArrayList<contenedores> resultado = new ArrayList<contenedores>();
 
