@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -23,11 +24,14 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = new Intent(this, Pop_Up.class);
+        startActivity(intent);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
         int idUsuario = b.getInt("idUsuario");
+
 
         nombre = (TextView) findViewById(R.id.nombreDelUsuario);
         puntos = (TextView) findViewById(R.id.tv_HomePuntos);

@@ -1,5 +1,6 @@
 package com.example.league_of_recycle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
@@ -7,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -52,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
                         Intent i = new Intent(MainActivity.this, HomeActivity.class);
                         i.putExtra("idUsuario", idUsuario);
                         startActivity(i);
+
                     } else {
                         Toast.makeText(MainActivity.this, "No existe el usuario o la contraseña es incorrecta", Toast.LENGTH_LONG).show();
                     }
@@ -60,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Debe Introducir un email", Toast.LENGTH_LONG).show();
 
                 }
+
             }
         });
 
