@@ -9,7 +9,7 @@ import android.widget.Toolbar;
 
 public class DesafiosActivity extends AppCompatActivity {
 
-    Toolbar mToolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
