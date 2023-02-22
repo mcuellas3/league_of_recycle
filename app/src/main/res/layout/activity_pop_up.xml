@@ -7,13 +7,11 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="#009688"
-    android:focusable="auto"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="16dp"
     android:visibility="visible"
-    tools:context=".Pop_Up"
-    tools:visibility="visible">
+    tools:context=".Pop_Up">
 
 
     <TextView

@@ -63,9 +63,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
     private final String KEY_TELEFONO_CENTRO = "telefono";
 
     private final String KEY_ID_CONT = "id_contenedor";
-    private final String KEY_TIPO = "tipo";
-    private final String KEY_CONT_LAT = "lat";
-    private final String KEY_CONT_LON = "lon";
+    private final String KEY_TIPO = "nombre";
+    private final String KEY_COORDENADAS_CONT = "coordenadas";
     private final String KEY_QR = "qr";
 
     private final String KEY_ID_PUNTOS = "id_puntos";
@@ -134,10 +133,8 @@ public class SQLiteConexion extends SQLiteOpenHelper {
 
         sql = "CREATE TABLE " + DATABASE_TABLE_CONTENEDORES + " (" +
                 KEY_ID_CONT + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                KEY_ID_CENTRO + " INTEGER NOT NULL, " +
                 KEY_TIPO + " TEXT NOT NULL, " +
-                KEY_CONT_LAT + " TEXT NOT NULL, " +
-                KEY_CONT_LON + " TEXT NOT NULL, " +
+                KEY_COORDENADAS_CONT + " TEXT NOT NULL, " +
                 KEY_QR + " TEXT NOT NULL);";
         db.execSQL(sql);
 

@@ -1,7 +1,6 @@
 package com.example.league_of_recycle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -36,12 +35,6 @@ public class Perfil_Usuario extends AppCompatActivity {
         centro = (Spinner) findViewById(R.id.perfilCentr);
         editar = (Button) findViewById(R.id.btnEditar);
         cambiarpass = (Button) findViewById(R.id.btnCambiarpass);
-
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
-
 
 
         SQLiteConexion db = new SQLiteConexion(this);
@@ -79,6 +72,5 @@ public class Perfil_Usuario extends AppCompatActivity {
                 startActivity(pass);
             }
         });
-
     }
 }

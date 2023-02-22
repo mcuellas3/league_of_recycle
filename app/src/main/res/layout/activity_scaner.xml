@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondobonito2"
+    android:background="@drawable/backgroundscann"
     tools:context=".ScanerActivity">
 
 
@@ -51,7 +51,7 @@
             android:contentDescription="scan"
             android:onClick="scan"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/recycle2" />
+            app:srcCompat="@drawable/recycle" />
 
         <ImageButton
             android:id="@+id/imageButton14"
@@ -73,11 +73,12 @@
             android:contentDescription="info"
             android:onClick="Info"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/informacion" />
+            app:srcCompat="@drawable/menu" />
 
     </LinearLayout>
 
     <Button
+        app:cornerRadius="20dp"
         android:id="@+id/btnScan"
         android:layout_width="190dp"
         android:layout_height="60dp"

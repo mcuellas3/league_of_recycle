@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
+import com.example.league_of_recycle.databinding.ActivityPremiosBinding;
+
 public class PremiosActivity extends AppCompatActivity {
 
 

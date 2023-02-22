@@ -1,10 +1,8 @@
 package com.example.league_of_recycle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -21,24 +19,18 @@ public class HomeActivity extends AppCompatActivity {
     SQLiteConexion db;
     ImageView desafio, noticias;
     TextView nombre, puntos, envases, huella, kilos;
-    int idUsuario,centro;
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+        Intent intent = new Intent(this, Pop_Up.class);
+        startActivity(intent);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
         this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
-        idUsuario = b.getInt("idUsuario");
-
-        Usuarios usuario = new Usuarios();
-        usuario = db.getUser(idUsuario);
-        centro = usuario.getCentro();
-
+        int idUsuario = b.getInt("idUsuario");
 
 
         nombre = (TextView) findViewById(R.id.nombreDelUsuario);
@@ -49,19 +41,15 @@ public class HomeActivity extends AppCompatActivity {
         desafio = (ImageView)findViewById(R.id.desafio);
         noticias = (ImageView)findViewById(R.id.news);
 
-        usuario = db.getUser(idUsuario);
+        Usuarios usuario = db.getUser(idUsuario);
+
+
 
         nombre.setText(usuario.getNombre() + " " + usuario.getApellidos());
         puntos.setText(db.getPuntos(idUsuario));
         envases.setText(db.getEnvases(idUsuario));
         huella.setText(db.getHuella(idUsuario));
         kilos.setText(db.getPeso(idUsuario));
-
-        if(centro==0){
-            Intent intent = new Intent(this, Pop_Up.class);
-            intent.putExtra("idUsuario",idUsuario);
-            startActivity(intent);
-        }
 
 
         desafio.setOnClickListener(new View.OnClickListener(){
@@ -79,8 +67,6 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(pass);
             }
         });
-
-
 
 
         // Casa
@@ -143,9 +129,6 @@ public class HomeActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.activity_menu, menu);
         return true;
     }
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

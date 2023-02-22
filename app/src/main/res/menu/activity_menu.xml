@@ -24,6 +24,5 @@
         android:id="@+id/item2"
         android:title="Cerrar sesión" />
 
-
 </menu>
 

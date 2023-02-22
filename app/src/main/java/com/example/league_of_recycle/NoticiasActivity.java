@@ -21,9 +21,6 @@ public class NoticiasActivity extends AppCompatActivity {
         noticia2 = findViewById(R.id.tv_infonot2);
         noticia3 = findViewById(R.id.tv_infonot3);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-
         noticia1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

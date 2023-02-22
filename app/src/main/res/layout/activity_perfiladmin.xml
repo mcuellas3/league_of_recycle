@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondobonito2"
+    android:background="@drawable/background_login"
     android:orientation="vertical"
     android:textAlignment="center">
     <!-- tools:context=".PerfilAdmin"> -->
 
+    <include layout="@layout/toolbar2" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -298,9 +299,9 @@
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
                     android:entries="@array/tipocont"
-                    android:spinnerMode="dropdown" />
+                    android:layout_marginLeft="5dp"
+                    android:spinnerMode="dropdown"/>
 
                 <Button
                     android:id="@+id/admButonAnadirCont"
@@ -311,11 +312,6 @@
                     android:text="AÑADIR" />
 
             </LinearLayout>
-
-            <ListView
-                android:id="@+id/listaCont"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
         </LinearLayout>
     </ScrollView>
