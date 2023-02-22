@@ -12,14 +12,17 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.league_of_recycle.databinding.ActivityMapsBinding;
 
+import java.util.ArrayList;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    Double Lat;
-    Double Lon;
+    Double lat;
+    Double lon;
     String Nombre;
     String centro;
+    ArrayList<contenedores> cont;
 																									
 
     @Override
@@ -57,11 +60,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
 
         mMap = googleMap;
-
         // añade marcador instituto usuario
         LatLng instituto = new LatLng(Double.valueOf(centro.getLocLat()), Double.valueOf(centro.getLocLong()));
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         mMap.addMarker(new MarkerOptions().position(instituto).title(centro.getCentro()));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(instituto, 20.01f));
+
+        cont = db.getContenedores(usuario.getCentro());
+
+        for (contenedores c:cont) {
+
+            lat=(Double.valueOf(c.getLat()));
+            lon=(Double.valueOf(c.getLon()));
+            LatLng cont = new LatLng(lat,lon);
+            mMap.addMarker(new MarkerOptions().position(cont));
+        }
+
     }
 }

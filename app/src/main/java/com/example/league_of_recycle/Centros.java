@@ -13,7 +13,6 @@ public class Centros {
     private String locLong = "";
     private String direccion = "";
     private String telefono = "";
-
     private ArrayList geo[];
 
 
@@ -29,9 +28,7 @@ public class Centros {
 
     public Centros(int centro, int id_responsable) {
         this.id_centro = centro;
-        this.centro=this.getNombre(centro);
         this.id_responsable=id_responsable;
-        this.responsable=getResponsable(id_responsable);
 
     }
 
@@ -41,18 +38,12 @@ public class Centros {
         this.id_centro = id_usuario;
     }
 
-    public String getNombre(int id_centro) {
+    public String getNombre() {
         return centro;
     }
 
     public void setNombre(String nombre) {
         this.centro = nombre;
-    }
-
-    public Usuarios getResponsable(int id_responsable) {
-
-
-        return responsable;
     }
 
     public void setResponsable(Usuarios responsable) {

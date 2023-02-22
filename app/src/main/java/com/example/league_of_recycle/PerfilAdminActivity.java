@@ -22,9 +22,10 @@ public class PerfilAdminActivity extends AppCompatActivity {
     EditText centro, direccion, email, telefono, id_centro;
     Button editar, ubicaCentro, ubicaConte;
     ListView listacont;
-    private ArrayList<String> contenedores;
+    private ArrayList<String> lista;
     String tipo, ubicar;
     Spinner tipocont;
+    ArrayList<contenedores> cont;
 
 
     @Override
@@ -41,7 +42,6 @@ public class PerfilAdminActivity extends AppCompatActivity {
         email = (EditText) findViewById(R.id.admEmail);
         telefono = (EditText) findViewById(R.id.admTelefono);
         editar = (Button) findViewById(R.id.btnEditar);
-        //cambiarpass = (Button) findViewById(R.id.btnCambiarpass);
         ubicaCentro = (Button) findViewById(R.id.admButonAnadirCentro);
         ubicaConte = (Button) findViewById(R.id.admButonAnadirCont);
         listacont = (ListView) findViewById(R.id.listaCont);
@@ -52,16 +52,27 @@ public class PerfilAdminActivity extends AppCompatActivity {
 
         db = new SQLiteConexion(this);
         Usuarios usuario = db.getUser(idUsuario);
+
+        Centros ctr = db.getCentro(usuario.getCentro());
+
+        centro.setText(ctr.getNombre());
         responsable.setText(usuario.getNombre() + " " + usuario.getApellidos());
-        direccion.setText(usuario.getApellidos());
-        //telefono.setText(usuario.getTelefono());
+        direccion.setText(ctr.getDireccion());
+        telefono.setText(ctr.getTelefono());
         email.setText(usuario.getEmail());
-        //colegio.setText(usuario.getColegio());
 
-        contenedores = new ArrayList<String>();
-        contenedores.add("Vidrio");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, contenedores);
+        lista = new ArrayList<String>();
+        cont = db.getContenedores(usuario.getCentro());
+
+        for (contenedores c:cont) {
+
+            lista.add(c.getTipo());
+
+        }
+
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lista);
         listacont.setAdapter(adapter);
 
 
@@ -92,9 +103,9 @@ public class PerfilAdminActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                tipo = String.valueOf(tipocont.getSelectedItemId());
+                tipo = String.valueOf(tipocont.getSelectedItem());
 
-                if (tipo.equals("0")){
+                if (tipo.equals("")){
                     Toast.makeText(PerfilAdminActivity.this, "Debes indicar un tipo de contenedor", Toast.LENGTH_LONG).show();
 
                 }else {

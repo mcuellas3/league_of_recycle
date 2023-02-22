@@ -138,7 +138,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
                 KEY_TIPO + " TEXT NOT NULL, " +
                 KEY_CONT_LAT + " TEXT NOT NULL, " +
                 KEY_CONT_LON + " TEXT NOT NULL, " +
-                KEY_QR + " TEXT NOT NULL);";
+                KEY_QR + " TEXT );";
         db.execSQL(sql);
 
         sql="create view " + DATABASE_VIEW_RANKING +" as " +
@@ -225,7 +225,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         this.open();
         Usuarios usuario = new Usuarios();
 
-        String[] columnas = new String[] {KEY_ID_USUARIO,KEY_NOMBRE,KEY_APELLIDOS,KEY_EMAIL,KEY_PASS, KEY_ISADMIN,KEY_ID_CENTRO};
+        String[] columnas = new String[] {KEY_ID_USUARIO,KEY_NOMBRE,KEY_APELLIDOS,KEY_EMAIL,KEY_PASS, KEY_ISADMIN,KEY_ID_CENTRO, KEY_TELEFONO};
         String selection = KEY_ID_USUARIO + " = ?";
         String[] selectionArgs = new String[] { String.valueOf(idUsuario) };
 
@@ -238,6 +238,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
         int ipass = c.getColumnIndex(KEY_PASS);
         int iis_admin = c.getColumnIndex(KEY_ISADMIN);
         int iidCentro = c.getColumnIndex(KEY_ID_CENTRO);
+        int itelefono = c.getColumnIndex(KEY_TELEFONO);
 
         for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
             usuario.setId_usuario(c.getInt(iid_usuario));
@@ -245,6 +246,7 @@ public class SQLiteConexion extends SQLiteOpenHelper {
             usuario.setApellidos(c.getString(iapellidos));
             usuario.setEmail(c.getString(iemail));
             usuario.setPass(c.getString(ipass));
+            usuario.setTelefono(c.getString(itelefono));
             if (c.getInt(iis_admin)==0){
                 usuario.setIs_admin(false);
             } else{
@@ -519,6 +521,32 @@ public class SQLiteConexion extends SQLiteOpenHelper {
 
             Usuarios usuario = new Usuarios(nombre, apellidos, email, contraseña);
             resultado.add(usuario);
+        }
+        c.close();
+        this.close();
+        return resultado;
+    }
+
+    public ArrayList<contenedores> getContenedores(int idcentro) {
+        this.open();
+        String[] columnas = new String[] {KEY_TIPO, KEY_CONT_LAT, KEY_CONT_LON};
+        Cursor c = this.ourDatabase.query(DATABASE_TABLE_CONTENEDORES, columnas,null,null,null,null,null,null);
+
+        ArrayList<contenedores> resultado = new ArrayList<contenedores>();
+
+        int itipo = c.getColumnIndex(KEY_TIPO);
+        int ilat = c.getColumnIndex(KEY_CONT_LAT);
+        int ilon = c.getColumnIndex(KEY_CONT_LON);
+
+
+        for(c.moveToFirst(); !c.isAfterLast(); c.moveToNext()){
+            String tipo = c.getString(itipo);
+            String lat = c.getString(ilat);
+            String lon = c.getString(ilon);
+
+
+            contenedores cont = new contenedores(idcentro, tipo, lat, lon,"");
+            resultado.add(cont);
         }
         c.close();
         this.close();

@@ -34,21 +34,24 @@ public class MapsSelectActivity extends FragmentActivity implements OnMapReadyCa
     int idUsuario;
     String tipo, ubicar;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-     binding = ActivityMapsSelectBinding.inflate(getLayoutInflater());
-     setContentView(binding.getRoot());
+
+        Bundle b = this.getIntent().getExtras();
+        idUsuario=b.getInt("idUsuario");
+        ubicar = b.getString("ubicar");
+        tipo = b.getString("tipo");
+
+        binding = ActivityMapsSelectBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        Bundle b = this.getIntent().getExtras();
-        idUsuario=b.getInt("idUsuario");
-        ubicar = b.getString("ubicar");
-        tipo = b.getString("tipo");
 
         context = this;
     }
@@ -58,11 +61,25 @@ public class MapsSelectActivity extends FragmentActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         //mMap.getCameraPosition();
-        LatLng predeter = new LatLng(40.42026,-3.69756 );
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(predeter, 12.1f));
 
-        if (this.tipo=="ubicacion") {
+        db = new SQLiteConexion(this);
+
+        Usuarios usuario = db.getUser(idUsuario);
+        Centros centro = db.getCentro(usuario.getCentro());
+
+        if (!centro.getLocLat().equals(0)){
+            LatLng instituto = new LatLng(Double.valueOf(centro.getLocLat()), Double.valueOf(centro.getLocLong()));
+            mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+            mMap.addMarker(new MarkerOptions().position(instituto).title(centro.getCentro()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(instituto, 20.01f));
+        }else{
+            LatLng predeter = new LatLng(40.42026,-3.69756 );
+            mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(predeter, 12.1f));
+        }
+
+
+        if (this.ubicar.equals("centro")) {
 
             mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 

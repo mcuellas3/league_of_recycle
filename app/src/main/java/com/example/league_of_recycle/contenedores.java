@@ -6,11 +6,11 @@ public class contenedores {
 
     private Integer id_centro = 0;
     private String tipo = "";
-    private LatLng lat = null;
-    private LatLng lon = null;
+    private String lat = "";
+    private String lon = "";
     private String qr = null;
 
-    public contenedores(Integer id_centro, String tipo, LatLng lat,LatLng lon, String qr) {
+    public contenedores(Integer id_centro, String tipo, String lat,String lon, String qr) {
         this.id_centro = id_centro;
         this.tipo = tipo;
         this.lat = lat;
@@ -50,19 +50,19 @@ public class contenedores {
         this.qr = qr;
     }
 
-    public LatLng getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public LatLng getLon() {
-        return lon;
-    }
-
-    public void setLat(LatLng lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 
-    public void setLon(LatLng lon) {
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
         this.lon = lon;
     }
 }
