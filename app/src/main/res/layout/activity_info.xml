@@ -22,30 +22,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/textoFaq2"
         android:layout_width="357dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="12dp"
         android:fontFamily="sans-serif"
         android:text="Aquí encontrarás respuestas a las preguntas más comunes sobre nuestra aplicación."
         android:textColor="@color/black"
         android:textSize="50px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textoFaq" />
-
 
     <ScrollView
         android:layout_width="409dp"
         android:layout_height="421dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textoFaq2">
 
         <LinearLayout
             android:layout_width="match_parent"

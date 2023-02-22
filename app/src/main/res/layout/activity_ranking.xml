@@ -5,7 +5,7 @@
     android:id="@+id/listaRanking"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondobonito"
+    android:background="@drawable/fondobonito2"
     tools:context=".RankingActivity">
 
 
@@ -44,14 +44,13 @@
     <LinearLayout
         android:id="@+id/linearLayout6"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerRanking"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
 
         <androidx.cardview.widget.CardView
@@ -230,7 +229,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:animateLayoutChanges="true"
-                android:background="#E05858"
+                android:background="#E0CF3D"
                 android:orientation="vertical">
 
                 <TextView
@@ -301,8 +300,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerRanking"
         android:layout_width="wrap_content"
-        android:layout_height="452dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
