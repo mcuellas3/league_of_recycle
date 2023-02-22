@@ -28,6 +28,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_home);
+
         this.db = new SQLiteConexion(this);
         Bundle b = this.getIntent().getExtras();
         idUsuario = b.getInt("idUsuario");
@@ -35,15 +38,6 @@ public class HomeActivity extends AppCompatActivity {
         Usuarios usuario = new Usuarios();
         usuario = db.getUser(idUsuario);
         centro = usuario.getCentro();
-        if(centro==0){
-            Intent intent = new Intent(this, Pop_Up.class);
-            intent.putExtra("idUsuario",idUsuario);
-            startActivity(intent);
-        }
-
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
 
 
 
@@ -62,6 +56,12 @@ public class HomeActivity extends AppCompatActivity {
         envases.setText(db.getEnvases(idUsuario));
         huella.setText(db.getHuella(idUsuario));
         kilos.setText(db.getPeso(idUsuario));
+
+        if(centro==0){
+            Intent intent = new Intent(this, Pop_Up.class);
+            intent.putExtra("idUsuario",idUsuario);
+            startActivity(intent);
+        }
 
 
         desafio.setOnClickListener(new View.OnClickListener(){
