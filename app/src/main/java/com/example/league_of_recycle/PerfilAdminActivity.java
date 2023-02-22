@@ -47,6 +47,9 @@ public class PerfilAdminActivity extends AppCompatActivity {
         listacont = (ListView) findViewById(R.id.listaCont);
         tipocont = (Spinner) findViewById(R.id.admTipoCont);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
         db = new SQLiteConexion(this);
         Usuarios usuario = db.getUser(idUsuario);
         responsable.setText(usuario.getNombre() + " " + usuario.getApellidos());

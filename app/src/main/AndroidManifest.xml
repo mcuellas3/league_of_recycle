@@ -41,6 +41,7 @@
         </activity>
         <activity
             android:name=".PerfilAdminActivity"
+            android:parentActivityName=".RankingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -106,6 +107,7 @@
             android:label="@string/title_activity_maps" />
         <activity
             android:name=".Perfil_Usuario"
+            android:parentActivityName=".RankingActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
